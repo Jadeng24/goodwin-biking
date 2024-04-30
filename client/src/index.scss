@@ -1,5 +1,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Fauna+One&display=swap');
 
+$my-primary: dodgerblue;
+$my-dark: #222;
+
+:export {
+    primary: $my-primary;
+    dark: $my-dark;
+}
 
 * {
     box-sizing: border-box;
@@ -8,14 +15,14 @@
 body {
     margin: 0;
     padding: 0;
+
 }
 
 .app {
     margin: auto;
+
 }
 
 
 // Main colors
 
-$my-primary: dodgerblue;
-$my-dark: #222;
