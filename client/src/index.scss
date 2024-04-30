@@ -1,1 +1,21 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Fauna+One&display=swap');
+
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+}
+
+.app {
+    margin: auto;
+}
+
+
+// Main colors
+
+$my-primary: dodgerblue;
+$my-dark: #222;

@@ -1,4 +1,7 @@
 {
     "editor.insertSpaces": true,
-    "editor.detectIndentation": false
+    "editor.detectIndentation": false,
+    "cSpell.words": [
+        "Cinzel"
+    ]
 }
