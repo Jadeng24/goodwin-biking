@@ -17,7 +17,7 @@ export const CartActions = () => {
 
   return (
     <Box margin="20px 0">
-      <Flex margin="20px 0">
+      <Flex margin="20px 0" justifyContent="space-between">
         <Typography fontWeight="bold">SUBTOTAL</Typography>
         <Typography fontWeight="bold">${totalPrice}</Typography>
       </Flex>

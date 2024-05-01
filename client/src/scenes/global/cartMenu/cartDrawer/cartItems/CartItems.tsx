@@ -25,7 +25,7 @@ export const CartItems = (props: CartItemsProps) => {
         const url: string =
           item?.attributes?.image?.data?.attributes?.formats?.medium?.url;
         <Box key={`${item.attributes.name}-${item.id}`}>
-          <Flex padding="15px 0">
+          <Flex padding="15px 0" justifyContent="space-between">
             <Box flex="1 1 40%">
               {/* TODO: make separate component for each item alone */}
               <img
@@ -38,7 +38,7 @@ export const CartItems = (props: CartItemsProps) => {
 
             <Box flex="1 1 60%">
               {/* TODO: make separate component for this */}
-              <Flex marginBottom="5px">
+              <Flex marginBottom="5px" justifyContent="space-between">
                 <Typography fontWeight="bold">
                   {item.attributes.name}
                 </Typography>
@@ -52,7 +52,7 @@ export const CartItems = (props: CartItemsProps) => {
               <Typography>{item.attributes.shortDescription}</Typography>
 
               {/* TODO: make component */}
-              <Flex>
+              <Flex alignItems="center" justifyContent="space-between">
                 <Box
                   display="flex"
                   alignItems="center"

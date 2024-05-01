@@ -25,7 +25,7 @@ export const CartDrawer = () => {
       }}
     >
       <Box padding="30px" overflow="auto" height="100%">
-        <Flex marginBottom="15px">
+        <Flex marginBottom="15px" justifyContent="space-between">
           <Typography variant="h3">SHOPPING BAG ({cart.length})</Typography>
           <IconButton onClick={() => dispatch(setIsCartOpen({}))}>
             <Close />
