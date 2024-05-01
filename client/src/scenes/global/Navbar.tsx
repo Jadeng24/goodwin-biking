@@ -4,11 +4,15 @@ import NavbarButtons from "./NavbarButtons";
 
 import goodwinLogo from "../../assets/goodwin-logo.png";
 import { Flex } from "../../components/flex";
+import { useNavigate } from "react-router-dom";
 
 const Navbar = () => {
+  const navigate = useNavigate();
+
   const logoStyle = {
     maxHeight: "30px",
     filter: "invert(1)",
+    cursor: "pointer",
   };
 
   return (
@@ -29,7 +33,7 @@ const Navbar = () => {
         justifyContent="space-between"
         alignItems="center"
       >
-        <Box>
+        <Box onClick={() => navigate("/")}>
           <img style={logoStyle} src={goodwinLogo} alt="Goodwin biking" />
         </Box>
         <NavbarButtons />

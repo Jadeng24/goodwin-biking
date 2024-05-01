@@ -1,11 +1,11 @@
 import { Box, Divider, IconButton, Typography } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { Add, Close, Remove } from "@mui/icons-material";
 import {
   decreaseCount,
   increaseCount,
   removeFromCart,
 } from "../../../../../state";
-import { useDispatch } from "react-redux";
-import { Add, Close, Remove } from "@mui/icons-material";
 import { shades } from "../../../../../theme";
 import { Flex } from "../../../../../components";
 
