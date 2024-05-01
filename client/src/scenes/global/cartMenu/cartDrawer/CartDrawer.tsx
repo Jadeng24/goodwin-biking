@@ -7,7 +7,7 @@ import { RootState } from "../../../..";
 
 import { CartActions } from "./cartActions";
 import { CartItems } from "./cartItems";
-import { Flex } from "../../Flex";
+import { Flex } from "../../../../components";
 
 export const CartDrawer = () => {
   const dispatch = useDispatch();

@@ -1,10 +1,10 @@
 import { Box, Button, Typography } from "@mui/material";
-import { Flex } from "../../../Flex";
 import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../../..";
 import { shades } from "../../../../../theme";
 import { useNavigate } from "react-router-dom";
 import { setIsCartOpen } from "../../../../../state";
+import { Flex } from "../../../../../components";
 
 export const CartActions = () => {
   const navigate = useNavigate();

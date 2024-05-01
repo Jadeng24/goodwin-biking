@@ -5,6 +5,11 @@ import NavbarButtons from "./NavbarButtons";
 import goodwinLogo from "../../assets/goodwin-logo.png";
 
 const Navbar = () => {
+  const logoStyle = {
+    maxHeight: "30px",
+    filter: "invert(1)",
+  };
+
   return (
     <Box
       sx={{
@@ -30,7 +35,7 @@ const Navbar = () => {
         }}
       >
         <Box>
-          <img width="250px" src={goodwinLogo} alt="Goodwin biking" />
+          <img style={logoStyle} src={goodwinLogo} alt="Goodwin biking" />
         </Box>
         <NavbarButtons />
       </Box>

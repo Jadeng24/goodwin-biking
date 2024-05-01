@@ -5,11 +5,9 @@ import {
   ShoppingBagOutlined,
 } from "@mui/icons-material";
 import { Badge, Box, IconButton } from "@mui/material";
-import { UseSelector, useDispatch, useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import { setIsCartOpen } from "../../state";
-import { shades } from "../../theme";
-import { ReduxState } from "../../state/types";
 import { RootState } from "../..";
 
 const NavbarButtons = () => {

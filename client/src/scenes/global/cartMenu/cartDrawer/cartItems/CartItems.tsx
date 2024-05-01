@@ -1,5 +1,4 @@
 import { Box, Divider, IconButton, Typography } from "@mui/material";
-import { Flex } from "../../../Flex";
 import {
   decreaseCount,
   increaseCount,
@@ -8,6 +7,7 @@ import {
 import { useDispatch } from "react-redux";
 import { Add, Close, Remove } from "@mui/icons-material";
 import { shades } from "../../../../../theme";
+import { Flex } from "../../../../../components";
 
 interface CartItemsProps {
   items: Array<any>; // TODO give a type
