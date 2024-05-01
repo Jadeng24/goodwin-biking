@@ -48,7 +48,8 @@ export const cartSlice = createSlice({
     },
 
     // Toggle cart
-    setIsCartOpen: (state) => {
+    setIsCartOpen: (state, action) => {
+      // Adding unused action to fix typescript issue
       state.isCartOpen = !state.isCartOpen;
     },
   },

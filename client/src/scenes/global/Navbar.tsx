@@ -2,6 +2,8 @@ import { Box } from "@mui/material";
 
 import NavbarButtons from "./NavbarButtons";
 
+import goodwinLogo from "../../assets/goodwin-logo.png";
+
 const Navbar = () => {
   return (
     <Box
@@ -11,7 +13,6 @@ const Navbar = () => {
         width: "100%",
         height: "60px",
         backgroundColor: "rgba(255,255,255, .0.95)",
-        background: "red",
         color: "#222",
         position: "fixed",
         top: "0",
@@ -28,6 +29,9 @@ const Navbar = () => {
           alignItems: "center",
         }}
       >
+        <Box>
+          <img width="250px" src={goodwinLogo} alt="Goodwin biking" />
+        </Box>
         <NavbarButtons />
       </Box>
     </Box>
