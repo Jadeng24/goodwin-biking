@@ -6,6 +6,8 @@ const Home = () => {
     <>
       <MainCarousel />
       <ShoppingList />
+
+      {/* To add subscribe to newsletter section, see 2:14:20  */}
     </>
   );
 };

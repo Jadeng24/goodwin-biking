@@ -1,10 +1,5 @@
 import { Theme, useTheme } from "@emotion/react";
 import { Box, Typography } from "@mui/material";
-
-interface customTheme extends Theme {
-  palette: any;
-}
-
 interface ItemPreviewInfoProps {
   name: string;
   category: string;
@@ -15,7 +10,7 @@ export const ItemPreviewInfo = (props: ItemPreviewInfoProps) => {
 
   const {
     palette: { info }, // TODO: info instead?
-  } = useTheme() as customTheme;
+  } = useTheme() as any;
 
   const categoryFormatted: string = category
     .replace(/([A-Z])/g, " $1")

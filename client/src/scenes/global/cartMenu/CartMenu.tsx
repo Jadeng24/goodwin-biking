@@ -1,17 +1,19 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "../../../index";
 import { Box } from "@mui/material";
 import { CartDrawer } from "./cartDrawer";
+import { setIsCartOpen } from "../../../state";
+import { Flex } from "../../../components";
 
 const CartMenu = () => {
+  const dispatch = useDispatch();
   const isCartOpen: boolean = useSelector(
     (state: RootState) => state.cart.isCartOpen
   );
 
-  return (
+  return isCartOpen ? (
     <Box
       sx={{
-        display: isCartOpen ? "block" : "none",
         backgroundColor: "rgba(0,0,0,0.4)",
         position: "fixed",
         zIndex: 10,
@@ -22,8 +24,18 @@ const CartMenu = () => {
         overflow: "auto",
       }}
     >
+      <Flex // click anywhere to close cart
+        onClick={() => {
+          dispatch(setIsCartOpen({}));
+        }}
+        width="100%"
+        height="100%"
+      />
+
       <CartDrawer />
     </Box>
+  ) : (
+    <></>
   );
 };
 
