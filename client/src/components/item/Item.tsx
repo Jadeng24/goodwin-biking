@@ -11,10 +11,10 @@ import { ItemPreviewInfo } from "./itemPreviewInfo/ItemPreviewInfo";
 
 interface ItemProps {
   item: any;
-  width: string;
+  width?: string;
 }
 
-export const Item = (props: ItemProps) => {
+const Item = (props: ItemProps) => {
   const { item, width } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
@@ -79,3 +79,5 @@ export const Item = (props: ItemProps) => {
     </Box>
   );
 };
+
+export default Item;

@@ -14,7 +14,7 @@ export const ItemPreviewInfo = (props: ItemPreviewInfoProps) => {
   const { category, name, price } = props;
 
   const {
-    palette: { neutral }, // TODO: info instead?
+    palette: { info }, // TODO: info instead?
   } = useTheme() as customTheme;
 
   const categoryFormatted: string = category
@@ -23,7 +23,7 @@ export const ItemPreviewInfo = (props: ItemPreviewInfoProps) => {
 
   return (
     <Box marginTop="3px">
-      <Typography variant="subtitle2" color={neutral.dark}>
+      <Typography variant="subtitle2" color={info.dark}>
         {categoryFormatted}
       </Typography>
       <Typography>{name}</Typography>

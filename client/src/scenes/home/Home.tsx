@@ -1,9 +1,12 @@
 import { MainCarousel } from "./mainCarousel/MainCarousel";
+import ShoppingList from "./shoppingList/ShoppingList";
 
 const Home = () => {
   return (
-    // 60px is size of navbar
-    <MainCarousel />
+    <>
+      <MainCarousel />
+      <ShoppingList />
+    </>
   );
 };
 
