@@ -52,7 +52,11 @@ export const CartItems = (props: CartItemsProps) => {
               <Typography>{item.attributes.shortDescription}</Typography>
 
               {/* TODO: make component */}
-              <Flex alignItems="center" justifyContent="space-between">
+              <Flex
+                alignItems="center"
+                justifyContent="space-between"
+                margin="15px 0"
+              >
                 <Box
                   display="flex"
                   alignItems="center"
@@ -63,6 +67,7 @@ export const CartItems = (props: CartItemsProps) => {
                   >
                     <Remove />
                   </IconButton>
+                  <Typography>{item.count}</Typography>
                   <IconButton
                     onClick={() => dispatch(increaseCount({ id: item.id }))}
                   >

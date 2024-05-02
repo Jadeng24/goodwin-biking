@@ -1,12 +1,9 @@
-import { Box } from "@mui/material";
-import { Item } from "../../components/item";
+import { MainCarousel } from "./mainCarousel/MainCarousel";
 
 const Home = () => {
   return (
     // 60px is size of navbar
-    <Box marginTop="60px">
-      <Item />
-    </Box>
+    <MainCarousel />
   );
 };
 
