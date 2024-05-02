@@ -22,8 +22,10 @@ export const CartItems = () => {
 
         const url: string = image?.data?.attributes?.formats?.medium?.url;
 
+        // LEFT at 2:38:00
         return (
           <Flex key={`${name}-${item?.id}`} flexDirection="column">
+            {/* TODO: key doesnt seem to be working  */}
             <Flex padding="15px 0" justifyContent="space-between">
               <Box flex="1 1 40%">
                 {/* TODO: make separate component for each item alone */}

@@ -33,7 +33,7 @@ const FooterSection = (props: FooterSectionProps) => {
       ],
     },
     [SectionTypes.contactUs]: {
-      title: "ContactUs",
+      title: "Contact Us",
       links: [
         { label: "Utah County, Utah, USA", navUrl: undefined },
         { label: "Email: goodwinbiking@gmail.com", navUrl: undefined },
@@ -47,6 +47,7 @@ const FooterSection = (props: FooterSectionProps) => {
       navigate(navUrl);
     }
   };
+
   return (
     <Flex flexDirection="column" minWidth={isMobile ? "100%" : undefined}>
       <Typography variant="h4" fontWeight="bold" marginBottom="30px">
