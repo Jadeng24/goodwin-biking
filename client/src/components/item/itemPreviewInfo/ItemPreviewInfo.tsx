@@ -1,15 +1,17 @@
-import { Theme, useTheme } from "@emotion/react";
+import { useTheme } from "@emotion/react";
 import { Box, Typography } from "@mui/material";
+
 interface ItemPreviewInfoProps {
   name: string;
   category: string;
   price: number;
 }
+
 export const ItemPreviewInfo = (props: ItemPreviewInfoProps) => {
   const { category, name, price } = props;
 
   const {
-    palette: { info }, // TODO: info instead?
+    palette: { info },
   } = useTheme() as any;
 
   const categoryFormatted: string = category
@@ -22,7 +24,7 @@ export const ItemPreviewInfo = (props: ItemPreviewInfoProps) => {
         {categoryFormatted}
       </Typography>
       <Typography>{name}</Typography>
-      <Typography fontWeight="bold">{price}</Typography>
+      <Typography fontWeight="bold">${price}</Typography>
     </Box>
   );
 };

@@ -36,7 +36,7 @@ const Item = (props: ItemProps) => {
   } = image || {}; //TODO: improve this code
 
   return (
-    <Box width={width}>
+    <Box width={width} marginBottom="20px">
       <Box
         position="relative"
         onMouseOver={() => setIsHovered(true)}
@@ -61,12 +61,14 @@ const Item = (props: ItemProps) => {
           <Flex justifyContent="space-between">
             <ItemAmount
               count={count}
-              onAdd={() => setCount(Math.max(count - 1, 1))}
-              onRemove={() => setCount(count + 1)}
+              onRemove={() => setCount(Math.max(count - 1, 1))}
+              onAdd={() => setCount(count + 1)}
             />
 
             <Button
-              onClick={() => dispatch(addToCart({ ...item, count }))}
+              onClick={() => {
+                dispatch(addToCart({ item: { ...item, count } }));
+              }}
               sx={{ background: shades.primary[300], color: "#fff" }}
             >
               Add to Cart

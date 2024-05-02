@@ -32,7 +32,7 @@ export const CartDrawer = () => {
           </IconButton>
         </Flex>
 
-        <CartItems items={cart} />
+        <CartItems />
 
         <CartActions />
       </Box>

@@ -98,8 +98,6 @@ const ShoppingList = () => {
           ))}
       </Box>
     </Box>
-
-    // STOPPED AT 2:01:50
   );
 };
 

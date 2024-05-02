@@ -27,6 +27,13 @@ const NavbarButtons = () => {
       <IconButton sx={{ color: "#222" }}>
         <PersonOutline />
       </IconButton>
+
+      <IconButton
+        onClick={() => dispatch(setIsCartOpen({}))}
+        sx={{ color: "#222" }}
+      >
+        <ShoppingBagOutlined />
+      </IconButton>
       <Badge
         badgeContent={cart.length}
         color="secondary"
@@ -41,12 +48,6 @@ const NavbarButtons = () => {
           },
         }}
       />
-      <IconButton
-        onClick={() => dispatch(setIsCartOpen({}))}
-        sx={{ color: "#222" }}
-      >
-        <ShoppingBagOutlined />
-      </IconButton>
       <IconButton color="primary">
         <MenuOutlined />
       </IconButton>

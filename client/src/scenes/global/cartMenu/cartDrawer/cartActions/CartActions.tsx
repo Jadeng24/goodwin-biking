@@ -10,8 +10,9 @@ export const CartActions = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const cart = useSelector((state: RootState) => state.cart.cart);
-  const totalPrice: number = cart.reduce((total: number, item: any) => {
+  const cartItems = useSelector((state: RootState) => state.cart.cart);
+
+  const totalPrice = cartItems.reduce((total: any, item: any) => {
     return total + item.count * item.attributes.price;
   }, 0);
 

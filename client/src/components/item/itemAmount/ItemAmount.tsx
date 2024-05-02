@@ -18,11 +18,11 @@ export const ItemAmount = (props: ItemAmountProps) => {
       background={shades.neutral[100]}
       borderRadius="3px"
     >
-      <IconButton onClick={onAdd}>
+      <IconButton onClick={onRemove}>
         <Remove />
       </IconButton>
       <Typography color={shades.primary[300]}>{count}</Typography>
-      <IconButton onClick={onRemove}>
+      <IconButton onClick={onAdd}>
         <Add />
       </IconButton>
     </Flex>
