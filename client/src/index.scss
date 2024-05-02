@@ -1,28 +1,31 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel&family=Fauna+One&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel&family=Fauna+One&display=swap");
 
 $my-primary: dodgerblue;
 $my-dark: #222;
 
 :export {
-    primary: $my-primary;
-    dark: $my-dark;
+  primary: $my-primary;
+  dark: $my-dark;
 }
 
 * {
-    box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 body {
-    margin: 0;
-    padding: 0;
-
+  margin: 0;
+  padding: 0;
 }
 
 .app {
-    margin: auto;
-
+  margin: auto;
 }
 
-
 // Main colors
-
+.themecolorpalette {
+  color: #ff6a00;
+  color: #ebebeb;
+  color: #c0c0c0;
+  color: #3a6ea5;
+  color: #004e98;
+}

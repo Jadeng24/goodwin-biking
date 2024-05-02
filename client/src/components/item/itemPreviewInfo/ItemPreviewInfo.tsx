@@ -18,8 +18,8 @@ export const ItemPreviewInfo = (props: ItemPreviewInfoProps) => {
   } = useTheme() as customTheme;
 
   const categoryFormatted: string = category
-    .replace(/([A- z])/g, " $1")
-    .replace(/^./, (str: string) => str.toUpperCase());
+    .replace(/([A-Z])/g, " $1")
+    .replace(/^./, (str) => str.toUpperCase());
 
   return (
     <Box marginTop="3px">
