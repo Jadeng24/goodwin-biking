@@ -24,7 +24,7 @@ const CartMenu = () => {
         overflow: "auto",
       }}
     >
-      <Flex // click anywhere to close cart
+      <Flex // Click outside cart drawer to close cart
         onClick={() => {
           dispatch(setIsCartOpen({}));
         }}
