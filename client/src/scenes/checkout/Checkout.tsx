@@ -42,7 +42,7 @@ const Checkout = () => {
     // TODO: add type
     const stripe = await stripePromise;
     const requestBody = {
-      userName: [values.firstName, values.lastName].join(" "),
+      userName: "jadeng24",
       email: values.email,
       products: cart.map((item: any) => ({
         id: item.id,
@@ -56,7 +56,9 @@ const Checkout = () => {
       body: JSON.stringify(requestBody),
     });
     const session = await response.json();
-    await stripe?.redirectToCheckout({
+
+    await stripe.redirectToCheckout({
+      // what the crap is this
       sessionId: session.id,
     });
   }
