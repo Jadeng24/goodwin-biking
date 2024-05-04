@@ -29,17 +29,13 @@ const Checkout = () => {
       console.log(process.env.REACT_APP_API_URL);
       const res = await makeRequest.post("/orders", {
         products,
-
+        // Form info
         userName: `${firstName} ${lastName}`,
         email: email,
         billingAddress: billingAddress,
-
-        // insert form info here
       });
       await stripe?.redirectToCheckout({
-        sessionId: res.data.stripeSession.id, // For Live
-        // successUrl: `${process.env.REACT_APP_API_URL}/checkout/success`, // For Testing
-        // cancelUrl: `${process.env.REACT_APP_API_URL}/`,
+        sessionId: res.data.stripeSession.id,
       });
     } catch (err) {
       console.log(err);
