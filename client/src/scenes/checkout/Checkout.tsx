@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useSelector } from "react-redux";
 import { Box, Button, Stepper, Step, StepLabel } from "@mui/material";
-import { loadStripe } from "@stripe/stripe-js";
+import { Stripe, loadStripe } from "@stripe/stripe-js";
 import { Formik } from "formik";
 import * as yup from "yup";
 
@@ -9,59 +9,60 @@ import { shades } from "../../theme";
 import Payment from "./Payment";
 import Shipping from "./Shipping";
 import { RootState } from "../..";
-
-const stripePromise = loadStripe(
-  "pk_live_51PCEdRJG5Gh9OuClxoT60iad0ZtsVjRoMZ2lGpCSiwPJbvMez7RHf7JLcnVIZlte8qpZmMxQfjJ7VIQxV8Y4kAV600v7iNi0lE"
-);
+import { makeRequest } from "../../makeRequest";
 
 const Checkout = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const cart = useSelector((state: RootState) => state.cart.cart);
+  const products = useSelector((state: RootState) => state.cart.cart);
   const isFirstStep = activeStep === 0;
   const isSecondStep = activeStep === 1;
 
-  const handleFormSubmit = async (values: any, actions: any) => {
+  const stripePromise = loadStripe(
+    process.env.REACT_APP_PUBLISHABLE_STRIPE_KEY || ""
+    // "pk_test_51PCEdRJG5Gh9OuClTttBU8RqivLKbLTRqDTC13JZKNJcWNZJlfQg2xrjxh5Xk0zDq3nVcCKN6MT7qPt4qq4vfBow005F1GuwOo"
+  );
+
+  const handlePayment = async (formValues: any) => {
+    const { firstName, lastName, billingAddress, email } = formValues || {};
+    try {
+      const stripe = await stripePromise;
+      console.log(process.env.REACT_APP_API_URL);
+      const res = await makeRequest.post("/orders", {
+        products,
+
+        userName: `${firstName} ${lastName}`,
+        email: email,
+        billingAddress: billingAddress,
+
+        // insert form info here
+      });
+      await stripe?.redirectToCheckout({
+        sessionId: res.data.stripeSession.id, // For Live
+        // successUrl: `${process.env.REACT_APP_API_URL}/checkout/success`, // For Testing
+        // cancelUrl: `${process.env.REACT_APP_API_URL}/`,
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const handleFormSubmit = async (formValues: any, actions: any) => {
     setActiveStep(activeStep + 1);
 
     // Copy billing address to shipping address
-    if (isFirstStep && values.shippingAddress.isSameAddress) {
+    if (isFirstStep && formValues.shippingAddress.isSameAddress) {
       actions.setFieldValue("shippingAddress", {
-        ...values.billingAddress,
+        ...formValues.billingAddress,
         isSameAddress: true,
       });
     }
 
     if (isSecondStep) {
-      makePayment(values);
+      handlePayment(formValues);
     }
 
     actions.setTouched({});
   };
-
-  async function makePayment(values: any) {
-    // TODO: add type
-    const stripe = await stripePromise;
-    const requestBody = {
-      userName: "jadeng24",
-      email: values.email,
-      products: cart.map((item: any) => ({
-        id: item.id,
-        count: item.count,
-      })),
-    };
-
-    const response = await fetch("http://localhost:1337/api/orders", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(requestBody),
-    });
-    const session = await response.json();
-
-    await stripe.redirectToCheckout({
-      // what the crap is this
-      sessionId: session.id,
-    });
-  }
 
   return (
     <Box width="80%" m="100px auto">

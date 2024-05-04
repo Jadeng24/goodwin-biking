@@ -12,11 +12,11 @@ import { RootState } from "../../../../..";
 
 export const CartItems = () => {
   const dispatch = useDispatch();
-  const cartItems = useSelector((state: RootState) => state.cart.cart);
+  const products = useSelector((state: RootState) => state.cart.cart);
 
-  return cartItems ? (
+  return products ? (
     <>
-      {cartItems.map((item) => {
+      {products.map((item: any) => {
         const { name, price, shortDescription, image, longDescription } =
           item?.attributes || {};
 
