@@ -8,7 +8,7 @@ export default factories.createCoreController(
   "api::order.order",
   ({ strapi }) => ({
     async create(ctx) {
-      const { products } = ctx.request.body;
+      const { products, userName, email } = ctx.request.body;
       try {
         const lineItems = await Promise.all(
           products.map(async (product) => {
@@ -32,6 +32,7 @@ export default factories.createCoreController(
         const session = await stripe?.checkout.sessions.create({
           shipping_address_collection: { allowed_countries: ["US", "CA"] },
           payment_method_types: ["card"],
+          customer_email: email,
           mode: "payment",
           success_url: `${process.env.CLIENT_URL}?success=true`,
           cancel_url: `${process.env.CLIENT_URL}?success=false`,
@@ -40,7 +41,7 @@ export default factories.createCoreController(
 
         await strapi
           .service("api::order.order")
-          .create({ data: { products, stripeId: session.id } });
+          .create({ data: { userName, products, stripeId: session.id } });
 
         return { stripeSession: session };
       } catch (error) {
