@@ -830,6 +830,8 @@ export interface ApiOrderOrder extends Schema.CollectionType {
     products: Attribute.JSON;
     stripeId: Attribute.String;
     email: Attribute.String;
+    userName: Attribute.String;
+    shippingAddress: Attribute.JSON;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

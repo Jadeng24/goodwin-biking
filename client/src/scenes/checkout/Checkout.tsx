@@ -23,16 +23,15 @@ const Checkout = () => {
   );
 
   const handlePayment = async (formValues: any) => {
-    const { firstName, lastName, billingAddress, email } = formValues || {};
+    const { email, shippingAddress } = formValues || {};
     try {
       const stripe = await stripePromise;
       console.log(process.env.REACT_APP_API_URL);
       const res = await makeRequest.post("/orders", {
         products,
-        // Form info
-        userName: `${firstName} ${lastName}`,
+        shippingAddress,
         email: email,
-        billingAddress: billingAddress,
+        userName: `${shippingAddress.firstName} ${shippingAddress.lastName}`,
       });
       await stripe?.redirectToCheckout({
         sessionId: res.data.stripeSession.id,

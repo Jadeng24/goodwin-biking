@@ -20,6 +20,12 @@
     },
     "email": {
       "type": "string"
+    },
+    "userName": {
+      "type": "string"
+    },
+    "shippingAddress": {
+      "type": "json"
     }
   }
 }

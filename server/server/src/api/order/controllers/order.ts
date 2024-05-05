@@ -8,7 +8,7 @@ export default factories.createCoreController(
   "api::order.order",
   ({ strapi }) => ({
     async create(ctx) {
-      const { products, userName, email } = ctx.request.body;
+      const { products, userName, shippingAddress, email } = ctx.request.body;
       try {
         const lineItems = await Promise.all(
           products.map(async (product) => {
@@ -39,9 +39,15 @@ export default factories.createCoreController(
           line_items: lineItems,
         });
 
-        await strapi
-          .service("api::order.order")
-          .create({ data: { userName, products, stripeId: session.id } });
+        await strapi.service("api::order.order").create({
+          data: {
+            userName,
+            email,
+            products,
+            shippingAddress,
+            stripeId: session.id,
+          },
+        });
 
         return { stripeSession: session };
       } catch (error) {
