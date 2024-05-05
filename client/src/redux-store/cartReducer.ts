@@ -6,6 +6,7 @@ const initialState: ReduxState = {
   isCartOpen: false,
   cartItems: [],
   items: [],
+  banners: [],
 };
 
 // Updates global state for cart
