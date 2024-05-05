@@ -1,13 +1,13 @@
 import { useEffect } from "react";
 import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
 
-import Home from "./scenes/home/Home";
-import ItemDetails from "./scenes/itemDetails/ItemDetails";
-import Checkout from "./scenes/checkout/Checkout";
-import Confirmation from "./scenes/checkout/Confirmation";
-import Navbar from "./scenes/global/Navbar";
-import CartMenu from "./scenes/global/cartMenu/CartMenu";
-import Footer from "./scenes/global/footer/Footer";
+import Home from "./pages/home/Home";
+import ItemDetails from "./pages/item-details/ItemDetails";
+import Checkout from "./pages/checkout/Checkout";
+import Confirmation from "./pages/checkout/Confirmation";
+import Navbar from "./pages/global/Navbar";
+import CartMenu from "./pages/global/cart-menu/CartMenu";
+import Footer from "./pages/global/footer/Footer";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();

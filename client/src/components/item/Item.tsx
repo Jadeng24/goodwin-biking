@@ -1,13 +1,14 @@
-import { Flex } from "../flex";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
-import { useState } from "react";
+
 import { Box, Button } from "@mui/material";
 
+import { Flex } from "../flex";
 import { shades } from "../../theme";
-import { ItemAmount } from "./itemAmount/ItemAmount";
-import { addToCart } from "../../state";
-import { ItemPreviewInfo } from "./itemPreviewInfo/ItemPreviewInfo";
+import { ItemAmount } from "./item-amount/ItemAmount";
+import { addToCart } from "../../redux-store";
+import { ItemPreviewInfo } from "./item-preview-info/ItemPreviewInfo";
 
 interface ItemProps {
   item: any;

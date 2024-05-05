@@ -1,12 +1,13 @@
 import React from "react";
 import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
-import { CssBaseline, ThemeProvider } from "@mui/material";
-import { theme } from "./theme";
-import App from "./App";
-import "./index.scss";
 import { configureStore } from "@reduxjs/toolkit";
-import cartReducer from "./state";
+import { CssBaseline, ThemeProvider } from "@mui/material";
+
+import App from "./App";
+import { theme } from "./theme";
+import cartReducer from "./redux-store";
+import "./index.scss";
 
 const store = configureStore({
   reducer: { cart: cartReducer },
