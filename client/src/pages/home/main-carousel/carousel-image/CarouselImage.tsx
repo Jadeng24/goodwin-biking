@@ -3,17 +3,26 @@ import { Box } from "@mui/material";
 import { CarouselHeader } from "../carousel-header/CarouselHeader";
 
 interface CarouselImageProps {
-  index: number;
-  imageUrl: string;
+  image: any; // TODO give a type
 }
 
 export const CarouselImage = (props: CarouselImageProps): JSX.Element => {
-  const { imageUrl, index } = props;
+  const { image } = props;
+  const {
+    data: {
+      attributes: {
+        formats: {
+          large: { url },
+        },
+      },
+    },
+  } = image || {}; //
+
   return (
-    <Box key={`carousel-image-${index}`}>
+    <Box key={`carousel-image-${image.id}`}>
       <img
-        src={imageUrl}
-        alt={`carousel-${index}`}
+        src={`http://localhost:1337${url}`} //TODO use env
+        alt={`carousel-${image.id}`}
         style={{
           width: "100%",
           height: "700px",

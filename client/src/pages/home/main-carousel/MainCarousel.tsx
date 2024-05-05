@@ -5,18 +5,35 @@ import { NavigateBefore, NavigateNext } from "@mui/icons-material";
 import { IconButton } from "@mui/material";
 
 import { CarouselImage } from "./carousel-image/CarouselImage";
+import { RootState } from "../../../redux-store";
+import { useSelector } from "react-redux";
 
-const importAll = (r: __WebpackModuleApi.RequireContext) =>
-  r.keys().reduce((acc: { [x: string]: any }, item: string) => {
-    acc[item.replace("./", "")] = r(item);
-    return acc;
-  }, {});
-
-export const carouselImages = importAll(
-  require.context("../../../assets/carousel", false, /\.(png|jpe?g|svg)$/)
-);
+// Backup images if not using strapi db banner images
+// const importAll = (r: __WebpackModuleApi.RequireContext) =>
+//   r.keys().reduce((acc: { [x: string]: any }, item: string) => {
+//     acc[item.replace("./", "")] = r(item);
+//     return acc;
+//   }, {});
+// export const carouselImages = importAll(
+//   require.context("../../../assets/carousel", false, /\.(png|jpe?g|svg)$/)
+// );
 
 export const MainCarousel = () => {
+  // eslint-disable-next-line array-callback-return
+  const banners = useSelector((state: RootState) => state.banner.banners);
+  const sortBanners = [...banners];
+
+  const sortedBanners = sortBanners.sort((a: any, b: any) => {
+    if (a.attributes.slot < b.attributes.slot) {
+      return -1;
+    }
+    if (a.attributes.slot > b.attributes.slot) {
+      return 1;
+    }
+
+    return 0;
+  });
+
   return (
     <Carousel
       infiniteLoop={true}
@@ -54,9 +71,12 @@ export const MainCarousel = () => {
         </IconButton>
       )}
     >
-      {Object.values(carouselImages).map((url, index) => (
-        <CarouselImage imageUrl={url as string} index={index} />
+      {sortedBanners.map((banner: any) => (
+        <CarouselImage image={banner?.attributes?.image} />
       ))}
+      {/* {Object.values(carouselImages).map((url, index) => (
+        <CarouselImage imageUrl={url as string} index={index} />
+      ))} */}
     </Carousel>
   );
 };
