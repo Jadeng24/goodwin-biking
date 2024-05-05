@@ -3,16 +3,15 @@ import { useNavigate } from "react-router-dom";
 
 import { Box, Button, Typography } from "@mui/material";
 
-import { RootState } from "../../../../..";
 import { shades } from "../../../../../theme";
-import { setIsCartOpen } from "../../../../../redux-store";
+import { RootState, setIsCartOpen } from "../../../../../redux-store";
 import { Flex } from "../../../../../components";
 
 export const CartActions = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
 
-  const cartItems = useSelector((state: RootState) => state.cart.cart);
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
   const totalPrice = cartItems.reduce((total: any, item: any) => {
     return total + item.count * item.attributes.price;

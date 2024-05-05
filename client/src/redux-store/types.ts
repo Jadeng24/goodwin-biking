@@ -1,6 +1,6 @@
 export interface ReduxState {
   isCartOpen: boolean;
-  cart: Array<any>;
+  cartItems: Array<any>;
   items: Array<any>;
 }
 

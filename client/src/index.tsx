@@ -1,20 +1,13 @@
 import React from "react";
-import { Provider } from "react-redux";
 import ReactDOM from "react-dom/client";
-import { configureStore } from "@reduxjs/toolkit";
+import { Provider } from "react-redux";
+
 import { CssBaseline, ThemeProvider } from "@mui/material";
 
 import App from "./App";
+import { store } from "./redux-store/store";
 import { theme } from "./theme";
-import cartReducer from "./redux-store";
 import "./index.scss";
-
-const store = configureStore({
-  reducer: { cart: cartReducer },
-});
-
-// Infer the `RootState` and `AppDispatch` types from the store itself
-export type RootState = ReturnType<typeof store.getState>;
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement

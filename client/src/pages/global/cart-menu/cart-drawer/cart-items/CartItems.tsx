@@ -4,17 +4,17 @@ import { Box, Divider, IconButton, Typography } from "@mui/material";
 import { Add, Close, Remove } from "@mui/icons-material";
 
 import {
+  RootState,
   decreaseCount,
   increaseCount,
   removeFromCart,
 } from "../../../../../redux-store";
 import { shades } from "../../../../../theme";
 import { Flex } from "../../../../../components";
-import { RootState } from "../../../../..";
 
 export const CartItems = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state: RootState) => state.cart.cart);
+  const products = useSelector((state: RootState) => state.cart.cartItems);
 
   return products ? (
     <>
@@ -24,7 +24,6 @@ export const CartItems = () => {
 
         const url: string = image?.data?.attributes?.formats?.medium?.url;
 
-        // LEFT at 2:38:00
         return (
           <Flex key={`${name}-${item?.id}`} flexDirection="column">
             {/* TODO: key doesn't seem to be working  */}

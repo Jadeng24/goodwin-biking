@@ -9,14 +9,13 @@ import {
 } from "@mui/icons-material";
 import { Badge, Box, IconButton } from "@mui/material";
 
-import { RootState } from "../..";
-import { setIsCartOpen } from "../../redux-store";
+import { RootState, setIsCartOpen } from "../../redux-store";
 
 const NavbarButtons = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   // grabbing the cartSlice name 'cart' and then 'cart' from state
-  const cart = useSelector((state: RootState) => state.cart.cart);
+  const cart = useSelector((state: RootState) => state.cart.cartItems);
 
   return (
     <Box

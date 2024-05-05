@@ -7,8 +7,7 @@ import Box from "@mui/material/Box";
 import { Typography } from "@mui/material";
 import useMediaQuery from "@mui/material/useMediaQuery";
 
-import { RootState } from "../../..";
-import { setItems } from "../../../redux-store";
+import { RootState, setItems } from "../../../redux-store";
 import Item from "../../../components/item/Item";
 
 const ShoppingList = () => {

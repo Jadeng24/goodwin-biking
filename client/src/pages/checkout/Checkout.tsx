@@ -10,12 +10,12 @@ import * as yup from "yup";
 import { shades } from "../../theme";
 import Payment from "./Payment";
 import Shipping from "./Shipping";
-import { RootState } from "../..";
 import { makeRequest } from "../../makeRequest";
+import { RootState } from "../../redux-store";
 
 const Checkout = () => {
   const [activeStep, setActiveStep] = useState(0);
-  const products = useSelector((state: RootState) => state.cart.cart);
+  const products = useSelector((state: RootState) => state.cart.cartItems);
   const isFirstStep = activeStep === 0;
   const isSecondStep = activeStep === 1;
 

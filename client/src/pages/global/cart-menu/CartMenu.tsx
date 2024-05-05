@@ -3,9 +3,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Box } from "@mui/material";
 
 import { CartDrawer } from "./cart-drawer";
-import { RootState } from "../../../index";
-import { setIsCartOpen } from "../../../redux-store";
 import { Flex } from "../../../components";
+import { RootState, setIsCartOpen } from "../../../redux-store";
 
 const CartMenu = () => {
   const dispatch = useDispatch();

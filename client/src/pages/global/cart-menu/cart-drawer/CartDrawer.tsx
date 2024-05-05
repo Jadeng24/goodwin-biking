@@ -1,17 +1,16 @@
-import { Close } from "@mui/icons-material";
-
-import { setIsCartOpen } from "../../../../redux-store";
-import { Box, IconButton, Typography } from "@mui/material";
 import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "../../../..";
+
+import { Close } from "@mui/icons-material";
+import { Box, IconButton, Typography } from "@mui/material";
 
 import { CartActions } from "./cart-actions";
 import { CartItems } from "./cart-items";
 import { Flex } from "../../../../components";
+import { RootState, setIsCartOpen } from "../../../../redux-store";
 
 export const CartDrawer = () => {
   const dispatch = useDispatch();
-  const cart = useSelector((state: RootState) => state.cart.cart);
+  const cart = useSelector((state: RootState) => state.cart.cartItems);
 
   return (
     <Box
