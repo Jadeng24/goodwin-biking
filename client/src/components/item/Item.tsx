@@ -52,14 +52,15 @@ const Item = (props: ItemProps) => {
           style={{ cursor: "pointer" }}
         />
         <Box
-          display={isHovered ? "blocked" : "none"}
+          display={isHovered ? "block" : "none"}
           position="absolute"
-          bottom="10%"
+          bottom="8%"
           left="0"
-          width="100"
-          padding="0 5%"
+          width="100%"
+          padding="0 20px"
+          sx={{ transition: ".3s" }}
         >
-          <Flex justifyContent="space-between">
+          <Flex justifyContent="center" alignItems="center" gap="8px">
             <ItemAmount
               count={count}
               onRemove={() => setCount(Math.max(count - 1, 1))}
@@ -70,7 +71,13 @@ const Item = (props: ItemProps) => {
               onClick={() => {
                 dispatch(addToCart({ item: { ...item, count } }));
               }}
-              sx={{ background: shades.primary[300], color: "#fff" }}
+              sx={{
+                background: shades.primary[500],
+                color: "#fff",
+                padding: "4px 14px",
+                fontSize: "14px",
+                "&:hover": { background: shades.primary[300] },
+              }}
             >
               Add to Cart
             </Button>

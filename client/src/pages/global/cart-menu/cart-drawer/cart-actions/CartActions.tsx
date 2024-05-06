@@ -19,19 +19,26 @@ export const CartActions = () => {
 
   return (
     <Box margin="20px 0">
-      <Flex margin="20px 0" justifyContent="space-between">
+      <Flex margin="20px 0" alignItems="center" justifyContent="space-between">
+        <Typography fontWeight="bold">SHIPPING & HANDLING</Typography>
+        <Typography fontWeight="bold">FREE</Typography>
+      </Flex>
+      <Flex margin="20px 0" alignItems="center" justifyContent="space-between">
         <Typography fontWeight="bold">SUBTOTAL</Typography>
         <Typography fontWeight="bold">${totalPrice}</Typography>
       </Flex>
 
       <Button
         sx={{
-          backgroundColor: shades.primary[400],
+          backgroundColor: shades.primary[500],
           color: "#fff",
           borderRadius: 0,
           minWidth: "100%",
           padding: "20px 40px",
           margin: "20px 0",
+          "&:hover": {
+            background: shades.primary[300],
+          },
         }}
         onClick={() => {
           navigate("/checkout");

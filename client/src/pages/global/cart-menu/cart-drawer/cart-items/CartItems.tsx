@@ -1,6 +1,12 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { Box, Divider, IconButton, Typography } from "@mui/material";
+import {
+  Box,
+  Divider,
+  IconButton,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import { Add, Close, Remove } from "@mui/icons-material";
 
 import {
@@ -16,6 +22,8 @@ export const CartItems = () => {
   const dispatch = useDispatch();
   const products = useSelector((state: RootState) => state.cart.cartItems);
 
+  const isGreaterThanMobile = useMediaQuery("(min-width:600px)");
+
   return products ? (
     <>
       {products.map((item: any) => {
@@ -27,7 +35,13 @@ export const CartItems = () => {
         return (
           <Flex key={`${name}-${item?.id}`} flexDirection="column">
             {/* TODO: key doesn't seem to be working  */}
-            <Flex padding="15px 0" justifyContent="space-between">
+            <Flex
+              padding="15px 0"
+              width="100%"
+              justifyContent="space-between"
+              marginBottom="10px"
+              sx={{ borderBottom: `solid 1px ${shades.neutral[500]}` }}
+            >
               <Box flex="1 1 40%">
                 {/* TODO: make separate component for each item alone */}
                 <img
@@ -41,7 +55,12 @@ export const CartItems = () => {
               <Box flex="1 1 60%">
                 {/* TODO: make separate component for this */}
                 <Flex marginBottom="5px" justifyContent="space-between">
-                  <Typography fontWeight="bold">{name}</Typography>
+                  <Typography
+                    variant={isGreaterThanMobile ? "h3" : "h4"}
+                    fontWeight="bold"
+                  >
+                    {name}
+                  </Typography>
                   <IconButton
                     onClick={() => dispatch(removeFromCart({ id: item?.id }))}
                   >
@@ -75,7 +94,7 @@ export const CartItems = () => {
                     </IconButton>
                   </Box>
 
-                  <Typography fontWeight="bold">{price}</Typography>
+                  <Typography fontWeight="bold">${price}</Typography>
                 </Flex>
               </Box>
             </Flex>

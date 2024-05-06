@@ -1,7 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
 import { Close } from "@mui/icons-material";
-import { Box, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Typography, useMediaQuery } from "@mui/material";
 
 import { CartActions } from "./cart-actions";
 import { CartItems } from "./cart-items";
@@ -12,13 +12,15 @@ export const CartDrawer = () => {
   const dispatch = useDispatch();
   const cart = useSelector((state: RootState) => state.cart.cartItems);
 
+  const isGreaterThanMobile = useMediaQuery("(min-width:600px)");
+
   return (
     <Box
       sx={{
         position: "fixed",
         right: 0,
         bottom: 0,
-        width: "max(400px, 30%)",
+        width: isGreaterThanMobile ? "max(400px, 30%)" : "100%",
         height: "100%",
         backgroundColor: "#fff",
       }}

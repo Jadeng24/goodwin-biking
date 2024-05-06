@@ -86,9 +86,13 @@ const ItemDetails = () => {
           </Flex>
 
           <Box m="65px 0 25px 0">
-            <Typography variant="h3">{name}</Typography>
-            <Typography>${price}</Typography>
-            <Typography sx={{ marginTop: "20px" }}>{summary}</Typography>
+            <Flex alignItems="center" justifyContent="space-between">
+              <Typography variant="h3">{name}</Typography>
+            </Flex>
+            <Typography fontSize="20px">${price}</Typography>
+            <Typography variant="h4" sx={{ marginTop: "20px" }}>
+              {summary}
+            </Typography>
           </Box>
 
           <Box display="flex" alignItems="center" minHeight="50px">
@@ -109,11 +113,16 @@ const ItemDetails = () => {
             </Box>
             <Button
               sx={{
-                backgroundColor: "#222222",
+                background: shades.primary[500],
                 color: "white",
                 borderRadius: 0,
                 minWidth: "150px",
                 padding: "10px 40px",
+                transition: ".3s",
+                "&:hover": {
+                  background: shades.primary[300],
+                  transform: "scale(1.02)",
+                },
               }}
               onClick={() => dispatch(addToCart({ item: { ...item, count } }))}
             >
@@ -137,8 +146,11 @@ const ItemDetails = () => {
         </Tabs>
       </Box>
       <Box display="flex" flexWrap="wrap" gap="15px">
-        {value === "description" && <div>{fullDescription}</div>}
-        {value === "reviews" && <div>reviews</div>}
+        {value === "description" && (
+          <Typography variant="h4">{fullDescription}</Typography>
+        )}
+        {value === "reviews" && <div>Reviews coming soon...</div>}
+        {/* TODO: add reviews section  */}
       </Box>
 
       {/* RELATED ITEMS */}

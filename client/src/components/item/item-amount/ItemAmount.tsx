@@ -16,13 +16,15 @@ export const ItemAmount = (props: ItemAmountProps) => {
   return (
     <Flex
       alignItems="center"
-      background={shades.neutral[100]}
+      background={shades.neutral[300]}
       borderRadius="3px"
     >
       <IconButton onClick={onRemove}>
         <Remove />
       </IconButton>
-      <Typography color={shades.primary[300]}>{count}</Typography>
+      <Typography variant="h4" color="#333">
+        {count}
+      </Typography>
       <IconButton onClick={onAdd}>
         <Add />
       </IconButton>
