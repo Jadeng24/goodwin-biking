@@ -72,7 +72,7 @@ export const MainCarousel = () => {
       )}
     >
       {sortedBanners.map((banner: any) => (
-        <CarouselImage image={banner?.attributes?.image} />
+        <CarouselImage banner={banner} />
       ))}
       {/* {Object.values(carouselImages).map((url, index) => (
         <CarouselImage imageUrl={url as string} index={index} />

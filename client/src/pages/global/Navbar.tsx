@@ -5,6 +5,7 @@ import { Box } from "@mui/material";
 import NavbarButtons from "./NavbarButtons";
 import { Flex } from "../../components/flex";
 import goodwinLogo from "../../assets/goodwin-logo.png";
+import { shades } from "../../theme";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -28,12 +29,28 @@ const Navbar = () => {
       zIndex="1"
     >
       <Flex
-        width="80%"
+        width="84%"
         margin="auto"
         justifyContent="space-between"
         alignItems="center"
       >
-        <Box onClick={() => navigate("/")}>
+        <Box
+          onClick={() => navigate("/")}
+          sx={{
+            transition: ".3s",
+            cursor: "pointer",
+            padding: "0px 20px",
+            marginTop: "5px",
+            // borderRadius: "30px",
+            borderLeft: "solid 2px transparent",
+            borderRight: "solid 2px transparent",
+            "&:hover": {
+              transform: "scale(1.03)",
+              borderLeft: `solid 2px ${shades.neutral[500]}`,
+              borderRight: `solid 2px ${shades.neutral[500]}`,
+            },
+          }}
+        >
           <img style={logoStyle} src={goodwinLogo} alt="Goodwin biking" />
         </Box>
         <NavbarButtons />

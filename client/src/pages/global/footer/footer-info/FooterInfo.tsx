@@ -26,7 +26,7 @@ const FooterInfo = () => {
       >
         Established Jan 2024
       </Typography>
-      <div>
+      <Typography variant="h4">
         Your source of authentic, pragmatic bikepacking adventures catered
         specifically for beginner and intermediate bikepackers.
         <br />
@@ -35,7 +35,7 @@ const FooterInfo = () => {
         simpleness of life. Experience high-quality bikepacking gear at an
         affordable price! Also Join our Youtube channel for in-depth bikepacking
         content.
-      </div>
+      </Typography>
     </Flex>
   );
 };

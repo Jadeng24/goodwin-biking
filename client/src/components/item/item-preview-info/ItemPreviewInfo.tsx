@@ -23,7 +23,7 @@ export const ItemPreviewInfo = (props: ItemPreviewInfoProps) => {
       <Typography variant="subtitle2" color={info.dark}>
         {categoryFormatted}
       </Typography>
-      <Typography>{name}</Typography>
+      <Typography variant="h4">{name}</Typography>
       <Typography fontWeight="bold">${price}</Typography>
     </Box>
   );

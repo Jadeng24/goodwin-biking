@@ -3,11 +3,13 @@ import { Box } from "@mui/material";
 import { CarouselHeader } from "../carousel-header/CarouselHeader";
 
 interface CarouselImageProps {
-  image: any; // TODO give a type
+  banner: any; // TODO give a type
 }
 
 export const CarouselImage = (props: CarouselImageProps): JSX.Element => {
-  const { image } = props;
+  const { banner } = props;
+
+  const { image } = banner?.attributes || {};
   const {
     data: {
       attributes: {
@@ -31,7 +33,7 @@ export const CarouselImage = (props: CarouselImageProps): JSX.Element => {
         }}
       />
 
-      <CarouselHeader />
+      <CarouselHeader banner={banner} />
     </Box>
   );
 };
