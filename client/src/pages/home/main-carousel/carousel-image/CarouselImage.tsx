@@ -18,7 +18,7 @@ export const CarouselImage = (props: CarouselImageProps): JSX.Element => {
         },
       },
     },
-  } = image || {}; //
+  } = image || {};
 
   return (
     <Box key={`carousel-image-${image.id}`}>

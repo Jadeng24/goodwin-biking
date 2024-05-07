@@ -21,11 +21,19 @@ export const cartSlice = createSlice({
     },
 
     addToCart: (state: ReduxState, action: ReduxAction) => {
-      state.cartItems = [...state.cartItems, action.payload.item];
+      const item = state.cartItems.find(
+        (item) => item.id === action.payload.item.id
+      );
+
+      // Increase count if item is already found in the cart
+      if (item) {
+        item.count += action.payload.item.count;
+      } else {
+        state.cartItems.push(action.payload.item);
+      }
     },
 
     removeFromCart: (state: ReduxState, action: ReduxAction) => {
-      // action is an 'id' here
       state.cartItems = state.cartItems.filter(
         (item) => item.id !== action.payload.id
       );

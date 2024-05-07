@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 import { Typography, useMediaQuery } from "@mui/material";
 
@@ -9,15 +9,14 @@ import { linkToExternal } from "../../../../linkToExternal";
 interface CarouselHeaderProps {
   banner: any;
 }
+
 export const CarouselHeader = (props: CarouselHeaderProps): JSX.Element => {
   const { banner } = props;
   const navigate = useNavigate();
   const isGreaterThanMobile = useMediaQuery("(min-width:600px");
-  // TODO: use actual banner title/subtitle/link etc
+
   const { appUrl, externalUrl, linkText, subtitle, title } =
     banner?.attributes || {};
-
-  console.log(appUrl, externalUrl, linkText, subtitle, title);
 
   const handleOnClick = () => {
     const defaultUrl = "/products";
@@ -35,7 +34,6 @@ export const CarouselHeader = (props: CarouselHeaderProps): JSX.Element => {
       padding="34px 30px"
       borderRadius="6px"
       textAlign="left"
-      //   background="rgb(0, 0, 0, 0.5)"
       background="linear-gradient(45deg, rgb(0, 0, 0, 0.6), rgb(0, 0, 0, 0.4))"
       position="absolute"
       flexDirection="column"

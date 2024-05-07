@@ -13,8 +13,8 @@ export const CartActions = () => {
 
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
-  const totalPrice = cartItems.reduce((total: any, item: any) => {
-    return total + item.count * item.attributes.price;
+  const totalPrice = cartItems?.reduce((total: any, item: any) => {
+    return total + item.count * item.attributes?.price;
   }, 0);
 
   return (
