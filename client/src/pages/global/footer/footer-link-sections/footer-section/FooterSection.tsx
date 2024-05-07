@@ -23,14 +23,14 @@ const FooterSection = (props: FooterSectionProps) => {
     [SectionTypes.AboutUs]: {
       title: "About Us",
       links: [
+        { label: "About Goodwin Biking", navUrl: "/about-us" },
         { label: "Terms & Conditions", navUrl: "/terms" },
-        { label: "Privacy Policy", navUrl: "/policy" },
       ],
     },
     [SectionTypes.customerCare]: {
       title: "Customer Care",
       links: [
-        { label: "Track Your Order", navUrl: "/orders" },
+        // { label: "Track Your Order", navUrl: "/orders" }, // coming soon
         { label: "Returns & Refunds", navUrl: "/returns" },
       ],
     },
