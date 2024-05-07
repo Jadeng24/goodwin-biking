@@ -2,6 +2,7 @@ import { Typography, useMediaQuery } from "@mui/material";
 
 import { shades } from "../../../../theme";
 import { Flex } from "../../../../components";
+import { Link } from "react-router-dom";
 
 const FooterInfo = () => {
   const isMobile = useMediaQuery("(max-width:700px");
@@ -27,14 +28,21 @@ const FooterInfo = () => {
         Established Jan 2024
       </Typography>
       <Typography variant="h4">
-        Your source of authentic, pragmatic bikepacking adventures catered
-        specifically for beginner and intermediate bikepackers.
+        Your source for authentic, pragmatic bikepacking gear catered to
+        beginner and professional bikepackers alike.
         <br />
         <br />
         Join us on our quest to explore the unknown and get back to the
         simpleness of life. Experience high-quality bikepacking gear at an
-        affordable price! Also Join our Youtube channel for in-depth bikepacking
-        content.
+        affordable price! Also Join our{" "}
+        <Link
+          to="http://www.youtube.com/@goodwinbiking"
+          target="_blank"
+          style={{ color: shades.primary[500], textDecoration: "none" }}
+        >
+          Youtube channel
+        </Link>{" "}
+        for in-depth bikepacking content.
       </Typography>
     </Flex>
   );

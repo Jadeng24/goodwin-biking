@@ -72,11 +72,11 @@ export const CarouselHeader = (props: CarouselHeaderProps): JSX.Element => {
           padding: "9px 22px",
           borderRadius: "30px",
           transition: ".3s",
-          border: "solid 4px transparent",
+          border: "solid 3px transparent",
           "&:hover": {
             borderColor: externalUrl
-              ? shades.primary[500]
-              : shades.secondary[500],
+              ? shades.secondary[500]
+              : shades.primary[500],
           },
         }}
       >

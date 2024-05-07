@@ -8,6 +8,7 @@ import Confirmation from "./pages/checkout/Confirmation";
 import Navbar from "./pages/global/Navbar";
 import CartMenu from "./pages/global/cart-menu/CartMenu";
 import Footer from "./pages/global/footer/Footer";
+import TermsAndConditions from "./pages/terms/TermsAndConditions";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -30,6 +31,7 @@ function App() {
           <Route path="item/:itemId" element={<ItemDetails />} />
           <Route path="checkout" element={<Checkout />} />
           <Route path="checkout/success" element={<Confirmation />} />
+          <Route path="terms" element={<TermsAndConditions />} />
         </Routes>
         <CartMenu />
         <Footer />
