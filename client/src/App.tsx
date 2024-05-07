@@ -8,7 +8,8 @@ import Confirmation from "./pages/checkout/Confirmation";
 import Navbar from "./pages/global/Navbar";
 import CartMenu from "./pages/global/cart-menu/CartMenu";
 import Footer from "./pages/global/footer/Footer";
-import TermsAndConditions from "./pages/terms/TermsAndConditions";
+import TermsAndConditions from "./pages/company-policies/TermsAndConditions";
+import RefundsAndReturns from "./pages/company-policies/RefundsAndReturns";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -32,6 +33,7 @@ function App() {
           <Route path="checkout" element={<Checkout />} />
           <Route path="checkout/success" element={<Confirmation />} />
           <Route path="terms" element={<TermsAndConditions />} />
+          <Route path="returns" element={<RefundsAndReturns />} />
         </Routes>
         <CartMenu />
         <Footer />
