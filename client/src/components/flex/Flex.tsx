@@ -6,7 +6,7 @@ import { AlignItemsType, JustifyContentType } from "./types";
 interface FlexProps {
   alignItems?: AlignItemsType;
   justifyContent?: JustifyContentType;
-  flexDirection?: "row" | "column";
+  flexDirection?: "row" | "column" | "column-reverse" | "row-reverse";
   background?: string;
 }
 
