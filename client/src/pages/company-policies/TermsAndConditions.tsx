@@ -5,7 +5,7 @@ import React from "react";
 
 const TermsAndConditions = () => {
   return (
-    <Box padding="6%" marginTop="60px">
+    <Box padding="6%">
       <style
         dangerouslySetInnerHTML={{
           __html:
