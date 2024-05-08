@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ReduxAction, ReduxState } from "./types";
 
 export const initialState: ReduxState = {
+  isNavMenuOpen: false,
   isCartOpen: false,
   cartItems: [],
   items: [],

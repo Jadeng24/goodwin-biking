@@ -5,12 +5,12 @@ import Home from "./pages/home/Home";
 import ItemDetails from "./pages/item-details/ItemDetails";
 import Checkout from "./pages/checkout/Checkout";
 import Confirmation from "./pages/checkout/Confirmation";
-import Navbar from "./pages/global/Navbar";
-import CartMenu from "./pages/global/cart-menu/CartMenu";
+import Nav from "./pages/global//nav/Nav";
 import Footer from "./pages/global/footer/Footer";
 import TermsAndConditions from "./pages/company-policies/TermsAndConditions";
 import RefundsAndReturns from "./pages/company-policies/RefundsAndReturns";
 import AboutUs from "./pages/about-us/AboutUs";
+import NavMenu from "./pages/global/nav-menu/NavMenu";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -26,7 +26,7 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <Navbar />
+        <Nav />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
@@ -37,7 +37,8 @@ function App() {
           <Route path="terms" element={<TermsAndConditions />} />
           <Route path="returns" element={<RefundsAndReturns />} />
         </Routes>
-        <CartMenu />
+        <NavMenu />
+
         <Footer />
       </BrowserRouter>
     </div>

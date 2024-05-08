@@ -2,10 +2,12 @@ import { configureStore } from "@reduxjs/toolkit";
 
 import cartReducer from "./cartReducer";
 import bannerReducer from "./bannerReducer";
+import navReducer from "./navReducer";
 
 const reducer = {
-  cart: cartReducer,
   banner: bannerReducer,
+  cart: cartReducer,
+  nav: navReducer,
 };
 
 export const store = configureStore({

@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { ReduxAction, ReduxState } from "./types";
 
 const initialState: ReduxState = {
+  isNavMenuOpen: false,
   isCartOpen: false,
   cartItems: [],
   items: [],
@@ -58,12 +59,6 @@ export const cartSlice = createSlice({
         return item;
       });
     },
-
-    // Toggle cart
-    setIsCartOpen: (state, action) => {
-      // Adding unused action to fix typescript issue
-      state.isCartOpen = !state.isCartOpen;
-    },
   },
 });
 
@@ -73,7 +68,6 @@ export const {
   removeFromCart,
   increaseCount,
   decreaseCount,
-  setIsCartOpen,
 } = cartSlice.actions;
 
 export default cartSlice.reducer;

@@ -4,8 +4,9 @@ import { useNavigate } from "react-router-dom";
 import { Box, Button, Typography } from "@mui/material";
 
 import { shades } from "../../../../../theme";
-import { RootState, setIsCartOpen } from "../../../../../redux-store";
+import { RootState } from "../../../../../redux-store";
 import { Flex } from "../../../../../components";
+import { closeNavMenus } from "../../../../../redux-store/navReducer";
 
 export const CartActions = () => {
   const navigate = useNavigate();
@@ -42,7 +43,7 @@ export const CartActions = () => {
         }}
         onClick={() => {
           navigate("/checkout");
-          dispatch(setIsCartOpen({}));
+          dispatch(closeNavMenus({}));
         }}
       >
         CHECKOUT

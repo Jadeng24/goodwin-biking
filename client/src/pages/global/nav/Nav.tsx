@@ -3,11 +3,12 @@ import { useNavigate } from "react-router-dom";
 import { Box } from "@mui/material";
 
 import NavbarButtons from "./NavbarButtons";
-import { Flex } from "../../components/flex";
-import goodwinLogo from "../../assets/goodwin-logo.png";
-import { shades } from "../../theme";
 
-const Navbar = () => {
+import goodwinLogo from "../../../assets/goodwin-logo.png";
+import { Flex } from "../../../components";
+import { shades } from "../../../theme";
+
+const Nav = () => {
   const navigate = useNavigate();
 
   const logoStyle = {
@@ -59,4 +60,4 @@ const Navbar = () => {
   );
 };
 
-export default Navbar;
+export default Nav;

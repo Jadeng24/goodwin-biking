@@ -1,4 +1,5 @@
 export interface ReduxState {
+  isNavMenuOpen: boolean;
   isCartOpen: boolean;
   cartItems: Array<any>;
   items: Array<any>;

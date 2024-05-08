@@ -1,44 +1,37 @@
 import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
-import {
-  MenuOutlined,
-  PersonOutline,
-  SearchOutlined,
-  ShoppingBagOutlined,
-} from "@mui/icons-material";
+import { Menu, ShoppingCart } from "@mui/icons-material";
 import { Badge, Box, IconButton } from "@mui/material";
+import { RootState } from "../../../redux-store";
 
-import { RootState, setIsCartOpen } from "../../redux-store";
+import {
+  setIsCartOpen,
+  setIsNavMenuOpen,
+} from "../../../redux-store/navReducer";
 
 const NavbarButtons = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
+
   // grabbing the cartSlice name 'cart' and then 'cart' from state
-  const cart = useSelector((state: RootState) => state.cart.cartItems);
+  const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
   return (
     <Box
       onClick={() => navigate("/")}
       sx={{ "&:hover": { cursor: "pointer" } }}
     >
-      <IconButton sx={{ color: "#222" }}>
-        <SearchOutlined />
-      </IconButton>
-      <IconButton sx={{ color: "#222" }}>
-        <PersonOutline />
-      </IconButton>
-
       <IconButton
         onClick={() => dispatch(setIsCartOpen({}))}
         sx={{ color: "#222" }}
       >
-        <ShoppingBagOutlined />
+        <ShoppingCart />
       </IconButton>
       <Badge
-        badgeContent={cart.length}
+        badgeContent={cartItems.length}
         color="secondary"
-        invisible={cart.length === 0}
+        invisible={cartItems.length === 0}
         sx={{
           "& .MuiBadge-badge": {
             right: 5,
@@ -49,8 +42,8 @@ const NavbarButtons = () => {
           },
         }}
       />
-      <IconButton color="primary">
-        <MenuOutlined />
+      <IconButton onClick={() => dispatch(setIsNavMenuOpen({}))}>
+        <Menu />
       </IconButton>
     </Box>
   );
