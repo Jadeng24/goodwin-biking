@@ -70,7 +70,9 @@ const NavMenuDrawer = () => {
             onClick={() => handleNavigate("/products")}
             style={linkStyles}
           >
-            <Typography variant="h3">Bikepacking Bags</Typography>
+            <Typography variant="h3">
+              {isGreaterThanMobile ? "Bikepacking Bags" : "Bikepack Bags"}
+            </Typography>
           </Button>
 
           <Button
