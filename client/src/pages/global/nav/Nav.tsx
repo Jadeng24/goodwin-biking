@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router-dom";
 
-import { Box } from "@mui/material";
+import { Box, useMediaQuery } from "@mui/material";
 
 import NavbarButtons from "./NavbarButtons";
 
@@ -9,6 +9,7 @@ import { Flex } from "../../../components";
 import { shades } from "../../../theme";
 
 const Nav = () => {
+  const isGreaterThanMobile = useMediaQuery("(min-width:600px)");
   const navigate = useNavigate();
 
   const logoStyle = {
@@ -30,7 +31,8 @@ const Nav = () => {
       zIndex="1"
     >
       <Flex
-        width="84%"
+        padding={isGreaterThanMobile ? "0 7%" : "0 3%"}
+        width="100%"
         margin="auto"
         justifyContent="space-between"
         alignItems="center"
@@ -40,7 +42,7 @@ const Nav = () => {
           sx={{
             transition: ".3s",
             cursor: "pointer",
-            padding: "0px 20px",
+            padding: "0px 10px",
             marginTop: "5px",
             // borderRadius: "30px",
             borderLeft: "solid 2px transparent",
