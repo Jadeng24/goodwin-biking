@@ -27,8 +27,9 @@ const NavMenuDrawer = () => {
 
   const linkStyles = {
     cursor: "pointer",
-    marginBottom: isGreaterThanMobile ? "10px" : "30px",
+    marginBottom: isGreaterThanMobile ? "4px" : "10px",
     borderRadius: "10px",
+    padding: "14px 20px",
   };
 
   return (
@@ -48,10 +49,14 @@ const NavMenuDrawer = () => {
             MENU
           </Typography>
           <IconButton onClick={() => dispatch(closeNavMenus({}))}>
-            <Close />
+            <Close fontSize="large" />
           </IconButton>
         </Flex>
-        <Flex flexDirection="column">
+        <Flex
+          flexDirection="column"
+          alignSelf={isGreaterThanMobile ? "flex-start" : "flex-end"}
+          alignItems={isGreaterThanMobile ? "flex-start" : "flex-end"}
+        >
           <Button
             style={linkStyles}
             color="primary"
@@ -65,7 +70,7 @@ const NavMenuDrawer = () => {
             onClick={() => handleNavigate("/products")}
             style={linkStyles}
           >
-            <Typography variant="h3">Products</Typography>
+            <Typography variant="h3">Bikepacking Bags</Typography>
           </Button>
 
           <Button
@@ -81,6 +86,13 @@ const NavMenuDrawer = () => {
             style={linkStyles}
           >
             <Typography variant="h3">About us</Typography>
+          </Button>
+          <Button
+            color="primary"
+            onClick={() => handleNavigate("/about-us")}
+            style={linkStyles}
+          >
+            <Typography variant="h3">Contact us</Typography>
           </Button>
         </Flex>
       </Flex>

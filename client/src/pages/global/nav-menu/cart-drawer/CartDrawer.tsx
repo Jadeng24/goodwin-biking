@@ -18,9 +18,9 @@ export const CartDrawer = () => {
   return (
     <Box padding="30px" overflow="auto" height="100%">
       <Flex marginBottom="15px" justifyContent="space-between">
-        <Typography variant="h3">SHOPPING BAG ({cartItems.length})</Typography>
+        <Typography variant="h3">SHOPPING CART ({cartItems.length})</Typography>
         <IconButton onClick={() => dispatch(closeNavMenus({}))}>
-          <Close />
+          <Close fontSize="large" />
         </IconButton>
       </Flex>
       {cartItems && cartItems?.length > 0 ? (
