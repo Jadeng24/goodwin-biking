@@ -2,10 +2,12 @@
     "editor.insertSpaces": true,
     "editor.detectIndentation": false,
     "cSpell.words": [
+        "autoremove",
         "bikepackers",
         "Bikepacking",
         "Cinzel",
         "formik",
+        "Hostinger",
         "Questrial",
         "reduxjs",
         "Strapi"

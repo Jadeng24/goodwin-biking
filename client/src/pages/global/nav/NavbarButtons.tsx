@@ -2,7 +2,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 
 import { Menu, ShoppingCart } from "@mui/icons-material";
-import { Badge, Box, IconButton, Typography } from "@mui/material";
+import { Badge, IconButton, Typography } from "@mui/material";
 import { RootState } from "../../../redux-store";
 
 import {

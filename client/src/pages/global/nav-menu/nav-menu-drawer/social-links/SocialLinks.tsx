@@ -17,6 +17,7 @@ const SocialLinks = () => {
   const handleOnClick = (url: string) => {
     linkToExternal(url);
   };
+
   return (
     <Box width="100%" paddingBottom="30px">
       <Typography variant="h3" color={shades.neutral[500]} marginBottom="20px">
