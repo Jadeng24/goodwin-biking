@@ -30,12 +30,12 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
-          <Route path="item/:itemId" element={<ItemDetails />} />
-          <Route path="checkout" element={<Checkout />} />
-          <Route path="checkout/success" element={<Confirmation />} />
-          <Route path="about-us" element={<AboutUs />} />
-          <Route path="terms" element={<TermsAndConditions />} />
-          <Route path="returns" element={<RefundsAndReturns />} />
+          <Route path="/item/:itemId" element={<ItemDetails />} />
+          <Route path="/checkout" element={<Checkout />} />
+          <Route path="/checkout/success" element={<Confirmation />} />
+          <Route path="/about-us" element={<AboutUs />} />
+          <Route path="/terms" element={<TermsAndConditions />} />
+          <Route path="/returns" element={<RefundsAndReturns />} />
         </Routes>
         <NavMenu />
 
