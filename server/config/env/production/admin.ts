@@ -1,5 +1,5 @@
 export default ({ env }) => ({
-  url: "/dashboard",
+  url: "/api/dashboard",
   auth: {
     secret: env("ADMIN_JWT_SECRET"),
   },
