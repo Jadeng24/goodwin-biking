@@ -1,5 +1,5 @@
 export default ({ env }) => ({
-  url: "/dashboard", //'api/server' is what worked sorta
+  url: "/api/dashboard", //'api/server' is what worked sorta
   auth: {
     secret: env("ADMIN_JWT_SECRET"),
   },
