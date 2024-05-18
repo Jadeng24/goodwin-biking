@@ -9,7 +9,7 @@ const Home = () => {
 
   async function getBanners() {
     const banners = await fetch(
-      "http://localhost:1337/api/banners?populate=image", // TODO: don't use localhost when hosting
+      `${process.env.REACT_APP_API_URL}/banners?populate=image`,
       { method: "GET" }
     );
     const bannersJson = await banners.json();

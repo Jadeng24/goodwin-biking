@@ -48,7 +48,7 @@ export const CartItems = () => {
                   alt={name}
                   width="123px"
                   height="164px"
-                  src={`http://localhost:1337${url}`} // TODO: don't hardcode localhost with port here
+                  src={`${process.env.REACT_APP_UPLOAD_URL}${url}`}
                 />
               </Box>
 

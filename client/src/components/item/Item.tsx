@@ -47,7 +47,7 @@ const Item = (props: ItemProps) => {
           alt={item.name}
           width="300px"
           height="400px"
-          src={`http://localhost:1337${url}`} // TODO replace this
+          src={`${process.env.REACT_APP_UPLOAD_URL}${url}`}
           onClick={() => navigate(`/item/${item.id}`)}
           style={{ cursor: "pointer" }}
         />
