@@ -1,5 +1,5 @@
 export default ({ env }) => ({
-  url: "/api/dashboard", // URL to access strapi admin panel
+  //   url: "/api/dashboard", // URL to access strapi admin panel
   auth: {
     secret: env("ADMIN_JWT_SECRET"),
   },
