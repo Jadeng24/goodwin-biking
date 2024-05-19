@@ -19,7 +19,7 @@ const ShoppingList = () => {
 
   async function getItems() {
     const items = await fetch(
-      `${API_URL}/items?populate=image`,
+      `${process.env.REACT_APP_API_URL}/items?populate=image`,
       //   "http://localhost:1337/api/items?populate=image", // TODO: don't use localhost when hosting
       { method: "GET" }
     );
