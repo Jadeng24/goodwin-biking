@@ -27,9 +27,7 @@ const Item = (props: ItemProps) => {
 
   const { category, image, name, price } = item?.attributes || {};
 
-  const {
-    medium: { url },
-  } = image?.data?.attributes?.formats || {}; //TODO: improve this code
+  const url = image?.data?.attributes?.formats.medium.url || {};
 
   return (
     <Box width={width} marginBottom="20px">
