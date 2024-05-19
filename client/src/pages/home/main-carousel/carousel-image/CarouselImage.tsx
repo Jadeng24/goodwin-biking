@@ -13,7 +13,7 @@ export const CarouselImage = (props: CarouselImageProps): JSX.Element => {
   const { image } = banner?.attributes || {};
 
   const url = image?.data?.formats?.large?.url || {};
-
+  console.log(image?.data);
   return (
     <Box key={`carousel-image-${image.id}`}>
       <img
