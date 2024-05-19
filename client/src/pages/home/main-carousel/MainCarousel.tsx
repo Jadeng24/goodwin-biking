@@ -71,7 +71,7 @@ export const MainCarousel = () => {
         </IconButton>
       )}
     >
-      {sortedBanners.map((banner: any) => (
+      {sortedBanners?.map((banner: any) => (
         <CarouselImage banner={banner} />
       ))}
       {/* {Object.values(carouselImages).map((url, index) => (
