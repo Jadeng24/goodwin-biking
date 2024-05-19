@@ -27,7 +27,7 @@ const ItemDetails = () => {
     item?.attributes || {};
 
   async function getItem() {
-    const item = await fetch(`${API_URL}/items/${itemId}?populate=image`, {
+    const item = await fetch(`${API_URL}/items/${itemId}?populate=*`, {
       method: "GET",
     });
     const itemJson = await item.json();
@@ -35,7 +35,7 @@ const ItemDetails = () => {
   }
 
   async function getRelatedItems() {
-    const items = await fetch(`${API_URL}/items?populate=image`, {
+    const items = await fetch(`${API_URL}/items?populate=*`, {
       method: "GET",
     });
     const itemsJson = await items.json();

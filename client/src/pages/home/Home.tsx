@@ -9,7 +9,7 @@ const Home = () => {
   const dispatch = useDispatch();
 
   async function getBanners() {
-    const banners = await fetch(`${API_URL}/banners?populate=image`, {
+    const banners = await fetch(`${API_URL}/banners?populate=*`, {
       method: "GET",
     });
     const bannersJson = await banners.json();

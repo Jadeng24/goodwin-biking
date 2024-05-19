@@ -49,7 +49,8 @@ export const CartItems = () => {
                   alt={name}
                   width="123px"
                   height="164px"
-                  src={`${BASE_URL}${url}`}
+                  src={`${BASE_URL}${url}`} // SOMETHING TO NOTE: if we use /api as the route for the server, then it confuses things.
+                  // I then have to do /api/api/banners. maybe we should instead do /server/api/banners for example. images think they are at /api/uploads..
                 />
               </Box>
 
