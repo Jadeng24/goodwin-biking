@@ -24,7 +24,7 @@ export const CarouselImage = (props: CarouselImageProps): JSX.Element => {
   return (
     <Box key={`carousel-image-${image.id}`}>
       <img
-        src={`${BASE_URL}${url}`}
+        src={`${process.env.REACT_APP_BASE_URL}${url}`}
         alt={`carousel-${image.id}`}
         style={{
           width: "100%",
