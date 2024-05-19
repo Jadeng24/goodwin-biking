@@ -9,6 +9,7 @@ import { shades } from "../../theme";
 import { ItemAmount } from "./item-amount/ItemAmount";
 import { addToCart } from "../../redux-store";
 import { ItemPreviewInfo } from "./item-preview-info/ItemPreviewInfo";
+import { BASE_URL } from "../../environment";
 
 interface ItemProps {
   item: any;
@@ -47,7 +48,7 @@ const Item = (props: ItemProps) => {
           alt={item.name}
           width="300px"
           height="400px"
-          src={`${process.env.REACT_APP_UPLOAD_URL}${url}`}
+          src={`${BASE_URL}${url}`}
           onClick={() => navigate(`/item/${item.id}`)}
           style={{ cursor: "pointer" }}
         />

@@ -3,15 +3,15 @@ import { MainCarousel } from "./main-carousel/MainCarousel";
 import ShoppingList from "./shopping-list/ShoppingList";
 import { setBanners } from "../../redux-store/bannerReducer";
 import { useEffect } from "react";
+import { API_URL } from "../../environment";
 
 const Home = () => {
   const dispatch = useDispatch();
 
   async function getBanners() {
-    const banners = await fetch(
-      `${process.env.REACT_APP_API_URL}/banners?populate=image`,
-      { method: "GET" }
-    );
+    const banners = await fetch(`${API_URL}/banners?populate=image`, {
+      method: "GET",
+    });
     const bannersJson = await banners.json();
 
     dispatch(setBanners(bannersJson.data));

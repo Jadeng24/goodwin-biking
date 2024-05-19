@@ -17,6 +17,7 @@ import {
 } from "../../../../../redux-store";
 import { shades } from "../../../../../theme";
 import { Flex } from "../../../../../components";
+import { BASE_URL } from "../../../../../environment";
 
 export const CartItems = () => {
   const dispatch = useDispatch();
@@ -48,7 +49,7 @@ export const CartItems = () => {
                   alt={name}
                   width="123px"
                   height="164px"
-                  src={`${process.env.REACT_APP_UPLOAD_URL}${url}`}
+                  src={`${BASE_URL}${url}`}
                 />
               </Box>
 

@@ -28,7 +28,6 @@ const Checkout = () => {
     const { email, shippingAddress } = formValues || {};
     try {
       const stripe = await stripePromise;
-      console.log(process.env.REACT_APP_API_URL);
       const res = await makeRequest.post("/orders", {
         products,
         shippingAddress,

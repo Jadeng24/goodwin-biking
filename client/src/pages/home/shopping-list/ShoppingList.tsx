@@ -9,6 +9,7 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 
 import { RootState, setItems } from "../../../redux-store";
 import Item from "../../../components/item/Item";
+import { API_URL } from "../../../environment";
 
 const ShoppingList = () => {
   const dispatch = useDispatch();
@@ -18,7 +19,8 @@ const ShoppingList = () => {
 
   async function getItems() {
     const items = await fetch(
-      "http://localhost:1337/api/items?populate=image", // TODO: don't use localhost when hosting
+      `${API_URL}/items?populate=image`,
+      //   "http://localhost:1337/api/items?populate=image", // TODO: don't use localhost when hosting
       { method: "GET" }
     );
     const itemsJson = await items.json();

@@ -13,6 +13,7 @@ import Item from "../../components/item/Item";
 import { shades } from "../../theme";
 import { addToCart } from "../../redux-store";
 import { Flex } from "../../components";
+import { API_URL, BASE_URL } from "../../environment";
 
 const ItemDetails = () => {
   const dispatch = useDispatch();
@@ -26,23 +27,17 @@ const ItemDetails = () => {
     item?.attributes || {};
 
   async function getItem() {
-    const item = await fetch(
-      `${process.env.REACT_APP_API_URL}/items/${itemId}?populate=image`,
-      {
-        method: "GET",
-      }
-    );
+    const item = await fetch(`${API_URL}/items/${itemId}?populate=image`, {
+      method: "GET",
+    });
     const itemJson = await item.json();
     setItem(itemJson.data);
   }
 
   async function getRelatedItems() {
-    const items = await fetch(
-      `${process.env.REACT_APP_API_URL}/items?populate=image`,
-      {
-        method: "GET",
-      }
-    );
+    const items = await fetch(`${API_URL}/items?populate=image`, {
+      method: "GET",
+    });
     const itemsJson = await items.json();
     setRelatedItems(itemsJson.data);
   }
@@ -71,7 +66,7 @@ const ItemDetails = () => {
             alt={item?.name}
             width="100%"
             height="100%"
-            src={`${process.env.REACT_APP_UPLOAD_URL}${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+            src={`${BASE_URL}${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
             style={{ objectFit: "contain" }}
           />
         </Box>
