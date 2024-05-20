@@ -18,11 +18,7 @@ const ShoppingList = () => {
   const breakPoint = useMediaQuery("(min-width:600px)");
 
   async function getItems() {
-    const items = await fetch(
-      `${process.env.REACT_APP_API_URL}/items?populate=*`,
-      //   "http://localhost:1337/api/items?populate=image", // TODO: don't use localhost when hosting
-      { method: "GET" }
-    );
+    const items = await fetch(`${API_URL}/items?populate=*`, { method: "GET" });
     const itemsJson = await items.json();
     dispatch(setItems(itemsJson.data));
   }
