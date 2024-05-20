@@ -31,7 +31,7 @@ export const CartItems = () => {
         const { name, price, shortDescription, image, longDescription } =
           item?.attributes || {};
 
-        const url: string = image?.data?.attributes?.formats?.medium?.url;
+        const url: string = image?.data?.attributes?.formats?.medium?.url || "";
 
         return (
           <Flex key={`${name}-${item?.id}`} flexDirection="column">
@@ -53,6 +53,8 @@ export const CartItems = () => {
                   // I then have to do /api/api/banners. maybe we should instead do /server/api/banners for example. images think they are at /api/uploads..
                 />
               </Box>
+              {/* https://www.goodwinbiking.com/api/uploads/large_marek_piwnicki_ceq24l_P_Jc38_unsplash_e1d512672a.jpg */}
+              {/* https://www.goodwinbiking.com/api/uploads/large_slava_auchynnikau_s41_Qwb_i5_X8_unsplash_d92cb46a09.jpg */}
 
               <Box flex="1 1 60%">
                 {/* TODO: make separate component for this */}

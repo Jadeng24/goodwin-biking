@@ -21,12 +21,12 @@ export const CarouselImage = (props: CarouselImageProps): JSX.Element => {
   //     },
   //   } = image || {};
 
-  const url = image?.data?.formats?.large?.url || {};
+  const url = image?.data?.attributes?.formats?.large?.url || "";
 
   return (
     <Box key={`carousel-image-${image.id}`}>
       <img
-        src={`${process.env.REACT_APP_BASE_URL}${url}`}
+        src={`${BASE_URL}${url}`}
         alt={`carousel-${image.id}`}
         style={{
           width: "100%",

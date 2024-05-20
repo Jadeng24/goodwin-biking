@@ -44,22 +44,6 @@ const Item = (props: ItemProps) => {
           onClick={() => navigate(`/item/${item.id}`)}
           style={{ cursor: "pointer" }}
         />
-        <>
-          {BASE_URL}
-          {url}
-        </>
-        <>
-          {API_URL}
-          {url}
-        </>
-        <img
-          alt={item.name}
-          width="300px"
-          height="400px"
-          src={`${API_URL}${url}`}
-          onClick={() => navigate(`/item/${item.id}`)}
-          style={{ cursor: "pointer" }}
-        />
         <Box
           display={isHovered ? "block" : "none"}
           position="absolute"
