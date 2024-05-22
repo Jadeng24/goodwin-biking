@@ -7,6 +7,7 @@ import { IconButton } from "@mui/material";
 import { CarouselImage } from "./carousel-image/CarouselImage";
 import { RootState } from "../../../redux-store";
 import { useSelector } from "react-redux";
+// import "./MainCarousel.scss";
 
 // Backup images if not using strapi db banner images
 // const importAll = (r: __WebpackModuleApi.RequireContext) =>
@@ -34,12 +35,18 @@ export const MainCarousel = () => {
     return 0;
   });
 
-  return (
+  return banners?.length ? (
     <Carousel
+      autoFocus
+      autoPlay
+      emulateTouch={true}
       infiniteLoop={true}
-      showThumbs={false}
+      interval={5000}
+      showThumbs={true}
       showIndicators={true}
       showStatus={false}
+      useKeyboardArrows
+      transitionTime={500}
       renderArrowPrev={(onClickHandler, hasPrev, label) => (
         <IconButton
           onClick={onClickHandler}
@@ -78,5 +85,7 @@ export const MainCarousel = () => {
         <CarouselImage imageUrl={url as string} index={index} />
       ))} */}
     </Carousel>
+  ) : (
+    <></>
   );
 };
