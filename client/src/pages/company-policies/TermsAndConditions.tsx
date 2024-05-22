@@ -1,26 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-has-content */
 // @ts-nocheck
-import { Box } from "@mui/material";
-import React from "react";
+import { Box, useMediaQuery } from "@mui/material";
+import PageHeader from "../../components/page-header/PageHeader";
 
 const TermsAndConditions = () => {
+  const isMobile = useMediaQuery("(max-width:600px");
+
   return (
-    <Box padding="6%">
-      <style
-        dangerouslySetInnerHTML={{
-          __html:
-            "\n   [data-custom-class='body'], [data-custom-class='body'] * {\n   background: transparent !important;\n   }\n   [data-custom-class='title'], [data-custom-class='title'] * {\n   font-family: Arial !important;\n   font-size: 26px !important;\n   color: #000000 !important;\n   }\n   [data-custom-class='subtitle'], [data-custom-class='subtitle'] * {\n   font-family: Arial !important;\n   color: #595959 !important;\n   font-size: 14px !important;\n   }\n   [data-custom-class='heading_1'], [data-custom-class='heading_1'] * {\n   font-family: Arial !important;\n   font-size: 19px !important;\n   color: #000000 !important;\n   }\n   [data-custom-class='heading_2'], [data-custom-class='heading_2'] * {\n   font-family: Arial !important;\n   font-size: 17px !important;\n   color: #000000 !important;\n   }\n   [data-custom-class='body_text'], [data-custom-class='body_text'] * {\n   color: #595959 !important;\n   font-size: 14px !important;\n   font-family: Arial !important;\n   }\n   [data-custom-class='link'], [data-custom-class='link'] * {\n   color: #3030F1 !important;\n   font-size: 14px !important;\n   font-family: Arial !important;\n   word-break: break-word !important;\n   }\n",
-        }}
-      />
-      <span
-        style={{
-          display: "block",
-          margin: "0 auto 3.125rem",
-          width: "11.125rem",
-          height: "2.375rem",
-          background: "url(data:image/svg+xml",
-        }}
-      />
+    <Box padding={isMobile ? "30px" : "60px"}>
+      <PageHeader title="Terms and Conditions" />
+
       <div data-custom-class="body">
         <Box style={{ textAlign: "left" }}>
           <div
@@ -31,9 +20,7 @@ const TermsAndConditions = () => {
             <div className="block-component">
               <span style={{ fontSize: 19 }}></span>
             </div>
-            <div className="question">
-              <strong>TERMS AND CONDITIONS</strong>
-            </div>
+
             <div className="statement-end-if-in-editor" />
           </div>
           <div className="MsoNormal" style={{ lineHeight: "1.5" }}>

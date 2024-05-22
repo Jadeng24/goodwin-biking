@@ -1,9 +1,12 @@
-import { Box, Typography } from "@mui/material";
+import { Box, Typography, useMediaQuery } from "@mui/material";
+import PageHeader from "../../components/page-header/PageHeader";
 
 const RefundsAndReturns = () => {
+  const isMobile = useMediaQuery("(max-width:600px");
+
   return (
-    <Box padding="60px" marginTop="60px" fontSize="16px">
-      <Typography variant="h1">RETURN POLICY</Typography>
+    <Box padding={isMobile ? "30px" : "60px"} fontSize="16px">
+      <PageHeader title="Refunds and Returns" />
       Last updated May 06, 2024
       <br />
       <br />

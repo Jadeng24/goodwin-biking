@@ -67,7 +67,7 @@ const NavMenuDrawer = () => {
 
           <Button
             color="primary"
-            onClick={() => handleNavigate("/products")}
+            onClick={() => handleNavigate("/bikepacking-bags")}
             style={linkStyles}
           >
             <Typography variant="h3">

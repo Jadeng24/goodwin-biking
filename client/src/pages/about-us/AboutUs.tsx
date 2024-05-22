@@ -3,6 +3,7 @@ import React from "react";
 import { Flex } from "../../components";
 import goodwinBiking from "../../assets/gb-grey.png";
 import utah from "../../assets/utah-bg.jpg";
+import PageHeader from "../../components/page-header/PageHeader";
 const AboutUs = () => {
   const imageStyle = { maxWidth: "200px", borderRadius: "8px" };
   const utahStyle = {
@@ -16,8 +17,8 @@ const AboutUs = () => {
   const isMobile = useMediaQuery("(max-width:600px");
 
   return (
-    <Box padding={isMobile ? "30px" : "60px"} marginTop="60px" fontSize="16px">
-      <Typography variant="h1">About Us</Typography>
+    <Box padding={isMobile ? "30px" : "60px"} fontSize="16px">
+      <PageHeader title="About Us" />
       <Flex
         paddingTop="40px"
         flexDirection={isMobile ? "column-reverse" : "row"}

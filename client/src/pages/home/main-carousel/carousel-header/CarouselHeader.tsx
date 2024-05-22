@@ -14,12 +14,13 @@ export const CarouselHeader = (props: CarouselHeaderProps): JSX.Element => {
   const { banner } = props;
   const navigate = useNavigate();
   const isGreaterThanMobile = useMediaQuery("(min-width:600px");
+  const defaultUrl = "/bikepacking-bags";
+  const defaultLinkText = "Shop Now";
 
   const { appUrl, externalUrl, linkText, subtitle, title } =
     banner?.attributes || {};
 
   const handleOnClick = () => {
-    const defaultUrl = "/products";
     if (externalUrl) {
       linkToExternal(externalUrl);
     } else {
@@ -80,7 +81,7 @@ export const CarouselHeader = (props: CarouselHeaderProps): JSX.Element => {
           },
         }}
       >
-        {linkText ?? "Discover More"}
+        {linkText ?? defaultLinkText}
       </Typography>
     </Flex>
   );
