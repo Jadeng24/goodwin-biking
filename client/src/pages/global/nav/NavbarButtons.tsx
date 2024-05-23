@@ -12,13 +12,12 @@ import {
 import { Flex } from "../../../components";
 
 const NavbarButtons = () => {
-  const navigate = useNavigate();
   const dispatch = useDispatch();
 
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
   return (
-    <Flex onClick={() => navigate("/")} sx={{}} gap="4px">
+    <Flex gap="4px">
       <IconButton
         onClick={() => dispatch(setIsCartOpen({}))}
         sx={{

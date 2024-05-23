@@ -34,14 +34,14 @@ const NavMenuDrawer = () => {
 
   return (
     <Flex
-      padding="30px"
+      padding={isGreaterThanMobile ? "30px" : "15px"}
       height="100%"
       flexDirection="column"
       justifyContent="space-between"
     >
       <Flex width="100%" flexDirection="column">
         <Flex
-          marginBottom={isGreaterThanMobile ? "40px" : "100px"}
+          marginBottom={isGreaterThanMobile ? "40px" : "20px"}
           justifyContent="space-between"
           width="100%"
         >

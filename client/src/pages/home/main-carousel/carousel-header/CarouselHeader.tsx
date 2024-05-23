@@ -55,7 +55,7 @@ export const CarouselHeader = (props: CarouselHeaderProps): JSX.Element => {
       </Typography>
       <Typography
         variant="h4"
-        fontSize="16px"
+        fontSize={isGreaterThanMobile ? "18px" : "16px"}
         fontWeight="700"
         color={shades.neutral[500]}
         marginBottom="24px"
@@ -66,11 +66,11 @@ export const CarouselHeader = (props: CarouselHeaderProps): JSX.Element => {
       <Typography
         variant="h4"
         fontWeight="bold"
-        fontSize="18px"
+        fontSize={isGreaterThanMobile ? "18px" : "14px"}
         color="#222"
         sx={{
           background: shades.neutral[300],
-          padding: "9px 22px",
+          padding: isGreaterThanMobile ? "9px 22px" : "8px 20px",
           borderRadius: "30px",
           transition: ".3s",
           border: "solid 3px transparent",

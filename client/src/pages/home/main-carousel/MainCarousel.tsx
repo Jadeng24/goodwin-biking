@@ -42,7 +42,6 @@ export const MainCarousel = () => {
       emulateTouch={true}
       infiniteLoop={true}
       interval={5000}
-      showThumbs={true}
       showIndicators={true}
       showStatus={false}
       useKeyboardArrows
@@ -55,7 +54,7 @@ export const MainCarousel = () => {
             top: "50%",
             left: "0",
             color: "white",
-            padding: "5px",
+            padding: "8px",
             zIndex: "10",
           }}
         >
@@ -70,7 +69,7 @@ export const MainCarousel = () => {
             top: "50%",
             right: "0",
             color: "white",
-            padding: "5px",
+            padding: "8px",
             zIndex: "10",
           }}
         >
