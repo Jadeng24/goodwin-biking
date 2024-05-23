@@ -79,7 +79,6 @@ const ItemDetails = () => {
             <Box>Home/Item</Box>
             <Box>Prev Next</Box>
           </Flex>
-
           <Box m="65px 0 25px 0">
             <Flex alignItems="center" justifyContent="space-between">
               <Typography variant="h3">{name}</Typography>
@@ -89,7 +88,32 @@ const ItemDetails = () => {
               {summary}
             </Typography>
           </Box>
+          {/* TODO: Add expandable boxes showing categories of information */}
+          {/* FEATURES
+Lighweight
+Water-resistant
+double seam ?
+waterproof zippers
+multi-pocket design
 
+
+
+SPECS 
+color
+weight
+volume
+material
+length / width / height
+max load capacity
+type (top tube bag) */}
+          {/* SHIPPING & RETURNS
+FREE SHIPPING ON ORDERS OVER $100
+
+US & international delivery usually within 5-7 days of shipment. Courier will vary by shipping destination.
+
+For additional information regarding shipping and delivery, click here.
+
+See our 30-day return policy here. */}
           <Box display="flex" alignItems="center" minHeight="50px">
             <Box
               display="flex"

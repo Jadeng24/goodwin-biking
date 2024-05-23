@@ -12,6 +12,7 @@ import RefundsAndReturns from "./pages/company-policies/RefundsAndReturns";
 import AboutUs from "./pages/about-us/AboutUs";
 import NavMenu from "./pages/global/nav-menu/NavMenu";
 import BikepackingBags from "./pages/bikepacking-bags/BikepackingBags";
+import AccessoriesAndApparel from "./pages/accessories-and-apparel/AccessoriesAndApparel";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -31,6 +32,10 @@ function App() {
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route
+            path="/accessories-apparel"
+            element={<AccessoriesAndApparel />}
+          />
           <Route path="/item/:itemId" element={<ItemDetails />} />
           <Route path="/checkout" element={<Checkout />} />
           <Route path="/checkout/success" element={<Confirmation />} />

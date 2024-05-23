@@ -77,10 +77,10 @@ const NavMenuDrawer = () => {
 
           <Button
             color="primary"
-            onClick={() => handleNavigate("/apparel")}
+            onClick={() => handleNavigate("/accessories-apparel")}
             style={linkStyles}
           >
-            <Typography variant="h3">Apparel</Typography>
+            <Typography variant="h3">Accessories & Apparel</Typography>
           </Button>
           <Button
             color="primary"
@@ -89,13 +89,14 @@ const NavMenuDrawer = () => {
           >
             <Typography variant="h3">About us</Typography>
           </Button>
-          <Button
+          {/* TODO add a contact page  */}
+          {/* <Button
             color="primary"
             onClick={() => handleNavigate("/about-us")}
             style={linkStyles}
           >
             <Typography variant="h3">Contact us</Typography>
-          </Button>
+          </Button> */}
         </Flex>
       </Flex>
       <SocialLinks />
