@@ -99,12 +99,12 @@ multi-pocket design
 
 
 SPECS 
-color
-weight
-volume
-material
-length / width / height
-max load capacity
+color1
+weight1
+volume1
+material1
+length / width / height1
+max load capacity1
 type (top tube bag) */}
           {/* SHIPPING & RETURNS
 FREE SHIPPING ON ORDERS OVER $100

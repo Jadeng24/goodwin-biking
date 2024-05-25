@@ -4,7 +4,8 @@
   "info": {
     "singularName": "item",
     "pluralName": "items",
-    "displayName": "Item"
+    "displayName": "Item",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -24,14 +25,15 @@
       "type": "decimal"
     },
     "image": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
       "allowedTypes": [
         "images",
         "files",
         "videos",
         "audios"
-      ],
-      "type": "media",
-      "multiple": false
+      ]
     },
     "category": {
       "type": "enumeration",
@@ -40,6 +42,43 @@
         "bestSellers",
         "topRated"
       ]
+    },
+    "color": {
+      "type": "string"
+    },
+    "weight": {
+      "type": "decimal"
+    },
+    "volume": {
+      "type": "decimal"
+    },
+    "material": {
+      "type": "string"
+    },
+    "bagType": {
+      "type": "enumeration",
+      "enum": [
+        "topTube",
+        "frame",
+        "handlebar",
+        "seatPack",
+        "rearRack"
+      ]
+    },
+    "dimensions": {
+      "type": "json"
+    },
+    "stock": {
+      "type": "integer"
+    },
+    "discountPercent": {
+      "type": "decimal"
+    },
+    "Features": {
+      "type": "json"
+    },
+    "videoLink": {
+      "type": "string"
     }
   }
 }

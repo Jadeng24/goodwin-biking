@@ -5,10 +5,10 @@ import { shades } from "../../theme";
 
 interface PageHeaderProps {
   title: string;
-  subTitle?: string;
+  subtitle?: string;
 }
 const PageHeader = (props: PageHeaderProps) => {
-  const { title, subTitle } = props;
+  const { title, subtitle } = props;
   const isDesktop = useMediaQuery("(min-width:900px");
   const isTablet = useMediaQuery("(min-width:600px");
 

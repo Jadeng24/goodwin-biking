@@ -3,6 +3,7 @@
     "editor.detectIndentation": false,
     "cSpell.words": [
         "autoremove",
+        "Bikepack",
         "bikepackers",
         "Bikepacking",
         "Cinzel",
@@ -12,6 +13,7 @@
         "Questrial",
         "reduxjs",
         "Strapi",
-        "strava"
+        "strava",
+        "tailwindcss"
     ]
 }

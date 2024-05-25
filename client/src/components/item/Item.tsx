@@ -9,7 +9,7 @@ import { shades } from "../../theme";
 import { ItemAmount } from "./item-amount/ItemAmount";
 import { addToCart } from "../../redux-store";
 import { ItemPreviewInfo } from "./item-preview-info/ItemPreviewInfo";
-import { API_URL, BASE_URL } from "../../environment";
+import { BASE_URL } from "../../environment";
 
 interface ItemProps {
   item: any;
