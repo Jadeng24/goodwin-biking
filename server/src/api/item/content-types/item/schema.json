@@ -43,9 +43,6 @@
         "topRated"
       ]
     },
-    "color": {
-      "type": "string"
-    },
     "weight": {
       "type": "decimal"
     },
@@ -65,19 +62,22 @@
         "rearRack"
       ]
     },
-    "dimensions": {
-      "type": "json"
-    },
     "stock": {
       "type": "integer"
     },
     "discountPercent": {
       "type": "decimal"
     },
-    "Features": {
+    "features": {
       "type": "json"
     },
     "videoLink": {
+      "type": "string"
+    },
+    "color": {
+      "type": "json"
+    },
+    "dimensions": {
       "type": "string"
     }
   }

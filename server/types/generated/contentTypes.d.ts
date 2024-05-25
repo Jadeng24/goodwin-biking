@@ -850,18 +850,18 @@ export interface ApiItemItem extends Schema.CollectionType {
     price: Attribute.Decimal;
     image: Attribute.Media;
     category: Attribute.Enumeration<['newArrivals', 'bestSellers', 'topRated']>;
-    color: Attribute.String;
     weight: Attribute.Decimal;
     volume: Attribute.Decimal;
     material: Attribute.String;
     bagType: Attribute.Enumeration<
       ['topTube', 'frame', 'handlebar', 'seatPack', 'rearRack']
     >;
-    dimensions: Attribute.JSON;
     stock: Attribute.Integer;
     discountPercent: Attribute.Decimal;
-    Features: Attribute.JSON;
+    features: Attribute.JSON;
     videoLink: Attribute.String;
+    color: Attribute.JSON;
+    dimensions: Attribute.String;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;
