@@ -79,6 +79,9 @@
     },
     "dimensions": {
       "type": "string"
+    },
+    "maxCapacity": {
+      "type": "decimal"
     }
   }
 }

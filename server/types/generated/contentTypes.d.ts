@@ -862,6 +862,7 @@ export interface ApiItemItem extends Schema.CollectionType {
     videoLink: Attribute.String;
     color: Attribute.JSON;
     dimensions: Attribute.String;
+    maxCapacity: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

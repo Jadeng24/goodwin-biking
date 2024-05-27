@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
 import { Box, Button, IconButton, Typography } from "@mui/material";
@@ -14,6 +14,8 @@ import { shades } from "../../theme";
 import { addToCart } from "../../redux-store";
 import { Flex } from "../../components";
 import { API_URL, BASE_URL } from "../../environment";
+import ItemFeatures from "./item-features/ItemFeatures";
+import ItemSpecs from "./item-specs/ItemSpecs";
 
 const ItemDetails = () => {
   const dispatch = useDispatch();
@@ -58,10 +60,15 @@ const ItemDetails = () => {
   const summary = shortDescription?.[0].children[0].text;
 
   return (
-    <Box width="80%" m="80px auto">
-      <Box display="flex" flexWrap="wrap" columnGap="40px">
-        {/* IMAGES */}
-        <Box flex="1 1 40%" mb="40px">
+    <Box width="80%" margin="80px auto">
+      <Box
+        display="flex"
+        alignItems="flex-start"
+        flexWrap="wrap"
+        columnGap="40px"
+      >
+        {/* Item image */}
+        <Box flex="1 1 40%" marginBottom="40px">
           <img
             alt={item?.name}
             width="100%"
@@ -70,15 +77,9 @@ const ItemDetails = () => {
             style={{ objectFit: "contain" }}
           />
         </Box>
+        {/* TODO: add extra images below main image to view  */}
 
-        {/* TODO: redo this whole file to be broken out in components  */}
-
-        {/* ACTIONS */}
-        <Box flex="1 1 50%" mb="40px">
-          <Flex justifyContent="space-between">
-            <Box>Home/Item</Box>
-            <Box>Prev Next</Box>
-          </Flex>
+        <Box flex="1 1 50%" marginBottom="40px">
           <Box m="65px 0 25px 0">
             <Flex alignItems="center" justifyContent="space-between">
               <Typography variant="h3">{name}</Typography>
@@ -106,21 +107,31 @@ material1
 length / width / height1
 max load capacity1
 type (top tube bag) */}
-          {/* SHIPPING & RETURNS
-FREE SHIPPING ON ORDERS OVER $100
+          <Box marginBottom="20px">
+            <Typography variant="h4">SHIPPING & RETURNS</Typography>
+            <Typography> Free shipping on orders over $100</Typography>
+            <Typography>
+              For return policy, <Link to="/returns">go here</Link>
+            </Typography>
+          </Box>
 
-US & international delivery usually within 5-7 days of shipment. Courier will vary by shipping destination.
+          {/* US & international delivery usually within 5-7 days of shipment. Courier will vary by shipping destination.
 
 For additional information regarding shipping and delivery, click here.
 
 See our 30-day return policy here. */}
-          <Box display="flex" alignItems="center" minHeight="50px">
+          <Box
+            display="flex"
+            alignItems="center"
+            minHeight="50px"
+            marginBottom="40px"
+          >
             <Box
               display="flex"
               alignItems="center"
               border={`1.5px solid ${shades.neutral[300]}`}
-              mr="20px"
-              p="2px 5px"
+              marginRight="20px"
+              padding="2px 5px"
             >
               <IconButton onClick={() => setCount(Math.max(count - 1, 0))}>
                 <RemoveIcon />
@@ -148,17 +159,12 @@ See our 30-day return policy here. */}
               ADD TO CART
             </Button>
           </Box>
-          <Box>
-            <Box m="20px 0 5px 0" display="flex">
-              <FavoriteBorderOutlinedIcon />
-              <Typography sx={{ ml: "5px" }}>ADD TO WISHLIST</Typography>
-            </Box>
-            <Typography>CATEGORIES: {category}</Typography>
-          </Box>
+          <ItemFeatures />
+          <ItemSpecs />
         </Box>
       </Box>
 
-      <Box m="20px 0">
+      <Box margin="20px 0">
         <Tabs value={value} onChange={handleChange}>
           <Tab label="DESCRIPTION" value="description" />
           <Tab label="REVIEWS" value="reviews" />
