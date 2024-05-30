@@ -20,9 +20,7 @@ const Item = (props: ItemProps) => {
   const { item, width } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
   const [count, setCount] = useState(1);
-
   const [isHovered, setIsHovered] = useState(false);
 
   const { category, image, name, price } = item?.attributes || {};
@@ -50,7 +48,7 @@ const Item = (props: ItemProps) => {
           bottom="8%"
           left="0"
           width="100%"
-          padding="0 20px"
+          paddingX="20px"
           sx={{ transition: ".3s" }}
         >
           <Flex justifyContent="center" alignItems="center" gap="12px">

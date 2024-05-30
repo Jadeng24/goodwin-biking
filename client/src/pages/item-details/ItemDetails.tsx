@@ -25,6 +25,7 @@ import { Flex } from "../../components";
 import { API_URL, BASE_URL } from "../../environment";
 import ItemFeatures from "./item-features/ItemFeatures";
 import ItemSpecs from "./item-specs/ItemSpecs";
+import { Share } from "@mui/icons-material";
 
 const ItemDetails = () => {
   const dispatch = useDispatch();
@@ -82,6 +83,7 @@ const ItemDetails = () => {
           </Link>
           <Typography color="text.primary">{name}</Typography>
         </Breadcrumbs>
+
         {/* Item image */}
         <Flex
           marginBottom="40px"
@@ -109,9 +111,14 @@ const ItemDetails = () => {
               <Flex alignItems="center" justifyContent="space-between">
                 <Typography variant="h3">{name}</Typography>
               </Flex>
-              <Typography variant="h4" fontSize="20px">
-                ${price}
-              </Typography>
+              <Flex justifyContent="space-between" width="100%">
+                <Typography variant="h4" fontSize="20px">
+                  ${price}
+                </Typography>
+                <IconButton>
+                  <Share />
+                </IconButton>
+              </Flex>
 
               <Box marginY="20px">
                 <Divider />
