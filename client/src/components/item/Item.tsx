@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { Box, Button } from "@mui/material";
+import { Box, Button, Typography } from "@mui/material";
 
 import { Flex } from "../flex";
 import { shades } from "../../theme";
@@ -42,7 +42,7 @@ const Item = (props: ItemProps) => {
           width="300px"
           src={`${BASE_URL}${url}`}
           onClick={() => navigate(`/item/${item.id}`)}
-          style={{ cursor: "pointer" }}
+          style={{ borderRadius: "4px", cursor: "pointer" }}
         />
         <Box
           display={isHovered ? "block" : "none"}
@@ -53,7 +53,7 @@ const Item = (props: ItemProps) => {
           padding="0 20px"
           sx={{ transition: ".3s" }}
         >
-          <Flex justifyContent="center" alignItems="center" gap="8px">
+          <Flex justifyContent="center" alignItems="center" gap="12px">
             <ItemAmount
               count={count}
               onRemove={() => setCount(Math.max(count - 1, 1))}
@@ -67,12 +67,12 @@ const Item = (props: ItemProps) => {
               sx={{
                 background: shades.primary[500],
                 color: "#fff",
-                padding: "5px 14px",
-                fontSize: "14px",
+                padding: "9px 14px",
+
                 "&:hover": { background: shades.primary[300] },
               }}
             >
-              Add to Cart
+              <Typography variant="h4">Add to Cart</Typography>
             </Button>
           </Flex>
         </Box>

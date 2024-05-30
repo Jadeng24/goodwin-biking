@@ -17,7 +17,7 @@ export const ItemAmount = (props: ItemAmountProps) => {
     <Flex
       alignItems="center"
       background={shades.neutral[300]}
-      borderRadius="3px"
+      borderRadius="4px"
     >
       <IconButton onClick={onRemove} disabled={Boolean(count === 1)}>
         <Remove />

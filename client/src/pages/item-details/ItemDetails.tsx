@@ -96,10 +96,11 @@ const ItemDetails = () => {
                 minWidth: "44%",
                 maxWidth: "100%",
                 objectFit: "contain",
+                borderRadius: "4px",
               }}
             />
           ) : (
-            <Skeleton variant="rectangular" width="300px" height="400px" />
+            <Skeleton variant="rectangular" width="400px" height="300px" />
           )}
 
           {/* // right half  */}
@@ -136,17 +137,11 @@ const ItemDetails = () => {
 
 
 See our 30-day return policy here. */}
-            <Box
-              display="flex"
-              alignItems="center"
-              minHeight="50px"
-              marginBottom="40px"
-            >
-              <Box
-                display="flex"
+            <Flex alignItems="center" gap="20px" marginBottom="40px">
+              <Flex
                 alignItems="center"
+                borderRadius="4px"
                 border={`1.5px solid ${shades.neutral[300]}`}
-                marginRight="20px"
                 padding="2px 5px"
               >
                 <IconButton
@@ -159,15 +154,15 @@ See our 30-day return policy here. */}
                 <IconButton onClick={() => setCount(count + 1)}>
                   <AddIcon />
                 </IconButton>
-              </Box>
+              </Flex>
               <Button
                 sx={{
-                  background: shades.primary[500],
-                  color: "white",
-                  borderRadius: 0,
                   minWidth: "150px",
-                  padding: "10px 40px",
+                  padding: "11px 40px",
+                  background: shades.primary[500],
+                  color: "#fff",
                   transition: ".3s",
+                  textWrap: "nowrap",
                   "&:hover": {
                     background: shades.primary[300],
                     transform: "scale(1.02)",
@@ -177,9 +172,9 @@ See our 30-day return policy here. */}
                   dispatch(addToCart({ item: { ...item, count } }))
                 }
               >
-                ADD TO CART
+                <Typography variant="h4">ADD TO CART</Typography>
               </Button>
-            </Box>
+            </Flex>
             <ItemFeatures />
             <ItemSpecs />
           </Box>
