@@ -6,7 +6,13 @@ import {
   Box,
   Typography,
 } from "@mui/material";
-import React from "react";
+
+//           {/* FEATURES
+// Lighweight
+// Water-resistant
+// double seam ?
+// waterproof zippers
+// multi-pocket design
 
 const ItemFeatures = () => {
   return (
@@ -20,6 +26,7 @@ const ItemFeatures = () => {
           <Typography variant="h4">FEATURES</Typography>
         </AccordionSummary>
         <AccordionDetails>
+          {/* TODO: list out features here from props  */}
           Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
           malesuada lacus ex, sit amet blandit leo lobortis eget.
         </AccordionDetails>

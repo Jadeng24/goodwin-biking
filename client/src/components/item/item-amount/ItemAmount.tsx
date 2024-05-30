@@ -19,7 +19,7 @@ export const ItemAmount = (props: ItemAmountProps) => {
       background={shades.neutral[300]}
       borderRadius="3px"
     >
-      <IconButton onClick={onRemove}>
+      <IconButton onClick={onRemove} disabled={Boolean(count === 1)}>
         <Remove />
       </IconButton>
       <Typography variant="h4" color="#333">

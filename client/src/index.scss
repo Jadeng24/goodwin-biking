@@ -1,14 +1,6 @@
 // @import url("https://fonts.googleapis.com/css2?family=Cinzel&family=Fauna+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Questrial&display=swap");
 
-$my-primary: dodgerblue;
-$my-dark: #222;
-
-:export {
-  primary: $my-primary;
-  dark: $my-dark;
-}
-
 * {
   box-sizing: border-box;
 }
@@ -29,4 +21,12 @@ body {
   color: #c0c0c0;
   color: #3a6ea5;
   color: #004e98;
+}
+
+a {
+  color: #3a6ea5;
+  text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
 }

@@ -2,7 +2,16 @@ import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import { Box, Button, IconButton, Typography } from "@mui/material";
+import {
+  Box,
+  Breadcrumbs,
+  Button,
+  Divider,
+  IconButton,
+  Skeleton,
+  Typography,
+  useMediaQuery,
+} from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
@@ -24,6 +33,8 @@ const ItemDetails = () => {
   const [count, setCount] = useState(1);
   const [item, setItem] = useState<any>(null);
   const [relatedItems, setRelatedItems] = useState<any>([]);
+
+  const isMobile = useMediaQuery("(max-width:600px)");
 
   const { category, name, price, shortDescription, longDescription } =
     item?.attributes || {};
@@ -60,111 +71,122 @@ const ItemDetails = () => {
   const summary = shortDescription?.[0].children[0].text;
 
   return (
-    <Box width="80%" margin="80px auto">
-      <Box
-        display="flex"
-        alignItems="flex-start"
-        flexWrap="wrap"
-        columnGap="40px"
-      >
+    <Box padding={isMobile ? "60px 30px 30px" : "60px"} fontSize="16px">
+      <Flex flexDirection="column" rowGap="40px" marginTop="10px">
+        <Breadcrumbs aria-label="breadcrumb">
+          <Link color="inherit" to="/">
+            Home
+          </Link>
+          <Link color="inherit" to="/bikepacking-bags">
+            Bikepacking Bags
+          </Link>
+          <Typography color="text.primary">{name}</Typography>
+        </Breadcrumbs>
         {/* Item image */}
-        <Box flex="1 1 40%" marginBottom="40px">
-          <img
-            alt={item?.name}
-            width="100%"
-            height="100%"
-            src={`${BASE_URL}${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
-            style={{ objectFit: "contain" }}
-          />
-        </Box>
-        {/* TODO: add extra images below main image to view  */}
+        <Flex
+          marginBottom="40px"
+          flexDirection={isMobile ? "column" : "row"}
+          gap={isMobile ? "20px" : "40px"}
+        >
+          {item ? (
+            <img
+              alt={name}
+              src={`${BASE_URL}${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+              style={{
+                minWidth: "44%",
+                maxWidth: "100%",
+                objectFit: "contain",
+              }}
+            />
+          ) : (
+            <Skeleton variant="rectangular" width="300px" height="400px" />
+          )}
 
-        <Box flex="1 1 50%" marginBottom="40px">
-          <Box m="65px 0 25px 0">
-            <Flex alignItems="center" justifyContent="space-between">
-              <Typography variant="h3">{name}</Typography>
-            </Flex>
-            <Typography fontSize="20px">${price}</Typography>
-            <Typography variant="h4" sx={{ marginTop: "20px" }}>
-              {summary}
-            </Typography>
-          </Box>
-          {/* TODO: Add expandable boxes showing categories of information */}
-          {/* FEATURES
-Lighweight
-Water-resistant
-double seam ?
-waterproof zippers
-multi-pocket design
+          {/* // right half  */}
+          <Box>
+            <Box marginBottom="20px">
+              <Flex alignItems="center" justifyContent="space-between">
+                <Typography variant="h3">{name}</Typography>
+              </Flex>
+              <Typography variant="h4" fontSize="20px">
+                ${price}
+              </Typography>
 
+              <Box marginY="20px">
+                <Divider />
+              </Box>
 
+              <Typography variant="h4" sx={{ marginTop: "20px" }}>
+                {summary}
+              </Typography>
+            </Box>
 
-SPECS 
-color1
-weight1
-volume1
-material1
-length / width / height1
-max load capacity1
-type (top tube bag) */}
-          <Box marginBottom="20px">
-            <Typography variant="h4">SHIPPING & RETURNS</Typography>
-            <Typography> Free shipping on orders over $100</Typography>
-            <Typography>
-              For return policy, <Link to="/returns">go here</Link>
-            </Typography>
-          </Box>
+            <Box marginBottom="20px">
+              <Typography variant="h4">SHIPPING & RETURNS</Typography>
+              <Typography fontWeight="600">
+                Free shipping on orders over $100!
+              </Typography>
+              <Typography>
+                For questions about our 30-day return policy, please visit the
+                <Link to="/returns"> Returns </Link>page.
+              </Typography>
+            </Box>
 
-          {/* US & international delivery usually within 5-7 days of shipment. Courier will vary by shipping destination.
+            {/* US & international delivery usually within 5-7 days of shipment. Courier will vary by shipping destination.
 
-For additional information regarding shipping and delivery, click here.
 
 See our 30-day return policy here. */}
-          <Box
-            display="flex"
-            alignItems="center"
-            minHeight="50px"
-            marginBottom="40px"
-          >
             <Box
               display="flex"
               alignItems="center"
-              border={`1.5px solid ${shades.neutral[300]}`}
-              marginRight="20px"
-              padding="2px 5px"
+              minHeight="50px"
+              marginBottom="40px"
             >
-              <IconButton onClick={() => setCount(Math.max(count - 1, 0))}>
-                <RemoveIcon />
-              </IconButton>
-              <Typography sx={{ p: "0 5px" }}>{count}</Typography>
-              <IconButton onClick={() => setCount(count + 1)}>
-                <AddIcon />
-              </IconButton>
+              <Box
+                display="flex"
+                alignItems="center"
+                border={`1.5px solid ${shades.neutral[300]}`}
+                marginRight="20px"
+                padding="2px 5px"
+              >
+                <IconButton
+                  disabled={Boolean(count === 1)}
+                  onClick={() => setCount(Math.max(count - 1, 0))}
+                >
+                  <RemoveIcon />
+                </IconButton>
+                <Typography sx={{ p: "0 5px" }}>{count}</Typography>
+                <IconButton onClick={() => setCount(count + 1)}>
+                  <AddIcon />
+                </IconButton>
+              </Box>
+              <Button
+                sx={{
+                  background: shades.primary[500],
+                  color: "white",
+                  borderRadius: 0,
+                  minWidth: "150px",
+                  padding: "10px 40px",
+                  transition: ".3s",
+                  "&:hover": {
+                    background: shades.primary[300],
+                    transform: "scale(1.02)",
+                  },
+                }}
+                onClick={() =>
+                  dispatch(addToCart({ item: { ...item, count } }))
+                }
+              >
+                ADD TO CART
+              </Button>
             </Box>
-            <Button
-              sx={{
-                background: shades.primary[500],
-                color: "white",
-                borderRadius: 0,
-                minWidth: "150px",
-                padding: "10px 40px",
-                transition: ".3s",
-                "&:hover": {
-                  background: shades.primary[300],
-                  transform: "scale(1.02)",
-                },
-              }}
-              onClick={() => dispatch(addToCart({ item: { ...item, count } }))}
-            >
-              ADD TO CART
-            </Button>
+            <ItemFeatures />
+            <ItemSpecs />
           </Box>
-          <ItemFeatures />
-          <ItemSpecs />
-        </Box>
-      </Box>
+        </Flex>
+      </Flex>
 
-      <Box margin="20px 0">
+      <Box marginBottom="20px">
         <Tabs value={value} onChange={handleChange}>
           <Tab label="DESCRIPTION" value="description" />
           <Tab label="REVIEWS" value="reviews" />
@@ -177,23 +199,27 @@ See our 30-day return policy here. */}
         {value === "reviews" && <div>Reviews coming soon...</div>}
         {/* TODO: add reviews section  */}
       </Box>
+      <Box marginY="40px">
+        <Divider />
+      </Box>
 
       {/* RELATED ITEMS */}
-      <Box mt="50px" width="100%">
+      <Box>
         <Typography variant="h3" fontWeight="bold">
           Related Products
         </Typography>
-        <Box
-          mt="20px"
-          display="flex"
+        <Flex
           flexWrap="wrap"
-          columnGap="1.33%"
-          justifyContent="space-between"
+          alignItems="center"
+          width="100%"
+          justifyContent="space-around"
+          rowGap="20px"
+          marginTop="30px"
         >
           {relatedItems.slice(0, 4).map((item: any, index: number) => (
             <Item key={`${item.name}-${index}`} item={item} />
           ))}
-        </Box>
+        </Flex>
       </Box>
     </Box>
   );

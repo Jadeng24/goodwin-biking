@@ -30,16 +30,16 @@ const Item = (props: ItemProps) => {
   const url = image?.data?.attributes?.formats?.medium?.url || "";
 
   return (
-    <Box width={width} marginBottom="20px">
+    <Box width={width} marginBottom="20px" alignSelf="center">
       <Box
         position="relative"
         onMouseOver={() => setIsHovered(true)}
         onMouseOut={() => setIsHovered(false)}
+        sx={{ "&:hover": { transition: ".3s", transform: "scale(1.02)" } }}
       >
         <img
           alt={item.name}
           width="300px"
-          height="400px"
           src={`${BASE_URL}${url}`}
           onClick={() => navigate(`/item/${item.id}`)}
           style={{ cursor: "pointer" }}
@@ -67,7 +67,7 @@ const Item = (props: ItemProps) => {
               sx={{
                 background: shades.primary[500],
                 color: "#fff",
-                padding: "4px 14px",
+                padding: "5px 14px",
                 fontSize: "14px",
                 "&:hover": { background: shades.primary[300] },
               }}
