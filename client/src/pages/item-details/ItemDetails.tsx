@@ -8,15 +8,14 @@ import {
   Button,
   Divider,
   IconButton,
+  Rating,
   Skeleton,
   Typography,
   useMediaQuery,
 } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import FavoriteBorderOutlinedIcon from "@mui/icons-material/FavoriteBorderOutlined";
-import AddIcon from "@mui/icons-material/Add";
-import RemoveIcon from "@mui/icons-material/Remove";
+import { Add, Remove, Share } from "@mui/icons-material";
 
 import Item from "../../components/item/Item";
 import { shades } from "../../theme";
@@ -25,12 +24,16 @@ import { Flex } from "../../components";
 import { API_URL, BASE_URL } from "../../environment";
 import ItemFeatures from "./item-features/ItemFeatures";
 import ItemSpecs from "./item-specs/ItemSpecs";
-import { Share } from "@mui/icons-material";
+import ToasterMessage, {
+  MessageType,
+} from "../../components/toaster-message/ToasterMessage";
 
 const ItemDetails = () => {
   const dispatch = useDispatch();
   const { itemId } = useParams();
   const [value, setValue] = useState("description");
+  const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
+  const [ratingValue, setRatingValue] = useState<number | null>();
   const [count, setCount] = useState(1);
   const [item, setItem] = useState<any>(null);
   const [relatedItems, setRelatedItems] = useState<any>([]);
@@ -60,6 +63,11 @@ const ItemDetails = () => {
     getItem();
     getRelatedItems();
   }, [itemId]); // eslint-disable-line react-hooks/exhaustive-deps
+
+  const handleAddToCart = () => {
+    setShowSuccessMessage(true);
+    dispatch(addToCart({ item: { ...item, count } }));
+  };
 
   const handleChange = (
     event: React.SyntheticEvent<Element, Event>,
@@ -115,6 +123,7 @@ const ItemDetails = () => {
                 <Typography variant="h4" fontSize="20px">
                   ${price}
                 </Typography>
+                {/* TODO: make this share button functional  */}
                 <IconButton>
                   <Share />
                 </IconButton>
@@ -140,10 +149,6 @@ const ItemDetails = () => {
               </Typography>
             </Box>
 
-            {/* US & international delivery usually within 5-7 days of shipment. Courier will vary by shipping destination.
-
-
-See our 30-day return policy here. */}
             <Flex alignItems="center" gap="20px" marginBottom="40px">
               <Flex
                 alignItems="center"
@@ -155,11 +160,11 @@ See our 30-day return policy here. */}
                   disabled={Boolean(count === 1)}
                   onClick={() => setCount(Math.max(count - 1, 0))}
                 >
-                  <RemoveIcon />
+                  <Remove />
                 </IconButton>
                 <Typography sx={{ p: "0 5px" }}>{count}</Typography>
                 <IconButton onClick={() => setCount(count + 1)}>
-                  <AddIcon />
+                  <Add />
                 </IconButton>
               </Flex>
               <Button
@@ -175,9 +180,7 @@ See our 30-day return policy here. */}
                     transform: "scale(1.02)",
                   },
                 }}
-                onClick={() =>
-                  dispatch(addToCart({ item: { ...item, count } }))
-                }
+                onClick={handleAddToCart}
               >
                 <Typography variant="h4">ADD TO CART</Typography>
               </Button>
@@ -198,8 +201,18 @@ See our 30-day return policy here. */}
         {value === "description" && (
           <Typography variant="h4">{fullDescription}</Typography>
         )}
-        {value === "reviews" && <div>Reviews coming soon...</div>}
-        {/* TODO: add reviews section  */}
+        {value === "reviews" && (
+          <Flex flexDirection="column" gap="10px">
+            <Typography>Reviews feature coming soon...</Typography>
+            <Rating
+              name="review-rating"
+              value={ratingValue}
+              onChange={(event, newValue: number | null) => {
+                setRatingValue(newValue);
+              }}
+            />
+          </Flex>
+        )}
       </Box>
       <Box marginY="40px">
         <Divider />
@@ -223,6 +236,12 @@ See our 30-day return policy here. */}
           ))}
         </Flex>
       </Box>
+      <ToasterMessage
+        message="Your item has been successfully added to the cart!"
+        onClose={setShowSuccessMessage}
+        showMessage={showSuccessMessage}
+        type={MessageType.success}
+      />
     </Box>
   );
 };

@@ -11,6 +11,8 @@ import { addToCart } from "../../redux-store";
 import { ItemPreviewInfo } from "./item-preview-info/ItemPreviewInfo";
 import { BASE_URL } from "../../environment";
 
+import ToasterMessage, { MessageType } from "../toaster-message/ToasterMessage";
+
 interface ItemProps {
   item: any;
   width?: string;
@@ -20,12 +22,18 @@ const Item = (props: ItemProps) => {
   const { item, width } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
+  const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
   const [count, setCount] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
 
   const { category, image, name, price } = item?.attributes || {};
 
   const url = image?.data?.attributes?.formats?.medium?.url || "";
+
+  const handleAddToCart = () => {
+    setShowSuccessMessage(true);
+    dispatch(addToCart({ item: { ...item, count } }));
+  };
 
   return (
     <Box width={width} marginBottom="20px" alignSelf="center">
@@ -59,9 +67,7 @@ const Item = (props: ItemProps) => {
             />
 
             <Button
-              onClick={() => {
-                dispatch(addToCart({ item: { ...item, count } }));
-              }}
+              onClick={handleAddToCart}
               sx={{
                 background: shades.primary[500],
                 color: "#fff",
@@ -77,6 +83,12 @@ const Item = (props: ItemProps) => {
       </Box>
 
       <ItemPreviewInfo category={category} name={name} price={price} />
+      <ToasterMessage
+        message="Your item has been successfully added to the cart!"
+        onClose={setShowSuccessMessage}
+        showMessage={showSuccessMessage}
+        type={MessageType.success}
+      />
     </Box>
   );
 };
