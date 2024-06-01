@@ -17,9 +17,12 @@ import {
 } from "../../../../../redux-store";
 import { shades } from "../../../../../theme";
 import { Flex } from "../../../../../components";
+import { useNavigate } from "react-router-dom";
+import { closeNavMenus } from "../../../../../redux-store/navReducer";
 
 export const CartItems = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const products = useSelector((state: RootState) => state.cart.cartItems);
 
   const isGreaterThanMobile = useMediaQuery("(min-width:600px)");
@@ -31,6 +34,11 @@ export const CartItems = () => {
           item?.attributes || {};
 
         const url: string = image?.data?.attributes?.formats?.medium?.url || "";
+
+        const handleCartItemClick = () => {
+          navigate(`/item/${item.id}`);
+          dispatch(closeNavMenus({}));
+        };
 
         return (
           <Flex key={`${name}-${item?.id}`} flexDirection="column">
@@ -44,10 +52,14 @@ export const CartItems = () => {
             >
               <Box flex="1 1 40%">
                 {/* TODO: make separate component for each item alone */}
-                <img alt={name} width="120px" src={`${url}`} />
+                <img
+                  alt={name}
+                  onClick={handleCartItemClick}
+                  width="120px"
+                  src={`${url}`}
+                  style={{ cursor: "pointer" }}
+                />
               </Box>
-              {/* https://www.goodwinbiking.com/api/uploads/large_marek_piwnicki_ceq24l_P_Jc38_unsplash_e1d512672a.jpg */}
-              {/* https://www.goodwinbiking.com/api/uploads/large_slava_auchynnikau_s41_Qwb_i5_X8_unsplash_d92cb46a09.jpg */}
 
               <Box flex="1 1 60%">
                 {/* TODO: make separate component for this */}
