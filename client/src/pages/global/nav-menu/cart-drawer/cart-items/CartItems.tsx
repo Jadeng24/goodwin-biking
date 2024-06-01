@@ -17,7 +17,6 @@ import {
 } from "../../../../../redux-store";
 import { shades } from "../../../../../theme";
 import { Flex } from "../../../../../components";
-import { BASE_URL } from "../../../../../environment";
 
 export const CartItems = () => {
   const dispatch = useDispatch();
