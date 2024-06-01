@@ -34,7 +34,7 @@ const NavMenuDrawer = () => {
 
   return (
     <Flex
-      padding={isGreaterThanMobile ? "30px" : "15px"}
+      padding="8px 30px 30px"
       height="100%"
       flexDirection="column"
       justifyContent="space-between"
@@ -43,9 +43,10 @@ const NavMenuDrawer = () => {
         <Flex
           marginBottom={isGreaterThanMobile ? "40px" : "20px"}
           justifyContent="space-between"
+          alignItems="center"
           width="100%"
         >
-          <Typography variant="h2" sx={{ color: shades.neutral[500] }}>
+          <Typography variant="h3" sx={{ color: shades.neutral[500] }}>
             MENU
           </Typography>
           <IconButton onClick={() => dispatch(closeNavMenus({}))}>

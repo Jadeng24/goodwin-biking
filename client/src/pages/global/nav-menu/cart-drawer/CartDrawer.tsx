@@ -16,8 +16,12 @@ export const CartDrawer = () => {
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
   return (
-    <Box padding="30px" overflow="auto" height="100%">
-      <Flex marginBottom="15px" justifyContent="space-between">
+    <Box padding="10px 30px 30px" overflow="auto" height="100%">
+      <Flex
+        marginBottom="15px"
+        justifyContent="space-between"
+        alignItems="center"
+      >
         <Typography variant="h3">SHOPPING CART ({cartItems.length})</Typography>
         <IconButton onClick={() => dispatch(closeNavMenus({}))}>
           <Close fontSize="large" />

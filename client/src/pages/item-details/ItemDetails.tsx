@@ -119,12 +119,14 @@ const ItemDetails = () => {
             <ItemShippingAndReturns />
 
             <ItemActionButtons item={item} />
+
             <ItemFeatures />
             <ItemSpecs />
           </Box>
         </Flex>
       </Flex>
 
+      {/* Tab sections  */}
       <Box marginBottom="20px">
         <Tabs value={value} onChange={handleChange}>
           <Tab label="DESCRIPTION" value="description" />
