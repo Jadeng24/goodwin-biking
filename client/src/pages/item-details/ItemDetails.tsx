@@ -1,11 +1,9 @@
 import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
-import { useDispatch } from "react-redux";
 
 import {
   Box,
   Breadcrumbs,
-  Button,
   Divider,
   IconButton,
   Rating,
@@ -15,26 +13,20 @@ import {
 } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Add, Remove, Share } from "@mui/icons-material";
+import { Share } from "@mui/icons-material";
 
 import Item from "../../components/item/Item";
-import { shades } from "../../theme";
-import { addToCart } from "../../redux-store";
 import { Flex } from "../../components";
 import { API_URL } from "../../environment";
 import ItemFeatures from "./item-features/ItemFeatures";
 import ItemSpecs from "./item-specs/ItemSpecs";
-import ToasterMessage, {
-  MessageType,
-} from "../../components/toaster-message/ToasterMessage";
+import ItemActionButton from "./item-action-button/ItemActionButton";
+import ItemShippingAndReturns from "./item-shipping-and-returns/ItemShippingAndReturns";
 
 const ItemDetails = () => {
-  const dispatch = useDispatch();
   const { itemId } = useParams();
   const [value, setValue] = useState("description");
-  const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
   const [ratingValue, setRatingValue] = useState<number | null>();
-  const [count, setCount] = useState(1);
   const [item, setItem] = useState<any>(null);
   const [relatedItems, setRelatedItems] = useState<any>([]);
 
@@ -64,11 +56,6 @@ const ItemDetails = () => {
     getRelatedItems();
   }, [itemId]); // eslint-disable-line react-hooks/exhaustive-deps
 
-  const handleAddToCart = () => {
-    setShowSuccessMessage(true);
-    dispatch(addToCart({ item: { ...item, count } }));
-  };
-
   const handleChange = (
     event: React.SyntheticEvent<Element, Event>,
     newValue: string
@@ -92,7 +79,6 @@ const ItemDetails = () => {
           <Typography color="text.primary">{name}</Typography>
         </Breadcrumbs>
 
-        {/* Item image */}
         <Flex
           marginBottom="40px"
           flexDirection={isMobile ? "column" : "row"}
@@ -110,10 +96,10 @@ const ItemDetails = () => {
               }}
             />
           ) : (
-            <Skeleton variant="rectangular" width="400px" height="300px" />
+            <Skeleton variant="rectangular" width="300px" height="450px" />
           )}
 
-          {/* // right half  */}
+          {/* Item Information  */}
           <Box>
             <Box marginBottom="20px">
               <Flex alignItems="center" justifyContent="space-between">
@@ -138,53 +124,9 @@ const ItemDetails = () => {
               </Typography>
             </Box>
 
-            <Box marginBottom="20px">
-              <Typography variant="h4">SHIPPING & RETURNS</Typography>
-              <Typography fontWeight="600">
-                Free shipping on orders over $100!
-              </Typography>
-              <Typography>
-                For questions about our 30-day return policy, please visit the
-                <Link to="/returns"> Returns </Link>page.
-              </Typography>
-            </Box>
+            <ItemShippingAndReturns />
 
-            <Flex alignItems="center" gap="20px" marginBottom="40px">
-              <Flex
-                alignItems="center"
-                borderRadius="4px"
-                border={`1.5px solid ${shades.neutral[300]}`}
-                padding="2px 5px"
-              >
-                <IconButton
-                  disabled={Boolean(count === 1)}
-                  onClick={() => setCount(Math.max(count - 1, 0))}
-                >
-                  <Remove />
-                </IconButton>
-                <Typography sx={{ p: "0 5px" }}>{count}</Typography>
-                <IconButton onClick={() => setCount(count + 1)}>
-                  <Add />
-                </IconButton>
-              </Flex>
-              <Button
-                sx={{
-                  minWidth: "150px",
-                  padding: "11px 40px",
-                  background: shades.primary[500],
-                  color: "#fff",
-                  transition: ".3s",
-                  textWrap: "nowrap",
-                  "&:hover": {
-                    background: shades.primary[300],
-                    transform: "scale(1.02)",
-                  },
-                }}
-                onClick={handleAddToCart}
-              >
-                <Typography variant="h4">ADD TO CART</Typography>
-              </Button>
-            </Flex>
+            <ItemActionButton item={item} />
             <ItemFeatures />
             <ItemSpecs />
           </Box>
@@ -236,12 +178,6 @@ const ItemDetails = () => {
           ))}
         </Flex>
       </Box>
-      <ToasterMessage
-        message="Your item has been successfully added to the cart!"
-        onClose={setShowSuccessMessage}
-        showMessage={showSuccessMessage}
-        type={MessageType.success}
-      />
     </Box>
   );
 };
