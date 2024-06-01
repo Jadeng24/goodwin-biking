@@ -9,7 +9,6 @@ import { shades } from "../../theme";
 import { ItemAmount } from "./item-amount/ItemAmount";
 import { addToCart } from "../../redux-store";
 import { ItemPreviewInfo } from "./item-preview-info/ItemPreviewInfo";
-import { BASE_URL } from "../../environment";
 
 import ToasterMessage, { MessageType } from "../toaster-message/ToasterMessage";
 

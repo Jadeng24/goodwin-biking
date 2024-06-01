@@ -21,7 +21,7 @@ import Item from "../../components/item/Item";
 import { shades } from "../../theme";
 import { addToCart } from "../../redux-store";
 import { Flex } from "../../components";
-import { API_URL, BASE_URL } from "../../environment";
+import { API_URL } from "../../environment";
 import ItemFeatures from "./item-features/ItemFeatures";
 import ItemSpecs from "./item-specs/ItemSpecs";
 import ToasterMessage, {
