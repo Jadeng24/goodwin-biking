@@ -29,8 +29,6 @@ const Item = (props: ItemProps) => {
 
   const url = image?.data?.attributes?.formats?.medium?.url || "";
 
-  console.log(item?.attributes);
-
   const handleAddToCart = () => {
     setShowSuccessMessage(true);
     dispatch(addToCart({ item: { ...item, count } }));

@@ -20,7 +20,6 @@ export const navSlice = createSlice({
     // Toggle cart
     setIsCartOpen: (state, action) => {
       state.isCartOpen = !state.isCartOpen;
-      console.log(state.isCartOpen);
       //   if (state.isCartOpen) {
       //     state.isNavMenuOpen = false;
       //   }
@@ -28,7 +27,6 @@ export const navSlice = createSlice({
     // toggle nav menu
     setIsNavMenuOpen: (state, action) => {
       state.isNavMenuOpen = !state.isNavMenuOpen;
-      console.log(state.isCartOpen);
       //   if (state.isNavMenuOpen) {
       //     state.isCartOpen = false;
       //   }
