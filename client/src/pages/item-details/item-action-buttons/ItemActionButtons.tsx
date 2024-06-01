@@ -11,10 +11,10 @@ import ToasterMessage, {
   MessageType,
 } from "../../../components/toaster-message/ToasterMessage";
 
-interface ItemActionButtonProps {
+interface ItemActionButtonsProps {
   item: any;
 }
-const ItemActionButton = (props: ItemActionButtonProps) => {
+const ItemActionButtons = (props: ItemActionButtonsProps) => {
   const { item } = props;
 
   const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
@@ -72,4 +72,4 @@ const ItemActionButton = (props: ItemActionButtonProps) => {
   );
 };
 
-export default ItemActionButton;
+export default ItemActionButtons;

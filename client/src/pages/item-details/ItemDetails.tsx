@@ -1,9 +1,8 @@
 import { useEffect, useState } from "react";
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 
 import {
   Box,
-  Breadcrumbs,
   Divider,
   IconButton,
   Rating,
@@ -20,8 +19,9 @@ import { Flex } from "../../components";
 import { API_URL } from "../../environment";
 import ItemFeatures from "./item-features/ItemFeatures";
 import ItemSpecs from "./item-specs/ItemSpecs";
-import ItemActionButton from "./item-action-button/ItemActionButton";
+import ItemActionButtons from "./item-action-buttons/ItemActionButtons";
 import ItemShippingAndReturns from "./item-shipping-and-returns/ItemShippingAndReturns";
+import ItemBreadcrumbs from "./item-breadcrumbs/ItemBreadcrumbs";
 
 const ItemDetails = () => {
   const { itemId } = useParams();
@@ -69,15 +69,7 @@ const ItemDetails = () => {
   return (
     <Box padding={isMobile ? "60px 30px 30px" : "60px"} fontSize="16px">
       <Flex flexDirection="column" rowGap="40px" marginTop="10px">
-        <Breadcrumbs aria-label="breadcrumb">
-          <Link color="inherit" to="/">
-            Home
-          </Link>
-          <Link color="inherit" to="/bikepacking-bags">
-            Bikepacking Bags
-          </Link>
-          <Typography color="text.primary">{name}</Typography>
-        </Breadcrumbs>
+        <ItemBreadcrumbs name={name} />
 
         <Flex
           marginBottom="40px"
@@ -126,7 +118,7 @@ const ItemDetails = () => {
 
             <ItemShippingAndReturns />
 
-            <ItemActionButton item={item} />
+            <ItemActionButtons item={item} />
             <ItemFeatures />
             <ItemSpecs />
           </Box>
