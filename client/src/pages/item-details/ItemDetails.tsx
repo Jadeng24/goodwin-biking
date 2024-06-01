@@ -101,7 +101,7 @@ const ItemDetails = () => {
           {item ? (
             <img
               alt={name}
-              src={`${BASE_URL}${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
+              src={`${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
               style={{
                 minWidth: "44%",
                 maxWidth: "100%",

@@ -30,6 +30,8 @@ const Item = (props: ItemProps) => {
 
   const url = image?.data?.attributes?.formats?.medium?.url || "";
 
+  console.log(item?.attributes);
+
   const handleAddToCart = () => {
     setShowSuccessMessage(true);
     dispatch(addToCart({ item: { ...item, count } }));
@@ -46,7 +48,7 @@ const Item = (props: ItemProps) => {
         <img
           alt={item.name}
           width="300px"
-          src={`${BASE_URL}${url}`}
+          src={`${url}`}
           onClick={() => navigate(`/item/${item.id}`)}
           style={{ borderRadius: "4px", cursor: "pointer" }}
         />
