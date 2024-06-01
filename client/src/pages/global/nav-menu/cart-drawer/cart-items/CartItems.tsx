@@ -45,13 +45,7 @@ export const CartItems = () => {
             >
               <Box flex="1 1 40%">
                 {/* TODO: make separate component for each item alone */}
-                <img
-                  alt={name}
-                  width="123px"
-                  height="164px"
-                  src={`${BASE_URL}${url}`} // SOMETHING TO NOTE: if we use /api as the route for the server, then it confuses things.
-                  // I then have to do /api/api/banners. maybe we should instead do /server/api/banners for example. images think they are at /api/uploads..
-                />
+                <img alt={name} width="120px" src={`${url}`} />
               </Box>
               {/* https://www.goodwinbiking.com/api/uploads/large_marek_piwnicki_ceq24l_P_Jc38_unsplash_e1d512672a.jpg */}
               {/* https://www.goodwinbiking.com/api/uploads/large_slava_auchynnikau_s41_Qwb_i5_X8_unsplash_d92cb46a09.jpg */}
