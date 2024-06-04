@@ -5,6 +5,7 @@ import {
   AccordionSummary,
   Box,
   Typography,
+  useMediaQuery,
 } from "@mui/material";
 import { SvgIconComponent } from "@mui/icons-material";
 
@@ -35,6 +36,8 @@ const MUIcon: {
 
 const ItemSpecs = (props: ItemSpecsProps) => {
   const { bagType, dimensions, material, maxCapacity, volume, weight } = props;
+
+  const isMobile = useMediaQuery("(max-width:600px");
 
   // TODO: create enum conversion for bagType to label
   const specs = [
@@ -91,14 +94,25 @@ const ItemSpecs = (props: ItemSpecsProps) => {
                 >
                   <Icon />
 
-                  <Typography variant="h4" fontWeight="bold" width="90px">
+                  <Typography
+                    variant="h4"
+                    fontWeight="bold"
+                    width={isMobile ? "60%" : "90px"}
+                  >
                     {spec.label}:
                   </Typography>
-                  {spec.value ? (
-                    <Typography variant="h4">{spec.text}</Typography>
-                  ) : (
-                    <Typography>-</Typography>
-                  )}
+
+                  <Flex
+                    width={isMobile ? "100%" : "auto"}
+                    justifyContent={isMobile ? "flex-end" : undefined}
+                    sx={{ textAlign: isMobile ? "right" : "left" }}
+                  >
+                    {spec.value ? (
+                      <Typography variant="h4">{spec.text}</Typography>
+                    ) : (
+                      <Typography>-</Typography>
+                    )}
+                  </Flex>
                 </Flex>
               );
             })}
