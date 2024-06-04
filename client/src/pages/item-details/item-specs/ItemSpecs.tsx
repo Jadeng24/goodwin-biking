@@ -16,7 +16,11 @@ import {
 // max load capacity1
 // type (top tube bag) */}
 
-const ItemSpecs = () => {
+interface ItemSpecsProps {
+  specs: any[];
+}
+const ItemSpecs = (props: ItemSpecsProps) => {
+  const { specs } = props;
   return (
     <Box marginBottom="10px">
       <Accordion>
@@ -28,13 +32,9 @@ const ItemSpecs = () => {
           <Typography variant="h4">SPECS</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          {/* TODO: list out specs here in map  */}
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
-        </AccordionDetails>
-        <AccordionDetails>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
+          {specs?.map((spec) => (
+            <Typography>{spec}</Typography>
+          ))}
         </AccordionDetails>
       </Accordion>
     </Box>

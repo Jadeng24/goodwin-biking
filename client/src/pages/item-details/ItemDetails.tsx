@@ -32,8 +32,15 @@ const ItemDetails = () => {
 
   const isMobile = useMediaQuery("(max-width:600px)");
 
-  const { category, name, price, shortDescription, longDescription } =
-    item?.attributes || {};
+  const {
+    category,
+    features,
+    name,
+    price,
+    shortDescription,
+    longDescription,
+    specs,
+  } = item?.attributes || {};
 
   async function getItem() {
     const item = await fetch(`${API_URL}/items/${itemId}?populate=*`, {
@@ -120,8 +127,8 @@ const ItemDetails = () => {
 
             <ItemActionButtons item={item} />
 
-            <ItemFeatures />
-            <ItemSpecs />
+            <ItemFeatures features={features?.features} />
+            <ItemSpecs specs={specs} />
           </Box>
         </Flex>
       </Flex>

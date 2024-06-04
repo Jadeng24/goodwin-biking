@@ -1,19 +1,13 @@
+import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 
-import {
-  Box,
-  Button,
-  IconButton,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Button, IconButton, Typography, useMediaQuery } from "@mui/material";
 import { Close } from "@mui/icons-material";
 
+import SocialLinks from "./social-links/SocialLinks";
 import { Flex } from "../../../../components";
 import { closeNavMenus } from "../../../../redux-store/navReducer";
-import { useNavigate } from "react-router-dom";
 import { shades } from "../../../../theme";
-import SocialLinks from "./social-links/SocialLinks";
 
 const NavMenuDrawer = () => {
   const isGreaterThanMobile = useMediaQuery("(min-width:600px)");

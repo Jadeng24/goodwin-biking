@@ -1,4 +1,4 @@
-import { ExpandMore } from "@mui/icons-material";
+import { ExpandMore, WaterDrop } from "@mui/icons-material";
 import {
   Accordion,
   AccordionDetails,
@@ -6,6 +6,9 @@ import {
   Box,
   Typography,
 } from "@mui/material";
+import { SvgIconComponent } from "@mui/icons-material";
+import { Flex } from "../../../components";
+import { shades } from "../../../theme";
 
 //           {/* FEATURES
 // Lighweight
@@ -14,7 +17,38 @@ import {
 // waterproof zippers
 // multi-pocket design
 
-const ItemFeatures = () => {
+interface ItemFeaturesProps {
+  features: { text: string; icon: string }[];
+}
+
+const MUIcon: {
+  [key: string]: SvgIconComponent;
+} = require("@mui/icons-material");
+
+const ItemFeatures = (props: ItemFeaturesProps) => {
+  const { features = [] } = props;
+
+  const featureItems = features?.map((feature) => {
+    const Icon = MUIcon[feature.icon];
+
+    return (
+      <Box marginBottom="5px">
+        <Flex
+          padding="8px 10px"
+          //   border={`solid 1px ${shades.neutral[200]}`}
+          borderRadius="8px"
+          alignItems="center"
+          gap="15px"
+          width="100%"
+          sx={{ opacity: ".65" }}
+        >
+          <Icon />
+          <Typography variant="h4">{feature?.text}</Typography>
+        </Flex>
+      </Box>
+    );
+  });
+
   return (
     <Box marginBottom="10px">
       <Accordion defaultExpanded>
@@ -25,15 +59,7 @@ const ItemFeatures = () => {
         >
           <Typography variant="h4">FEATURES</Typography>
         </AccordionSummary>
-        <AccordionDetails>
-          {/* TODO: list out features here from props  */}
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
-        </AccordionDetails>
-        <AccordionDetails>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse
-          malesuada lacus ex, sit amet blandit leo lobortis eget.
-        </AccordionDetails>
+        <AccordionDetails>{featureItems}</AccordionDetails>
       </Accordion>
     </Box>
   );
