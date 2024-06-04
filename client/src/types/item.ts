@@ -6,3 +6,18 @@ export interface ItemContract {
   shortDescription: string;
   longDescription: string;
 }
+
+export type BagType =
+  | "topTube"
+  | "frame"
+  | "handlebar"
+  | "seatPack"
+  | "rearRack";
+
+export enum BagTypes {
+  topTube = "Top Tube",
+  frame = "Frame",
+  handlebar = "Handlebar",
+  seatPack = "Seat pack",
+  rearRack = "Rear rack",
+}

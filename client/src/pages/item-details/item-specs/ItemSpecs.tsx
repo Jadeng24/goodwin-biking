@@ -1,4 +1,4 @@
-import { ChevronRight, ExpandMore } from "@mui/icons-material";
+import { ExpandMore } from "@mui/icons-material";
 import {
   Accordion,
   AccordionDetails,
@@ -9,6 +9,7 @@ import {
 import { SvgIconComponent } from "@mui/icons-material";
 
 import { Flex } from "../../../components";
+import { BagType, BagTypes } from "../../../types/item";
 
 // SPECS
 // color1
@@ -20,7 +21,7 @@ import { Flex } from "../../../components";
 // type (top tube bag) */}
 
 interface ItemSpecsProps {
-  bagType: string;
+  bagType: BagType;
   dimensions: string;
   material: string;
   maxCapacity: number;
@@ -37,15 +38,31 @@ const ItemSpecs = (props: ItemSpecsProps) => {
 
   // TODO: create enum conversion for bagType to label
   const specs = [
-    { label: "Bag Type", text: `${bagType} bag`, icon: "Category" },
-    { label: "Dimensions", text: `${dimensions} inches`, icon: "Straighten" },
-    { label: "Weight", text: `${weight} lbs`, icon: "Scale" },
-    { label: "Material", text: material, icon: "Grid4x4" },
-    { label: "Volume", text: `${volume} cubic inches`, icon: "Margin" },
+    {
+      label: "Bag Type",
+      text: `${BagTypes[bagType]} bag`,
+      icon: "Category",
+      value: bagType,
+    },
+    {
+      label: "Dimensions",
+      text: `${dimensions} inches`,
+      icon: "Straighten",
+      value: dimensions,
+    },
+    { label: "Weight", text: `${weight} lbs`, icon: "Scale", value: weight },
+    { label: "Material", text: material, icon: "Grid4x4", value: material },
+    {
+      label: "Volume",
+      text: `${volume} cubic inches`,
+      icon: "Margin",
+      value: volume,
+    },
     {
       label: "Max Capacity",
       text: `${maxCapacity} lbs`,
       icon: "ArrowCircleUp",
+      value: maxCapacity,
     },
   ];
   return (
@@ -73,10 +90,15 @@ const ItemSpecs = (props: ItemSpecsProps) => {
                   sx={{ opacity: ".65" }}
                 >
                   <Icon />
+
                   <Typography variant="h4" fontWeight="bold" width="90px">
                     {spec.label}:
                   </Typography>
-                  <Typography variant="h4">{spec.text}</Typography>
+                  {spec.value ? (
+                    <Typography variant="h4">{spec.text}</Typography>
+                  ) : (
+                    <Typography>-</Typography>
+                  )}
                 </Flex>
               );
             })}
