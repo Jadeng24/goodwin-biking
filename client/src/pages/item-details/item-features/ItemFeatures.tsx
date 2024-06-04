@@ -1,4 +1,4 @@
-import { ExpandMore, WaterDrop } from "@mui/icons-material";
+import { ExpandMore } from "@mui/icons-material";
 import {
   Accordion,
   AccordionDetails,
@@ -7,15 +7,8 @@ import {
   Typography,
 } from "@mui/material";
 import { SvgIconComponent } from "@mui/icons-material";
-import { Flex } from "../../../components";
-import { shades } from "../../../theme";
 
-//           {/* FEATURES
-// Lighweight
-// Water-resistant
-// double seam ?
-// waterproof zippers
-// multi-pocket design
+import { Flex } from "../../../components";
 
 interface ItemFeaturesProps {
   features: { text: string; icon: string }[];
@@ -28,14 +21,13 @@ const MUIcon: {
 const ItemFeatures = (props: ItemFeaturesProps) => {
   const { features = [] } = props;
 
-  const featureItems = features?.map((feature) => {
+  const renderItems = features?.map((feature) => {
     const Icon = MUIcon[feature.icon];
 
     return (
       <Box marginBottom="5px">
         <Flex
           padding="8px 10px"
-          //   border={`solid 1px ${shades.neutral[200]}`}
           borderRadius="8px"
           alignItems="center"
           gap="15px"
@@ -59,10 +51,44 @@ const ItemFeatures = (props: ItemFeaturesProps) => {
         >
           <Typography variant="h4">FEATURES</Typography>
         </AccordionSummary>
-        <AccordionDetails>{featureItems}</AccordionDetails>
+        <AccordionDetails>{renderItems}</AccordionDetails>
       </Accordion>
     </Box>
   );
 };
 
 export default ItemFeatures;
+
+// example JSON data for BE
+// {
+//     "features": [
+//       {
+//         "text": "Fits most bike frames",
+//         "icon": "Straighten"
+//       },
+//       {
+//         "text": "Water-resistant shell",
+//         "icon": "WaterDrop"
+//       },
+//       {
+//         "text": "Center compartment divider",
+//         "icon": "VerticalAlignCenter"
+//       },
+//       {
+//         "text": "Wallet pocket",
+//         "icon": "Wallet"
+//       },
+//       {
+//         "text": "Hydration-pack compatible",
+//         "icon": "LocalDrink"
+//       },
+//       {
+//         "text": "Double-seamed zippers",
+//         "icon": "Compress"
+//       },
+//       {
+//         "text": "Reflective stripping",
+//         "icon": "Fluorescent"
+//       }
+//     ]
+//   }

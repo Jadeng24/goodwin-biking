@@ -39,7 +39,12 @@ const ItemDetails = () => {
     price,
     shortDescription,
     longDescription,
-    specs,
+    bagType,
+    dimensions,
+    material,
+    maxCapacity,
+    volume,
+    weight,
   } = item?.attributes || {};
 
   async function getItem() {
@@ -128,7 +133,14 @@ const ItemDetails = () => {
             <ItemActionButtons item={item} />
 
             <ItemFeatures features={features?.features} />
-            <ItemSpecs specs={specs} />
+            <ItemSpecs
+              bagType={bagType}
+              dimensions={dimensions}
+              material={material}
+              maxCapacity={maxCapacity}
+              volume={volume}
+              weight={weight}
+            />
           </Box>
         </Flex>
       </Flex>
