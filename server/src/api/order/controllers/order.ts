@@ -34,8 +34,8 @@ export default factories.createCoreController(
           payment_method_types: ["card"],
           customer_email: email,
           mode: "payment",
-          success_url: `${process.env.CLIENT_URL}?success=true`, //TODO these will need to change for prod
-          cancel_url: `${process.env.CLIENT_URL}?success=false`,
+          success_url: `${process.env.APP_URL}?success=true`, //TODO these will need to change for prod
+          cancel_url: `${process.env.APP_URL}?success=false`,
           line_items: lineItems,
         });
 
