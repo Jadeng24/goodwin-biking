@@ -7,7 +7,7 @@ const Confirmation = () => {
     <Box m="90px auto" width="80%" height="50vh">
       <Alert severity="success">
         <AlertTitle>Success</AlertTitle>
-        You have successfully made an Order —{" "}
+        You have successfully made an Order —
         <strong>Congrats on Making your Purchase</strong>
       </Alert>
     </Box>

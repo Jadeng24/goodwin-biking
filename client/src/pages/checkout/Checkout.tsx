@@ -21,7 +21,6 @@ const Checkout = () => {
 
   const stripePromise = loadStripe(
     process.env.REACT_APP_PUBLISHABLE_STRIPE_KEY || ""
-    // "pk_test_51PCEdRJG5Gh9OuClTttBU8RqivLKbLTRqDTC13JZKNJcWNZJlfQg2xrjxh5Xk0zDq3nVcCKN6MT7qPt4qq4vfBow005F1GuwOo"
   );
 
   const handlePayment = async (formValues: any) => {
