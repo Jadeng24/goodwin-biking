@@ -1,10 +1,11 @@
 import { useTheme } from "@emotion/react";
 import { Box } from "@mui/material";
 
-import { Flex } from "../../../components";
 import FooterInfo from "./footer-info/FooterInfo";
 import FooterLinkSections from "./footer-link-sections/FooterLinkSections";
 import SocialLinks from "../nav-menu/nav-menu-drawer/social-links/SocialLinks";
+import { Flex } from "../../../components";
+import PaymentTypes from "../../../components/payment-types/PaymentTypes";
 import { shades } from "../../../theme";
 
 function Footer() {
@@ -19,10 +20,9 @@ function Footer() {
       background={info.light}
       flexDirection="column"
     >
-      <Box
+      <Flex
         width="80%"
         margin="auto"
-        display="flex"
         justifyContent="space-between"
         flexWrap="wrap"
         rowGap="30px"
@@ -30,17 +30,26 @@ function Footer() {
       >
         <Flex
           width="100%"
-          marginY="40px"
           paddingY="4px"
           borderRadius="8px"
           background="#fff"
+          marginTop="40px"
         >
           <SocialLinks />
         </Flex>
+        <Flex width="100%">
+          <PaymentTypes />
+        </Flex>
+
+        <Flex
+          width="100%"
+          borderBottom={`solid 1px ${shades.neutral[300]} `}
+          marginBottom="20px"
+        />
         <FooterInfo />
 
         <FooterLinkSections />
-      </Box>
+      </Flex>
     </Flex>
   );
 }

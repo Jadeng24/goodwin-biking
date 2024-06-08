@@ -1,11 +1,13 @@
+import { Link } from "react-router-dom";
+
 import { Typography, useMediaQuery } from "@mui/material";
 
 import { shades } from "../../../../theme";
 import { Flex } from "../../../../components";
-import { Link } from "react-router-dom";
 
 const FooterInfo = () => {
   const isMobile = useMediaQuery("(max-width:700px");
+
   return (
     <Flex
       width="clamp(20%, 30%, 40%)"
