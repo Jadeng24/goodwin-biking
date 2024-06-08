@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useSelector } from "react-redux";
 
 import { Box, Button, Stepper, Step, StepLabel } from "@mui/material";
-import { Stripe, loadStripe } from "@stripe/stripe-js";
+import { loadStripe } from "@stripe/stripe-js";
 
 import { Formik } from "formik";
 import * as yup from "yup";
@@ -106,6 +106,7 @@ const Checkout = () => {
                   setFieldValue={setFieldValue}
                 />
               )}
+
               <Box display="flex" justifyContent="space-between" gap="50px">
                 {!isFirstStep && (
                   <Button

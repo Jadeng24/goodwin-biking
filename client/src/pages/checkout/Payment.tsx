@@ -1,5 +1,7 @@
 import { Box, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
+import PaymentTypes from "../../components/payment-types/PaymentTypes";
+import { Flex } from "../../components";
 
 interface PaymentProps {
   values: any;
@@ -43,6 +45,12 @@ const Payment = (props: PaymentProps) => {
           helperText={touched.phoneNumber && errors.phoneNumber}
           sx={{ gridColumn: "span 4" }}
         />
+        {/* TODO: Add current cart items and totals here for final review  */}
+        <Flex marginTop="40px" flexDirection="column" gap="10px">
+          <Typography variant="h4">Available Payment Methods:</Typography>
+
+          <PaymentTypes />
+        </Flex>
       </Box>
     </Box>
   );

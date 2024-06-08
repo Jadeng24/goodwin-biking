@@ -14,10 +14,10 @@ const PaymentTypes = () => {
   const paymentTypeImages1 = [
     { url: Visa, alt: "Visa" },
     { url: Mastercard, alt: "Mastercard" },
-    { url: Discover, alt: "Discover" },
+    { url: Amex, alt: "American Express" },
   ];
   const paymentTypeImages2 = [
-    { url: Amex, alt: "American Express" },
+    { url: Discover, alt: "Discover" },
     { url: Ucb, alt: "UCB" },
     { url: Union, alt: "Union Pay" },
   ];
