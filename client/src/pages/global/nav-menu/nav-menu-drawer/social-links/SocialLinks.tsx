@@ -12,7 +12,12 @@ import { linkToExternal } from "../../../../../linkToExternal";
 import { shades } from "../../../../../theme";
 import strava from "../../../../../assets/strava.png";
 
-const SocialLinks = () => {
+interface SocialLinksProps {
+  showTitle?: boolean;
+}
+
+const SocialLinks = (props: SocialLinksProps) => {
+  const { showTitle = false } = props;
   const isSmallPhone = useMediaQuery("(max-width:360px)");
 
   const handleOnClick = (url: string) => {
@@ -22,10 +27,16 @@ const SocialLinks = () => {
   const stravaStyle = { maxHeight: "20px", opacity: ".6" };
 
   return (
-    <Box width="100%" paddingBottom={isSmallPhone ? "10px" : "20px"}>
-      <Typography variant="h3" color={shades.neutral[500]} marginBottom="20px">
-        SOCIAL LINKS
-      </Typography>
+    <Box width="100%">
+      {showTitle && (
+        <Typography
+          variant="h3"
+          color={shades.neutral[500]}
+          marginBottom="20px"
+        >
+          SOCIAL LINKS
+        </Typography>
+      )}
       <Flex justifyContent="space-around" width="100%">
         <Button
           onClick={() =>

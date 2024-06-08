@@ -94,7 +94,7 @@ const NavMenuDrawer = () => {
           </Button> */}
         </Flex>
       </Flex>
-      <SocialLinks />
+      <SocialLinks showTitle={true} />
     </Flex>
   );
 };

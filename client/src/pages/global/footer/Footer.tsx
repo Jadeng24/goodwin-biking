@@ -4,6 +4,8 @@ import { Box } from "@mui/material";
 import { Flex } from "../../../components";
 import FooterInfo from "./footer-info/FooterInfo";
 import FooterLinkSections from "./footer-link-sections/FooterLinkSections";
+import SocialLinks from "../nav-menu/nav-menu-drawer/social-links/SocialLinks";
+import { shades } from "../../../theme";
 
 function Footer() {
   const {
@@ -11,7 +13,12 @@ function Footer() {
   } = useTheme() as any;
 
   return (
-    <Flex marginTop="70px" padding="40px 0" background={info.light}>
+    <Flex
+      marginTop="70px"
+      paddingBottom="40px"
+      background={info.light}
+      flexDirection="column"
+    >
       <Box
         width="80%"
         margin="auto"
@@ -21,6 +28,15 @@ function Footer() {
         rowGap="30px"
         columnGap="clamp(20px, 30px, 40px)"
       >
+        <Flex
+          width="100%"
+          marginY="40px"
+          paddingY="4px"
+          borderRadius="8px"
+          background="#fff"
+        >
+          <SocialLinks />
+        </Flex>
         <FooterInfo />
 
         <FooterLinkSections />
