@@ -4,12 +4,17 @@ import { useDispatch } from "react-redux";
 import { Button, IconButton, Typography, useMediaQuery } from "@mui/material";
 import { Close } from "@mui/icons-material";
 
-import SocialLinks from "./social-links/SocialLinks";
 import { Flex } from "../../../../components";
 import { closeNavMenus } from "../../../../redux-store/navReducer";
 import { shades } from "../../../../theme";
+import SocialLinks from "../../../../components/social-links/SocialLinks";
 
-const NavMenuDrawer = () => {
+interface MenuDrawerProps {
+  onClose: () => void;
+}
+
+export const MenuDrawer = (props: MenuDrawerProps) => {
+  const { onClose } = props;
   const isGreaterThanMobile = useMediaQuery("(min-width:600px)");
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -43,7 +48,7 @@ const NavMenuDrawer = () => {
           <Typography variant="h3" sx={{ color: shades.neutral[500] }}>
             MENU
           </Typography>
-          <IconButton onClick={() => dispatch(closeNavMenus({}))}>
+          <IconButton onClick={onClose}>
             <Close fontSize="large" />
           </IconButton>
         </Flex>
@@ -87,7 +92,7 @@ const NavMenuDrawer = () => {
           {/* TODO add a contact page  */}
           {/* <Button
             color="primary"
-            onClick={() => handleNavigate("/about-us")}
+            onClick={() => handleNavigate("/contact")}
             style={linkStyles}
           >
             <Typography variant="h3">Contact us</Typography>
@@ -98,5 +103,3 @@ const NavMenuDrawer = () => {
     </Flex>
   );
 };
-
-export default NavMenuDrawer;

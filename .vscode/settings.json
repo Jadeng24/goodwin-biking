@@ -16,6 +16,7 @@
         "reduxjs",
         "Strapi",
         "strava",
+        "Swipeable",
         "tailwindcss"
     ]
 }

@@ -1,11 +1,11 @@
 import { useTheme } from "@emotion/react";
-import { Box } from "@mui/material";
 
 import FooterInfo from "./footer-info/FooterInfo";
 import FooterLinkSections from "./footer-link-sections/FooterLinkSections";
-import SocialLinks from "../nav-menu/nav-menu-drawer/social-links/SocialLinks";
+
 import { Flex } from "../../../components";
 import PaymentTypes from "../../../components/payment-types/PaymentTypes";
+import SocialLinks from "../../../components/social-links/SocialLinks";
 import { shades } from "../../../theme";
 
 function Footer() {

@@ -1,4 +1,3 @@
-import { Flex } from "../../../../../components";
 import {
   Box,
   Button,
@@ -8,9 +7,10 @@ import {
 } from "@mui/material";
 import { Facebook, YouTube } from "@mui/icons-material";
 
-import { linkToExternal } from "../../../../../linkToExternal";
-import { shades } from "../../../../../theme";
-import strava from "../../../../../assets/strava.png";
+import strava from "../../assets/strava.png";
+import { Flex } from "../flex";
+import { linkToExternal } from "../../linkToExternal";
+import { shades } from "../../theme";
 
 interface SocialLinksProps {
   showTitle?: boolean;

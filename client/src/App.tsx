@@ -10,9 +10,9 @@ import Footer from "./pages/global/footer/Footer";
 import TermsAndConditions from "./pages/company-policies/TermsAndConditions";
 import RefundsAndReturns from "./pages/company-policies/RefundsAndReturns";
 import AboutUs from "./pages/about-us/AboutUs";
-import NavMenu from "./pages/global/nav-menu/NavMenu";
 import BikepackingBags from "./pages/bikepacking-bags/BikepackingBags";
 import AccessoriesAndApparel from "./pages/accessories-and-apparel/AccessoriesAndApparel";
+import NavDrawer from "./pages/global/nav-drawer/NavDrawer";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -44,7 +44,8 @@ function App() {
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/returns" element={<RefundsAndReturns />} />
         </Routes>
-        <NavMenu />
+
+        <NavDrawer />
 
         <Footer />
       </BrowserRouter>

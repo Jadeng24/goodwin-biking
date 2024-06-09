@@ -44,7 +44,6 @@ const Nav = () => {
             cursor: "pointer",
             padding: "0px 10px",
             marginTop: "5px",
-            // borderRadius: "30px",
             borderLeft: "solid 2px transparent",
             borderRight: "solid 2px transparent",
             "&:hover": {
