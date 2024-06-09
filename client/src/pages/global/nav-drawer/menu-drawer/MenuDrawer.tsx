@@ -8,6 +8,7 @@ import { Flex } from "../../../../components";
 import { closeNavMenus } from "../../../../redux-store/navReducer";
 import { shades } from "../../../../theme";
 import SocialLinks from "../../../../components/social-links/SocialLinks";
+import DrawerPill from "../DrawerPill";
 
 interface MenuDrawerProps {
   onClose: () => void;
@@ -15,7 +16,7 @@ interface MenuDrawerProps {
 
 export const MenuDrawer = (props: MenuDrawerProps) => {
   const { onClose } = props;
-  const isGreaterThanMobile = useMediaQuery("(min-width:600px)");
+  const isMobile = useMediaQuery("(max-width:600px)");
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
@@ -26,7 +27,7 @@ export const MenuDrawer = (props: MenuDrawerProps) => {
 
   const linkStyles = {
     cursor: "pointer",
-    marginBottom: isGreaterThanMobile ? "4px" : "10px",
+    marginBottom: isMobile ? "10px" : "4px",
     borderRadius: "10px",
     padding: "14px 20px",
   };
@@ -37,10 +38,13 @@ export const MenuDrawer = (props: MenuDrawerProps) => {
       height="100%"
       flexDirection="column"
       justifyContent="space-between"
+      position="relative"
     >
+      {/* Drag bar  */}
+      {isMobile && <DrawerPill />}
       <Flex width="100%" flexDirection="column">
         <Flex
-          marginBottom={isGreaterThanMobile ? "40px" : "20px"}
+          marginBottom={isMobile ? "20px" : "40px"}
           justifyContent="space-between"
           alignItems="center"
           width="100%"
@@ -54,8 +58,8 @@ export const MenuDrawer = (props: MenuDrawerProps) => {
         </Flex>
         <Flex
           flexDirection="column"
-          alignSelf={isGreaterThanMobile ? "flex-start" : "flex-end"}
-          alignItems={isGreaterThanMobile ? "flex-start" : "flex-end"}
+          alignSelf={isMobile ? "flex-end" : "flex-start"}
+          alignItems={isMobile ? "flex-end" : "flex-start"}
         >
           <Button
             style={linkStyles}
@@ -71,7 +75,7 @@ export const MenuDrawer = (props: MenuDrawerProps) => {
             style={linkStyles}
           >
             <Typography variant="h3">
-              {isGreaterThanMobile ? "Bikepacking Bags" : "Bikepack Bags"}
+              {isMobile ? "Bikepack Bags" : "Bikepacking Bags"}
             </Typography>
           </Button>
 

@@ -5,7 +5,7 @@ import Home from "./pages/home/Home";
 import ItemDetails from "./pages/item-details/ItemDetails";
 import Checkout from "./pages/checkout/Checkout";
 import Confirmation from "./pages/checkout/Confirmation";
-import Nav from "./pages/global//nav/Nav";
+
 import Footer from "./pages/global/footer/Footer";
 import TermsAndConditions from "./pages/company-policies/TermsAndConditions";
 import RefundsAndReturns from "./pages/company-policies/RefundsAndReturns";
@@ -13,6 +13,7 @@ import AboutUs from "./pages/about-us/AboutUs";
 import BikepackingBags from "./pages/bikepacking-bags/BikepackingBags";
 import AccessoriesAndApparel from "./pages/accessories-and-apparel/AccessoriesAndApparel";
 import NavDrawer from "./pages/global/nav-drawer/NavDrawer";
+import NavBar from "./pages/global/nav-bar/NavBar";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -28,7 +29,7 @@ function App() {
   return (
     <div className="app">
       <BrowserRouter>
-        <Nav />
+        <NavBar />
         <ScrollToTop />
         <Routes>
           <Route path="/" element={<Home />} />

@@ -8,7 +8,7 @@ import goodwinLogo from "../../../assets/goodwin-logo.png";
 import { Flex } from "../../../components";
 import { shades } from "../../../theme";
 
-const Nav = () => {
+const NavBar = () => {
   const isGreaterThanMobile = useMediaQuery("(min-width:600px)");
   const navigate = useNavigate();
 
@@ -61,4 +61,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default NavBar;

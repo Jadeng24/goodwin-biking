@@ -8,6 +8,7 @@ import { CartItems } from "./cart-items";
 import { Flex } from "../../../../components";
 import { RootState } from "../../../../redux-store";
 import { shades } from "../../../../theme";
+import DrawerPill from "../DrawerPill";
 
 interface CartDrawerProps {
   onClose: () => void;
@@ -15,11 +16,17 @@ interface CartDrawerProps {
 export const CartDrawer = (props: CartDrawerProps) => {
   const { onClose } = props;
 
-  const isGreaterThanMobile = useMediaQuery("(min-width:600px)");
+  const isMobile = useMediaQuery("(max-width:600px)");
   const cartItems = useSelector((state: RootState) => state.cart.cartItems);
 
   return (
-    <Box padding="10px 30px 30px" overflow="auto" height="100%">
+    <Box
+      padding="10px 30px 30px"
+      overflow="auto"
+      height="100%"
+      position="relative"
+    >
+      {isMobile && <DrawerPill />}
       <Flex
         marginBottom="15px"
         justifyContent="space-between"
@@ -48,7 +55,7 @@ export const CartDrawer = (props: CartDrawerProps) => {
             <ProductionQuantityLimits
               fontSize="large"
               sx={{
-                transform: isGreaterThanMobile ? "scale(4)" : "scale(3)",
+                transform: isMobile ? "scale(3)" : "scale(4)",
                 color: shades.neutral[300],
               }}
             />
