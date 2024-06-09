@@ -82,6 +82,14 @@
     },
     "maxCapacity": {
       "type": "decimal"
+    },
+    "images": {
+      "allowedTypes": [
+        "images",
+        "videos"
+      ],
+      "type": "media",
+      "multiple": true
     }
   }
 }

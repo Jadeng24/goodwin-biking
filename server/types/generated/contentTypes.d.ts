@@ -863,6 +863,7 @@ export interface ApiItemItem extends Schema.CollectionType {
     color: Attribute.JSON;
     dimensions: Attribute.String;
     maxCapacity: Attribute.Decimal;
+    images: Attribute.Media;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

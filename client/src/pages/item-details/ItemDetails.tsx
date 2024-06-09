@@ -5,6 +5,8 @@ import {
   Box,
   Divider,
   IconButton,
+  ImageList,
+  ImageListItem,
   Rating,
   Skeleton,
   Typography,
@@ -22,6 +24,7 @@ import ItemSpecs from "./item-specs/ItemSpecs";
 import ItemActionButtons from "./item-action-buttons/ItemActionButtons";
 import ItemShippingAndReturns from "./item-shipping-and-returns/ItemShippingAndReturns";
 import ItemBreadcrumbs from "./item-breadcrumbs/ItemBreadcrumbs";
+import ItemImageViewer from "./item-image-viewer/ItemImageViewer";
 
 const ItemDetails = () => {
   const { itemId } = useParams();
@@ -78,6 +81,10 @@ const ItemDetails = () => {
   const fullDescription = longDescription?.[0].children[0].text;
   const summary = shortDescription?.[0].children[0].text;
 
+  const mainImage =
+    item?.attributes?.image?.data?.attributes?.formats?.medium?.url || "";
+  const images = item?.attributes?.images?.data || [];
+
   return (
     <Box padding={isMobile ? "60px 30px 30px" : "60px"} fontSize="16px">
       <Flex flexDirection="column" rowGap="40px" marginTop="10px">
@@ -89,15 +96,10 @@ const ItemDetails = () => {
           gap={isMobile ? "20px" : "40px"}
         >
           {item ? (
-            <img
-              alt={name}
-              src={`${item?.attributes?.image?.data?.attributes?.formats?.medium?.url}`}
-              style={{
-                minWidth: "44%",
-                maxWidth: "100%",
-                objectFit: "contain",
-                borderRadius: "4px",
-              }}
+            <ItemImageViewer
+              name={name}
+              mainImage={mainImage}
+              images={images}
             />
           ) : (
             <Skeleton variant="rectangular" width="300px" height="450px" />
