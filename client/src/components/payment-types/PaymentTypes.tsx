@@ -27,7 +27,7 @@ const PaymentTypes = () => {
       width="100%"
       justifyContent="space-between"
       flexDirection={isMobile ? "column" : "row"}
-      sx={{ pointerEvents: "none", userSelect: "none" }}
+      sx={{ pointerEvents: "none", userSelect: "none", opacity: ".8" }}
     >
       <Flex
         gap="10px"

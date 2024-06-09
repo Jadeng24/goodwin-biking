@@ -18,7 +18,7 @@ interface SocialLinksProps {
 
 const SocialLinks = (props: SocialLinksProps) => {
   const { showTitle = false } = props;
-  const isSmallPhone = useMediaQuery("(max-width:360px)");
+  const isSmallPhone = useMediaQuery("(max-width:500px)");
 
   const handleOnClick = (url: string) => {
     linkToExternal(url);

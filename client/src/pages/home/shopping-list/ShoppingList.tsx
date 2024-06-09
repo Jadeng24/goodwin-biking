@@ -10,11 +10,12 @@ import useMediaQuery from "@mui/material/useMediaQuery";
 import { RootState, setItems } from "../../../redux-store";
 import Item from "../../../components/item/Item";
 import { API_URL } from "../../../environment";
+import { Flex } from "../../../components";
 
 const ShoppingList = () => {
   const dispatch = useDispatch();
   const [filter, setFilter] = useState("all");
-  const items = useSelector((state: RootState) => state.cart.items);
+  const items: any[] = useSelector((state: RootState) => state.cart.items);
   const breakPoint = useMediaQuery("(min-width:600px)");
 
   async function getItems() {
@@ -71,14 +72,7 @@ const ShoppingList = () => {
         <Tab label="BEST SELLERS" value="bestSellers" />
         <Tab label="TOP RATED" value="topRated" />
       </Tabs>
-      <Box
-        margin="0 auto"
-        display="grid"
-        gridTemplateColumns="repeat(auto-fill, 300px)"
-        justifyContent="space-around"
-        rowGap="20px"
-        columnGap="1.33%"
-      >
+      <Flex gap="20px" flexWrap="wrap" justifyContent="space-around">
         {filter === "all" &&
           items?.map((item: { name: any; id: any }) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
@@ -95,7 +89,7 @@ const ShoppingList = () => {
           topRatedItems?.map((item: { name: any; id: any }) => (
             <Item item={item} key={`${item.name}-${item.id}`} />
           ))}
-      </Box>
+      </Flex>
     </Box>
   );
 };

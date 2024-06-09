@@ -7,6 +7,9 @@ import { Flex } from "../../../components";
 import PaymentTypes from "../../../components/payment-types/PaymentTypes";
 import SocialLinks from "../../../components/social-links/SocialLinks";
 import { shades } from "../../../theme";
+import Copywrite from "../../../components/copywrite/Copywrite";
+import { Divider } from "@mui/material";
+import FooterDivider from "./FooterDivider";
 
 function Footer() {
   const {
@@ -41,14 +44,13 @@ function Footer() {
           <PaymentTypes />
         </Flex>
 
-        <Flex
-          width="100%"
-          borderBottom={`solid 1px ${shades.neutral[300]} `}
-          marginBottom="20px"
-        />
+        <FooterDivider />
         <FooterInfo />
 
         <FooterLinkSections />
+
+        <FooterDivider />
+        <Copywrite />
       </Flex>
     </Flex>
   );
