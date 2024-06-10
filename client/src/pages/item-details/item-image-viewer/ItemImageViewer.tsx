@@ -31,14 +31,32 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
 
   // TODO: Don't show mainImage in imageList when there is only one image available
   const allImages = [...[mainImage], ...urlsForImages];
+  console.log(allImages);
 
   const onImageSelection = (url: string) => {
     setSelectedImage(url);
   };
 
-  const closeImagePreview = () => {};
-  const openImagePreview = () => {
-    setIsPreviewModalOpen(true);
+  const handlePrevious = (currentUrl: string) => {
+    const currentIndex = allImages.indexOf(currentUrl);
+
+    if (currentIndex === 0) {
+      // Wraps back to end of images list
+      setSelectedImage(allImages[allImages.length - 1]);
+    } else {
+      setSelectedImage(allImages[currentIndex - 1]);
+    }
+  };
+
+  const handleNext = (currentUrl: string) => {
+    const currentIndex = allImages.indexOf(currentUrl);
+
+    if (currentIndex === allImages.length - 1) {
+      // Wraps to beginning of images list
+      setSelectedImage(allImages[0]);
+    } else {
+      setSelectedImage(allImages[currentIndex + 1]);
+    }
   };
 
   return (
@@ -46,8 +64,7 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
       <Flex
         width="100%"
         sx={{ aspectRatio: "1 / 1" }}
-        onClick={openImagePreview}
-        // onMouseLeave={closeImagePreview}
+        onClick={() => setIsPreviewModalOpen(true)}
       >
         <img
           srcSet={selectedImage}
@@ -68,7 +85,7 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
             const urlSettings = "?w=164&h=164&fit=crop&auto=format";
 
             return (
-              <Flex onMouseEnter={() => onImageSelection(url)}>
+              <Flex onClick={() => onImageSelection(url)}>
                 <ImageListItem key={url}>
                   <img
                     srcSet={`${url}${urlSettings}`}
@@ -91,6 +108,8 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
         name={name}
         onClosePreview={() => setIsPreviewModalOpen(false)}
         selectedImage={selectedImage}
+        movePrevious={(url: string) => handlePrevious(url)}
+        moveNext={(url: string) => handleNext(url)}
       />
     </Box>
   );

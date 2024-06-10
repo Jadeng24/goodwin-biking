@@ -52,7 +52,6 @@ const ItemFeatures = (props: ItemFeaturesProps) => {
           <Typography variant="h4">FEATURES</Typography>
         </AccordionSummary>
         <AccordionDetails>
-          {" "}
           {features?.length ? renderItems : <Typography>-</Typography>}
         </AccordionDetails>
       </Accordion>
