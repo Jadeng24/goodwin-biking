@@ -43,9 +43,10 @@ const ImagePreviewModal = (props: ImagePreviewModalProps) => {
       aria-labelledby="modal-modal-title"
       aria-describedby="modal-modal-description"
     >
-      <Box
+      <Flex
         width={isMobile ? "96vw" : "70vw"}
         padding="20px"
+        justifyContent="center"
         style={{
           background: "#fff",
           position: "absolute",
@@ -101,7 +102,7 @@ const ImagePreviewModal = (props: ImagePreviewModalProps) => {
             maxWidth: "80vw",
           }}
         />
-      </Box>
+      </Flex>
     </Modal>
   );
 };
