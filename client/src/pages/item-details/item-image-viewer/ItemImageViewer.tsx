@@ -1,6 +1,16 @@
-import { Box, ImageList, ImageListItem, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  IconButton,
+  ImageList,
+  ImageListItem,
+  Modal,
+  useMediaQuery,
+} from "@mui/material";
 import { useState } from "react";
 import { Flex } from "../../../components";
+import { shades } from "../../../theme";
+import { Close } from "@mui/icons-material";
+import ImagePreviewModal from "./image-preview-modal/ImagePreviewModal";
 
 interface ItemImageViewerProps {
   name: string;
@@ -13,21 +23,32 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
 
   const isMobile = useMediaQuery("(max-width: 600px");
   const [selectedImage, setSelectedImage] = useState<string>(mainImage);
+  const [isPreviewModalOpen, setIsPreviewModalOpen] = useState<boolean>(false);
 
   const urlsForImages: string[] = images?.map((image) => {
     return image?.attributes?.formats?.medium?.url;
   });
 
-  // don't show mainImage in imageList when there is only one image available
+  // TODO: Don't show mainImage in imageList when there is only one image available
   const allImages = [...[mainImage], ...urlsForImages];
 
   const onImageSelection = (url: string) => {
     setSelectedImage(url);
   };
 
+  const closeImagePreview = () => {};
+  const openImagePreview = () => {
+    setIsPreviewModalOpen(true);
+  };
+
   return (
     <Box sx={{ minWidth: "44%", maxWidth: "100%" }}>
-      <Flex width="100%" sx={{ aspectRatio: "1 / 1" }}>
+      <Flex
+        width="100%"
+        sx={{ aspectRatio: "1 / 1" }}
+        onClick={openImagePreview}
+        // onMouseLeave={closeImagePreview}
+      >
         <img
           srcSet={selectedImage}
           src={selectedImage}
@@ -37,7 +58,7 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
           style={{
             objectFit: "contain",
             borderRadius: "4px",
-            cursor: "pointer",
+            cursor: "zoom-in",
           }}
         />
       </Flex>
@@ -64,6 +85,13 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
             );
           })}
       </ImageList>
+
+      <ImagePreviewModal
+        isOpen={isPreviewModalOpen}
+        name={name}
+        onClosePreview={() => setIsPreviewModalOpen(false)}
+        selectedImage={selectedImage}
+      />
     </Box>
   );
 };
