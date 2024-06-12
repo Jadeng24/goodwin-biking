@@ -93,7 +93,7 @@ const FrequentlyAskedQuestions = () => {
       </Box>
 
       <Typography variant="h2">Questions</Typography>
-      <Flex flexDirection="column" gap="10px" marginTop="20px">
+      <Flex flexDirection="column" gap="20px" marginTop="20px">
         {faqs &&
           faqs.map((faq) => (
             <Accordion>
