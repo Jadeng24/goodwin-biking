@@ -3,9 +3,18 @@ import {
   KeyboardArrowLeft,
   KeyboardArrowRight,
 } from "@mui/icons-material";
-import { Box, IconButton, Modal, useMediaQuery } from "@mui/material";
+import {
+  Box,
+  Button,
+  Fab,
+  IconButton,
+  Modal,
+  useMediaQuery,
+} from "@mui/material";
 
 import { Flex } from "../../../../components";
+import { shades } from "../../../../theme";
+import PreviewActions from "./preview-actions/PreviewActions";
 
 interface ImagePreviewModalProps {
   isOpen: boolean;
@@ -44,52 +53,43 @@ const ImagePreviewModal = (props: ImagePreviewModalProps) => {
       aria-describedby="modal-modal-description"
     >
       <Flex
-        width={isMobile ? "96vw" : "70vw"}
-        padding="20px"
+        width={isMobile ? "98vw" : "70vw"}
+        padding="8vh 0px"
         justifyContent="center"
         style={{
           background: "#fff",
           position: "absolute",
-          top: isMobile ? "36%" : "50%",
+          top: isMobile ? "45%" : "50%",
           left: "50%",
           transform: "translate(-50%, -50%)",
           outline: "none",
-          maxHeight: "90vh",
-          maxWidth: "90vw",
+          maxHeight: isMobile ? "94vh" : "90vh",
+          maxWidth: isMobile ? "94vw" : "90vw",
+          borderRadius: "14px",
         }}
       >
         <Flex
           style={{
             position: "absolute",
-            top: "30px",
-            right: "30px",
-            background: "#fff",
-            borderRadius: "50px",
+            top: "-6px",
+            right: "-6px",
           }}
         >
-          <IconButton onClick={onClosePreview}>
-            <Close color="success" />
-          </IconButton>
+          <Fab
+            color="secondary"
+            aria-label="add"
+            size="small"
+            onClick={onClosePreview}
+          >
+            <Close sx={{ color: "#fff" }} />
+          </Fab>
         </Flex>
 
-        <Flex
-          justifyContent="space-between"
-          width="100%"
-          style={{
-            position: "absolute",
-            top: "45%",
-            left: "0px",
-            padding: isMobile ? "0px 6px" : "0px 20px",
-          }}
-        >
-          <IconButton size="large" onClick={handlePrevious} key="previous">
-            <KeyboardArrowLeft sx={{ color: "#fff", fontSize: "48px" }} />
-          </IconButton>
+        <PreviewActions
+          moveNext={() => moveNext(selectedImage)}
+          movePrevious={() => movePrevious(selectedImage)}
+        />
 
-          <IconButton size="large" onClick={handleNext} key="next">
-            <KeyboardArrowRight sx={{ color: "#fff", fontSize: "48px" }} />
-          </IconButton>
-        </Flex>
         <img
           srcSet={selectedImage}
           src={selectedImage}
@@ -98,8 +98,8 @@ const ImagePreviewModal = (props: ImagePreviewModalProps) => {
           style={{
             objectFit: "contain",
             borderRadius: "4px",
-            maxHeight: "80vh",
-            maxWidth: "80vw",
+            maxHeight: isMobile ? "100vh" : "80vh",
+            maxWidth: isMobile ? "100vw" : "80vw",
           }}
         />
       </Flex>

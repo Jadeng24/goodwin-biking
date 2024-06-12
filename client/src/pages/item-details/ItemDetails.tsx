@@ -93,7 +93,7 @@ const ItemDetails = () => {
         <Flex
           marginBottom="40px"
           flexDirection={isMobile ? "column" : "row"}
-          gap={isMobile ? "20px" : "40px"}
+          gap={isMobile ? "20px" : "5%"}
         >
           {item ? (
             <ItemImageViewer
@@ -106,7 +106,7 @@ const ItemDetails = () => {
           )}
 
           {/* Item Information  */}
-          <Box>
+          <>
             <Box marginBottom="20px">
               <Flex alignItems="center" justifyContent="space-between">
                 <Typography variant="h3">{name}</Typography>
@@ -116,9 +116,9 @@ const ItemDetails = () => {
                   ${price}
                 </Typography>
                 {/* TODO: make this share button functional  */}
-                <IconButton>
+                {/* <IconButton>
                   <Share />
-                </IconButton>
+                </IconButton> */}
               </Flex>
 
               <Box marginY="20px">
@@ -143,7 +143,7 @@ const ItemDetails = () => {
               volume={volume}
               weight={weight}
             />
-          </Box>
+          </>
         </Flex>
       </Flex>
 
