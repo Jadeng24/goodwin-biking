@@ -32,6 +32,7 @@ const FooterSection = (props: FooterSectionProps) => {
       links: [
         // { label: "Track Your Order", navUrl: "/orders" }, // coming soon
         { label: "Returns & Refunds", navUrl: "/returns" },
+        { label: "Frequently Asked Questions", navUrl: "/faq" },
       ],
     },
     [SectionTypes.contactUs]: {

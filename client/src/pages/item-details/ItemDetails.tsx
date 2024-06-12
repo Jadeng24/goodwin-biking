@@ -106,7 +106,7 @@ const ItemDetails = () => {
           )}
 
           {/* Item Information  */}
-          <>
+          <Box>
             <Box marginBottom="20px">
               <Flex alignItems="center" justifyContent="space-between">
                 <Typography variant="h3">{name}</Typography>
@@ -143,7 +143,7 @@ const ItemDetails = () => {
               volume={volume}
               weight={weight}
             />
-          </>
+          </Box>
         </Flex>
       </Flex>
 

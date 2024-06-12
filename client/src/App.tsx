@@ -14,6 +14,7 @@ import BikepackingBags from "./pages/bikepacking-bags/BikepackingBags";
 import AccessoriesAndApparel from "./pages/accessories-and-apparel/AccessoriesAndApparel";
 import NavDrawer from "./pages/global/nav-drawer/NavDrawer";
 import NavBar from "./pages/global/nav-bar/NavBar";
+import FrequentlyAskedQuestions from "./pages/frequently-asked-questions/FrequentlyAskedQuestions";
 
 const ScrollToTop = () => {
   const { pathname } = useLocation();
@@ -44,6 +45,7 @@ function App() {
           <Route path="/about-us" element={<AboutUs />} />
           <Route path="/terms" element={<TermsAndConditions />} />
           <Route path="/returns" element={<RefundsAndReturns />} />
+          <Route path="/faq" element={<FrequentlyAskedQuestions />} />
         </Routes>
 
         <NavDrawer />
