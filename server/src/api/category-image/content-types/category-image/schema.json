@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "category_images",
+  "info": {
+    "singularName": "category-image",
+    "pluralName": "category-images",
+    "displayName": "categoryImage",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "files",
+        "videos",
+        "audios"
+      ]
+    },
+    "bagType": {
+      "type": "enumeration",
+      "enum": [
+        "topTube",
+        "frame",
+        "handlebar",
+        "seatPack",
+        "rearRack"
+      ]
+    }
+  }
+}
