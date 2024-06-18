@@ -4,6 +4,7 @@ export interface ReduxState {
   cartItems: Array<any>;
   items: Array<any>;
   banners: Array<any>;
+  categoryImages: Array<any>;
 }
 
 export interface ReduxAction {

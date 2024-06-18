@@ -2,22 +2,22 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { ReduxAction, ReduxState } from "./types";
 
-export const initialState: ReduxState = {
+const initialState: ReduxState = {
   isNavMenuOpen: false,
   isCartOpen: false,
   cartItems: [],
   items: [],
   banners: [],
+  categoryImages: [],
 };
 
-// Updates global state for cart
+// Updates global state for banner
 export const bannerSlice = createSlice({
-  name: "banner", // cartReducer
+  name: "banner",
   initialState,
   reducers: {
     // Actions
     setBanners: (state: ReduxState, action: ReduxAction) => {
-      // Redux toolkit allows you to write code that is not written immutably because it handles that in the background.
       state.banners = action.payload;
     },
   },

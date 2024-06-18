@@ -8,19 +8,15 @@ const initialState: ReduxState = {
   cartItems: [],
   items: [],
   banners: [],
+  categoryImages: [],
 };
 
 // Updates global state for cart
 export const cartSlice = createSlice({
-  name: "cart", // cartReducer
+  name: "cart",
   initialState,
   reducers: {
     // Actions
-    setItems: (state: ReduxState, action: ReduxAction) => {
-      // Redux toolkit allows you to write code that is not written immutably because it handles that in the background.
-      state.items = action.payload;
-    },
-
     addToCart: (state: ReduxState, action: ReduxAction) => {
       const item = state.cartItems.find(
         (item) => item.id === action.payload.item.id
@@ -62,12 +58,7 @@ export const cartSlice = createSlice({
   },
 });
 
-export const {
-  setItems,
-  addToCart,
-  removeFromCart,
-  increaseCount,
-  decreaseCount,
-} = cartSlice.actions;
+export const { addToCart, removeFromCart, increaseCount, decreaseCount } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;

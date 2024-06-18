@@ -13,7 +13,6 @@ import {
 } from "@mui/material";
 
 import { Flex } from "../../../../components";
-import { shades } from "../../../../theme";
 import PreviewActions from "./preview-actions/PreviewActions";
 
 interface ImagePreviewModalProps {

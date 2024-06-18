@@ -2,8 +2,8 @@ import { Box, Typography, useMediaQuery } from "@mui/material";
 import React from "react";
 import { Flex } from "../../components";
 import goodwinBiking from "../../assets/gb-grey.png";
-import ShoppingList from "../home/shopping-list/ShoppingList";
 import PageHeader from "../../components/page-header/PageHeader";
+import BagsByCategory from "../../components/bags-by-category/BagsByCategory";
 
 const BikepackingBags = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -48,8 +48,7 @@ const BikepackingBags = () => {
           </Typography>
         </Flex>
       </Flex>
-
-      <ShoppingList />
+      <BagsByCategory />
     </Box>
   );
 };

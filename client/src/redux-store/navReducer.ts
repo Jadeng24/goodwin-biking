@@ -2,17 +2,18 @@ import { createSlice } from "@reduxjs/toolkit";
 
 import { ReduxState } from "./types";
 
-export const initialState: ReduxState = {
+const initialState: ReduxState = {
   isNavMenuOpen: false,
   isCartOpen: false,
   cartItems: [],
   items: [],
   banners: [],
+  categoryImages: [],
 };
 
-// Updates global state for cart
+// Updates global state for navigation
 export const navSlice = createSlice({
-  name: "nav", // cartReducer
+  name: "nav",
   initialState,
   reducers: {
     // Actions

@@ -14,11 +14,10 @@ import ToasterMessage, { MessageType } from "../toaster-message/ToasterMessage";
 
 interface ItemProps {
   item: any;
-  width?: string;
 }
 
 const Item = (props: ItemProps) => {
-  const { item, width } = props;
+  const { item } = props;
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
@@ -35,7 +34,7 @@ const Item = (props: ItemProps) => {
   };
 
   return (
-    <Box width={width} marginBottom="20px" alignSelf="center">
+    <Box marginBottom="20px" alignSelf="center">
       <Box
         position="relative"
         onMouseOver={() => setIsHovered(true)}

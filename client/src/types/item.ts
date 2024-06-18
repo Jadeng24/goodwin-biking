@@ -14,10 +14,10 @@ export type BagType =
   | "seatPack"
   | "rearRack";
 
-export enum BagTypes {
-  topTube = "Top Tube",
-  frame = "Frame",
-  handlebar = "Handlebar",
-  seatPack = "Seat pack",
-  rearRack = "Rear rack",
+export enum BagTypes { // Directly from Strapi bagType enumeration types
+  topTube = "topTube",
+  frame = "frame",
+  handlebar = "handlebar",
+  seatPack = "seatPack",
+  rearRack = "rearRack",
 }

@@ -6,9 +6,7 @@ import FooterLinkSections from "./footer-link-sections/FooterLinkSections";
 import { Flex } from "../../../components";
 import PaymentTypes from "../../../components/payment-types/PaymentTypes";
 import SocialLinks from "../../../components/social-links/SocialLinks";
-import { shades } from "../../../theme";
 import Copywrite from "../../../components/copywrite/Copywrite";
-import { Divider } from "@mui/material";
 import FooterDivider from "./FooterDivider";
 
 function Footer() {

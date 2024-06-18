@@ -832,6 +832,40 @@ export interface ApiBannerBanner extends Schema.CollectionType {
   };
 }
 
+export interface ApiCategoryImageCategoryImage extends Schema.CollectionType {
+  collectionName: 'category_images';
+  info: {
+    singularName: 'category-image';
+    pluralName: 'category-images';
+    displayName: 'categoryImage';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    images: Attribute.Media;
+    bagType: Attribute.Enumeration<
+      ['topTube', 'frame', 'handlebar', 'seatPack', 'rearRack']
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::category-image.category-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::category-image.category-image',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiItemItem extends Schema.CollectionType {
   collectionName: 'items';
   info: {
@@ -928,6 +962,7 @@ declare module '@strapi/types' {
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
       'api::banner.banner': ApiBannerBanner;
+      'api::category-image.category-image': ApiCategoryImageCategoryImage;
       'api::item.item': ApiItemItem;
       'api::order.order': ApiOrderOrder;
     }

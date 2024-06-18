@@ -1,9 +1,10 @@
 import { useDispatch } from "react-redux";
 import { MainCarousel } from "./main-carousel/MainCarousel";
-import ShoppingList from "./shopping-list/ShoppingList";
+
 import { setBanners } from "../../redux-store/bannerReducer";
 import { useEffect } from "react";
 import { API_URL } from "../../environment";
+import ShoppingList from "../../components/shopping-list/ShoppingList";
 
 const Home = () => {
   const dispatch = useDispatch();
