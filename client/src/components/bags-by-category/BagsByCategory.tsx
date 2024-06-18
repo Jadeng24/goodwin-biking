@@ -47,22 +47,47 @@ const BagsByCategory = () => {
       return images.attributes.bagType === BagTypes.frame;
     })
     .map((images) => {
-      console.log(images?.attributes?.images);
       return images?.attributes?.images?.data;
     });
 
   const topTubeBags = items?.filter((item) => {
     return item.attributes.bagType === BagTypes.topTube;
   });
+  const topTubeBagImages = categoryImages
+    ?.filter((images) => {
+      return images.attributes.bagType === BagTypes.topTube;
+    })
+    .map((images) => {
+      return images?.attributes?.images?.data;
+    });
+
   const handlebarBags = items?.filter((item) => {
     return item.attributes.bagType === BagTypes.handlebar;
   });
+  const handlebarBagImages = categoryImages
+    ?.filter((images) => {
+      return images.attributes.bagType === BagTypes.handlebar;
+    })
+    .map((images) => {
+      return images?.attributes?.images?.data;
+    });
+
   const rearBags = items?.filter((item) => {
     return (
       item.attributes.bagType === BagTypes.seatPack ||
       item.attributes.bagType === BagTypes.rearRack
     );
   });
+  const rearBagImages = categoryImages
+    ?.filter((images) => {
+      return (
+        images.attributes.bagType === BagTypes.seatPack ||
+        images.attributes.bagType === BagTypes.rearRack
+      );
+    })
+    .map((images) => {
+      return images?.attributes?.images?.data;
+    });
 
   return (
     <Box>
@@ -72,9 +97,21 @@ const BagsByCategory = () => {
         categoryImages={frameBagImages}
       />
       {/* sectionImage={} */}
-      <BagCategorySection title="Top Tube Bags" bags={topTubeBags} />
-      <BagCategorySection title="Handlebar Bags" bags={handlebarBags} />
-      <BagCategorySection title="Seat Pack & Rear Rack Bags" bags={rearBags} />
+      <BagCategorySection
+        title="Top Tube Bags"
+        bags={topTubeBags}
+        categoryImages={topTubeBagImages}
+      />
+      <BagCategorySection
+        title="Handlebar Bags"
+        bags={handlebarBags}
+        categoryImages={handlebarBagImages}
+      />
+      <BagCategorySection
+        title="Seat Pack & Rear Rack Bags"
+        bags={rearBags}
+        categoryImages={rearBagImages}
+      />
     </Box>
   );
 };

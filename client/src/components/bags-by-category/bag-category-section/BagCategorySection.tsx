@@ -35,14 +35,17 @@ const BagCategorySection = (props: BagCategorySectionProps) => {
 
       {categoryImages && categoryImages.length > 0 && (
         <Flex>
-          {categoryImages.map((image: any) => {
-            const url = image?.attributes?.formats?.large?.url;
-            //  todo: implement a ImageList mui component for 3+ images on a section
-            return (
-              <Flex>
-                <img src={url} style={categoryImageStyles} />
-              </Flex>
-            );
+          {categoryImages.map((images: any) => {
+            return images.map((image: any) => {
+              const url = image?.attributes?.formats?.large?.url;
+              console.log(image);
+              //  todo: implement a ImageList mui component for 3+ images on a section
+              return (
+                <Flex>
+                  <img src={url} style={categoryImageStyles} />
+                </Flex>
+              );
+            });
           })}
         </Flex>
       )}
