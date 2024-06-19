@@ -46,7 +46,7 @@ const BagsByCategory = () => {
     ?.filter((images) => {
       return images.attributes.bagType === BagTypes.frame;
     })
-    .map((images) => {
+    .flatMap((images) => {
       return images?.attributes?.images?.data;
     });
 
@@ -57,7 +57,7 @@ const BagsByCategory = () => {
     ?.filter((images) => {
       return images.attributes.bagType === BagTypes.topTube;
     })
-    .map((images) => {
+    .flatMap((images) => {
       return images?.attributes?.images?.data;
     });
 
@@ -68,7 +68,7 @@ const BagsByCategory = () => {
     ?.filter((images) => {
       return images.attributes.bagType === BagTypes.handlebar;
     })
-    .map((images) => {
+    .flatMap((images) => {
       return images?.attributes?.images?.data;
     });
 
@@ -85,7 +85,7 @@ const BagsByCategory = () => {
         images.attributes.bagType === BagTypes.rearRack
       );
     })
-    .map((images) => {
+    .flatMap((images) => {
       return images?.attributes?.images?.data;
     });
 
