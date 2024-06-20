@@ -19,14 +19,14 @@ const Copywrite = () => {
             © Copyright 2024 Goodwin Biking LLC
           </Typography>
           <Typography variant="h4">
-            All photos and products are property of Goodwinbiking.com - All
-            Rights Reserved.
+            All products listed are property of Goodwinbiking.com - All Rights
+            Reserved.
           </Typography>
         </Flex>
       ) : (
         <Typography variant="h4">
-          © Copyright 2024 Goodwin Biking LLC - All photos and products are
-          property of Goodwinbiking.com - All Rights Reserved.
+          © Copyright 2024 Goodwin Biking LLC - All products listed are property
+          of Goodwinbiking.com - All Rights Reserved.
         </Typography>
       )}
     </Flex>

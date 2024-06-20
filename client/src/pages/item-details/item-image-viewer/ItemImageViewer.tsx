@@ -1,15 +1,7 @@
-import {
-  Box,
-  IconButton,
-  ImageList,
-  ImageListItem,
-  Modal,
-  useMediaQuery,
-} from "@mui/material";
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { Box, ImageList, ImageListItem, useMediaQuery } from "@mui/material";
+
 import { Flex } from "../../../components";
-import { shades } from "../../../theme";
-import { Close } from "@mui/icons-material";
 import ImagePreviewModal from "./image-preview-modal/ImagePreviewModal";
 
 interface ItemImageViewerProps {
@@ -29,9 +21,11 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
     return image?.attributes?.formats?.medium?.url;
   });
 
+  useEffect(() => {
+    setSelectedImage(mainImage);
+  }, [mainImage]);
   // TODO: Don't show mainImage in imageList when there is only one image available
   const allImages = [...[mainImage], ...urlsForImages];
-  console.log(allImages);
 
   const onImageSelection = (url: string) => {
     setSelectedImage(url);

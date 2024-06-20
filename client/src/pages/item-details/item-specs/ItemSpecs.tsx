@@ -10,7 +10,7 @@ import {
 import { SvgIconComponent } from "@mui/icons-material";
 
 import { Flex } from "../../../components";
-import { BagType, BagTypes } from "../../../types/item";
+import { BagType, BagTypeLabels } from "../../../types/item";
 
 // SPECS
 // color1
@@ -23,6 +23,7 @@ import { BagType, BagTypes } from "../../../types/item";
 
 interface ItemSpecsProps {
   bagType: BagType;
+  color: string;
   dimensions: string;
   material: string;
   maxCapacity: number;
@@ -35,7 +36,8 @@ const MUIcon: {
 } = require("@mui/icons-material");
 
 const ItemSpecs = (props: ItemSpecsProps) => {
-  const { bagType, dimensions, material, maxCapacity, volume, weight } = props;
+  const { bagType, color, dimensions, material, maxCapacity, volume, weight } =
+    props;
 
   const isMobile = useMediaQuery("(max-width:600px");
 
@@ -43,7 +45,7 @@ const ItemSpecs = (props: ItemSpecsProps) => {
   const specs = [
     {
       label: "Bag Type",
-      text: `${BagTypes[bagType]} bag`,
+      text: `${BagTypeLabels[bagType]} bag`,
       icon: "Category",
       value: bagType,
     },
@@ -52,6 +54,12 @@ const ItemSpecs = (props: ItemSpecsProps) => {
       text: `${dimensions} inches`,
       icon: "Straighten",
       value: dimensions,
+    },
+    {
+      label: "Color",
+      text: `${color}`,
+      icon: "Palette",
+      value: color,
     },
     { label: "Weight", text: `${weight} lbs`, icon: "Scale", value: weight },
     { label: "Material", text: material, icon: "Grid4x4", value: material },

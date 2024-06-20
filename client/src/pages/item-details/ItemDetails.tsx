@@ -42,6 +42,7 @@ const ItemDetails = () => {
     price,
     shortDescription,
     longDescription,
+    color,
     bagType,
     dimensions,
     material,
@@ -137,6 +138,7 @@ const ItemDetails = () => {
             <ItemFeatures features={features?.features} />
             <ItemSpecs
               bagType={bagType}
+              color={color}
               dimensions={dimensions}
               material={material}
               maxCapacity={maxCapacity}

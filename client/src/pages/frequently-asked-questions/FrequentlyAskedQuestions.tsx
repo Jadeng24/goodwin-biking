@@ -3,13 +3,16 @@ import {
   AccordionDetails,
   AccordionSummary,
   Box,
+  Card,
   Divider,
+  Paper,
   Typography,
   useMediaQuery,
 } from "@mui/material";
 import PageHeader from "../../components/page-header/PageHeader";
 import { Flex } from "../../components";
 import { ExpandMore } from "@mui/icons-material";
+import { shades } from "../../theme";
 
 const FrequentlyAskedQuestions = () => {
   const isMobile = useMediaQuery("(max-width:600px");
@@ -80,38 +83,52 @@ const FrequentlyAskedQuestions = () => {
     <Box padding={isMobile ? "30px" : "60px"} fontSize="16px">
       <PageHeader title="Frequently Asked Questions" />
 
-      <Typography fontSize="18px">
+      <Typography variant="h3" fontSize="18px">
         Welcome to the Goodwin Biking Frequently Asked Questions (FAQ) page!
         Here, you'll find answers to the most common questions about our
-        bikepacking gear and bags. Whether you're a seasoned bikepacker or just
-        starting out, we've got the information you need to make the most of
-        your journey. If you don't find what you're looking for, feel free to
-        contact us directly for further assistance.
+        bikepacking gear and bags. <br /> <br /> Whether you're a seasoned
+        bikepacker or just starting out, we've got the information you need to
+        make the most of your journey. If you don't find what you're looking
+        for, feel free to contact us directly for further assistance.
       </Typography>
       <Box marginY="40px">
         <Divider />
       </Box>
 
-      <Typography variant="h2">Questions</Typography>
-      <Flex flexDirection="column" gap="20px" marginTop="20px">
-        {faqs &&
-          faqs.map((faq) => (
-            <Accordion>
-              <AccordionSummary
-                expandIcon={<ExpandMore />}
-                aria-controls="panel1-content"
-                id="panel1-header"
-              >
-                <Typography variant="h2" fontSize="30px">
-                  {faq.question}
-                </Typography>
-              </AccordionSummary>
-              <AccordionDetails>
-                <Typography variant="h3">{faq.answer}</Typography>
-              </AccordionDetails>
-            </Accordion>
-          ))}
-      </Flex>
+      <Paper elevation={4} sx={{ padding: " 40px 20px" }}>
+        <Typography variant="h2">Questions</Typography>
+        <Flex flexDirection="column" marginTop="20px">
+          {faqs &&
+            faqs.map((faq) => (
+              <Accordion>
+                <AccordionSummary
+                  expandIcon={<ExpandMore />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  <Typography
+                    variant="h2"
+                    fontSize={isMobile ? "22px" : "26px"}
+                  >
+                    {faq.question}
+                  </Typography>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <Typography variant="h3" color={shades.neutral[700]}>
+                    {faq.answer}
+                  </Typography>
+                </AccordionDetails>
+              </Accordion>
+            ))}
+          <Box marginTop="40px">
+            <Typography variant="h3" color={shades.neutral[700]}>
+              Not seeing what you are looking for? Feel free to contact us
+              directly and we will be happy to help answer any of your
+              questions.
+            </Typography>
+          </Box>
+        </Flex>
+      </Paper>
     </Box>
   );
 };

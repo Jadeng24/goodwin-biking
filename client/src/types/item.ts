@@ -21,3 +21,11 @@ export enum BagTypes { // Directly from Strapi bagType enumeration types
   seatPack = "seatPack",
   rearRack = "rearRack",
 }
+
+export enum BagTypeLabels {
+  topTube = "Top Tube",
+  frame = "Frame",
+  handlebar = "Handlebar",
+  seatPack = "Seat Pack",
+  rearRack = "Rear Rack",
+}

@@ -1,15 +1,9 @@
-import {
-  Box,
-  Divider,
-  ImageList,
-  ImageListItem,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
+import { Box, Divider, Typography } from "@mui/material";
 
 import { Flex } from "../../flex";
 import Item from "../../item/Item";
 import { shades } from "../../../theme";
+import CategoryImages from "../../category-images/CategoryImages";
 
 interface BagCategorySectionProps {
   title: string;
@@ -18,15 +12,7 @@ interface BagCategorySectionProps {
 }
 const BagCategorySection = (props: BagCategorySectionProps) => {
   const { bags, categoryImages, title } = props;
-  const isLessThanDesktop = useMediaQuery("(max-width:900px");
 
-  const categoryImageStyles = { width: "100%", borderRadius: "8px" };
-
-  const urlsForImages: string[] = categoryImages?.map((image) => {
-    return image?.attributes?.formats?.large?.url as string;
-  });
-
-  const images: string[] = [] || [];
   return (
     <Box marginY="80px">
       <Typography variant="h2">{title}</Typography>
@@ -48,41 +34,7 @@ const BagCategorySection = (props: BagCategorySectionProps) => {
           </Typography>
         </Box>
       )}
-      {urlsForImages && urlsForImages.length > 0 && (
-        <Flex alignItems="center">
-          <ImageList
-            variant="quilted"
-            cols={
-              isLessThanDesktop
-                ? urlsForImages.length === 2
-                  ? 2
-                  : 1
-                : urlsForImages.length
-            }
-            sx={{ width: "100%" }}
-            rowHeight={isLessThanDesktop ? 300 : 400}
-          >
-            {urlsForImages.map((url) => {
-              const urlSettings = "?w=164&h=164&fit=crop&auto=format";
-
-              return (
-                <ImageListItem key={url}>
-                  <img
-                    srcSet={`${url}${urlSettings}`}
-                    src={url}
-                    loading="lazy"
-                    alt={title}
-                    style={{
-                      //   cursor: "pointer",
-                      borderRadius: "4px",
-                    }}
-                  />
-                </ImageListItem>
-              );
-            })}
-          </ImageList>
-        </Flex>
-      )}
+      <CategoryImages images={categoryImages} />
     </Box>
   );
 };

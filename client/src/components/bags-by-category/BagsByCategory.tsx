@@ -1,17 +1,15 @@
-import { useEffect, useState } from "react";
-
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Box } from "@mui/material";
 
+import BagCategorySection from "./bag-category-section/BagCategorySection";
 import { API_URL } from "../../environment";
 import { RootState, setItems, setCategoryImages } from "../../redux-store";
 import { BagTypes } from "../../types/item";
-import BagCategorySection from "./bag-category-section/BagCategorySection";
 
 const BagsByCategory = () => {
   const dispatch = useDispatch();
-  const [filter, setFilter] = useState<string>("all");
   const items: any[] = useSelector((state: RootState) => state.products.items);
   const categoryImages: any[] = useSelector(
     (state: RootState) => state.products.categoryImages

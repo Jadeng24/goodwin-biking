@@ -96,6 +96,13 @@ export const MenuDrawer = (props: MenuDrawerProps) => {
             </Button>
             <Button
               color="primary"
+              onClick={() => handleNavigate("/faq")}
+              style={linkStyles}
+            >
+              <Typography variant="h3">FAQ</Typography>
+            </Button>
+            <Button
+              color="primary"
               onClick={() => handleNavigate("/about-us")}
               style={linkStyles}
             >
