@@ -1,5 +1,5 @@
 import React from "react";
-import { useMediaQuery } from "@mui/material";
+import { Typography, useMediaQuery } from "@mui/material";
 import { Box } from "@mui/system";
 
 import PageHeader from "../../components/page-header/PageHeader";
@@ -11,6 +11,9 @@ const AccessoriesAndApparel = () => {
     <Box padding={isMobile ? "30px" : "60px"} fontSize="16px">
       <PageHeader title="Shop Accessories & Apparel" />
 
+      <Typography variant="h3">
+        Products coming soon! Please, check back later.
+      </Typography>
       {/* TODO: List of accessories and clothing here  */}
     </Box>
   );

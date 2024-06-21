@@ -7,6 +7,7 @@ import NavbarButtons from "./NavbarButtons";
 import goodwinLogo from "../../../assets/goodwin-logo.png";
 import { Flex } from "../../../components";
 import { shades } from "../../../theme";
+import NavMessageBar from "../nav-message-bar/NavMessageBar";
 
 const NavBar = () => {
   const isGreaterThanMobile = useMediaQuery("(min-width:600px)");
@@ -19,10 +20,12 @@ const NavBar = () => {
   };
 
   return (
+    // TODO: hide on scroll down
     <Flex
       alignItems="center"
+      flexDirection="column"
       width="100%"
-      height="60px"
+      minHeight="60px"
       background="rgb(255,255,255, 0.4)"
       color="#222"
       position="fixed"
@@ -30,12 +33,14 @@ const NavBar = () => {
       left="0"
       zIndex="1"
     >
+      <NavMessageBar />
       <Flex
         padding={isGreaterThanMobile ? "0 7%" : "0 3%"}
         width="100%"
         margin="auto"
         justifyContent="space-between"
         alignItems="center"
+        height="60px"
       >
         <Box
           onClick={() => navigate("/")}

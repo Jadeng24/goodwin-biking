@@ -908,6 +908,38 @@ export interface ApiItemItem extends Schema.CollectionType {
   };
 }
 
+export interface ApiNavMessageNavMessage extends Schema.CollectionType {
+  collectionName: 'nav_messages';
+  info: {
+    singularName: 'nav-message';
+    pluralName: 'nav-messages';
+    displayName: 'navMessage';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    message: Attribute.String;
+    linkUrl: Attribute.String;
+    linkText: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::nav-message.nav-message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::nav-message.nav-message',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiOrderOrder extends Schema.CollectionType {
   collectionName: 'orders';
   info: {
@@ -964,6 +996,7 @@ declare module '@strapi/types' {
       'api::banner.banner': ApiBannerBanner;
       'api::category-image.category-image': ApiCategoryImageCategoryImage;
       'api::item.item': ApiItemItem;
+      'api::nav-message.nav-message': ApiNavMessageNavMessage;
       'api::order.order': ApiOrderOrder;
     }
   }

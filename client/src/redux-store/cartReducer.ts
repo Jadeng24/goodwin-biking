@@ -4,6 +4,7 @@ import { ReduxAction, ReduxState } from "./types";
 
 const initialState: ReduxState = {
   isNavMenuOpen: false,
+  navMessages: [],
   isCartOpen: false,
   cartItems: [],
   items: [],
