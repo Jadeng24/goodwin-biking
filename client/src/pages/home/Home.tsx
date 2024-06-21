@@ -52,6 +52,13 @@ const Home = () => {
     .flatMap((images) => {
       return images?.attributes?.images?.data;
     });
+  const TopTubeBags = categoryImages
+    ?.filter((images) => {
+      return images.attributes.bagType === BagTypes.topTube;
+    })
+    .flatMap((images) => {
+      return images?.attributes?.images?.data;
+    });
 
   return (
     <>
@@ -63,7 +70,19 @@ const Home = () => {
     beginner and professional bikepackers alike."
       />
       <ShoppingList />
-      <CategoryImages images={frameBagImages} fullWidth={true} />
+      <CategoryImages
+        actionUrl={"/bikepacking-bags"}
+        images={frameBagImages}
+        fullWidth={true}
+        linkText="Shop Frame Bags"
+      />
+      <CategoryImages
+        actionUrl={"/bikepacking-bags"}
+        images={TopTubeBags}
+        fullWidth={true}
+        linkText="Shop Top Tube Bags"
+      />
+      {/* TODO: add a #id to url for scrolling to ref of top tubes on page  */}
 
       {/* To add subscribe to newsletter section, see 2:14:20  */}
     </>

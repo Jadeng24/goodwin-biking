@@ -5,6 +5,7 @@ import { Typography, useMediaQuery } from "@mui/material";
 import { shades } from "../../../../theme";
 import { Flex } from "../../../../components";
 import { linkToExternal } from "../../../../linkToExternal";
+import ActionButton from "../../../../components/action-button/ActionButton";
 
 interface CarouselHeaderProps {
   banner: any;
@@ -15,7 +16,6 @@ export const CarouselHeader = (props: CarouselHeaderProps): JSX.Element => {
   const navigate = useNavigate();
   const isGreaterThanMobile = useMediaQuery("(min-width:600px");
   const defaultUrl = "/bikepacking-bags";
-  const defaultLinkText = "Shop Now";
 
   const { appUrl, externalUrl, linkText, subtitle, title } =
     banner?.attributes || {};
@@ -63,26 +63,7 @@ export const CarouselHeader = (props: CarouselHeaderProps): JSX.Element => {
       >
         {subtitle ?? "Lightweight and durable bikepacking bags that will last."}
       </Typography>
-      <Typography
-        variant="h4"
-        fontWeight="bold"
-        fontSize={isGreaterThanMobile ? "18px" : "14px"}
-        color="#222"
-        sx={{
-          background: shades.neutral[300],
-          padding: isGreaterThanMobile ? "9px 22px" : "8px 20px",
-          borderRadius: "30px",
-          transition: ".3s",
-          border: "solid 3px transparent",
-          "&:hover": {
-            borderColor: externalUrl
-              ? shades.secondary[500]
-              : shades.primary[500],
-          },
-        }}
-      >
-        {linkText ?? defaultLinkText}
-      </Typography>
+      <ActionButton linkText={linkText} externalUrl={externalUrl} />
     </Flex>
   );
 };
