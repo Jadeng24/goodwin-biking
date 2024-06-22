@@ -1,7 +1,9 @@
 import { Box, Typography } from "@mui/material";
 import TextField from "@mui/material/TextField";
-import PaymentTypes from "../../components/payment-types/PaymentTypes";
+
+import OrderSummary from "./order-summary/OrderSummary";
 import { Flex } from "../../components";
+import PaymentTypes from "../../components/payment-types/PaymentTypes";
 
 interface PaymentProps {
   values: any;
@@ -18,7 +20,7 @@ const Payment = (props: PaymentProps) => {
     <Box m="30px 0">
       {/* CONTACT INFO */}
       <Box>
-        <Typography sx={{ mb: "15px" }} fontSize="18px">
+        <Typography sx={{ marginBottom: "15px" }} fontSize="18px">
           Contact Info
         </Typography>
         <TextField
@@ -51,6 +53,7 @@ const Payment = (props: PaymentProps) => {
 
           <PaymentTypes />
         </Flex>
+        <OrderSummary />
       </Box>
     </Box>
   );

@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { Flex } from "../../../components";
@@ -14,6 +14,24 @@ const NavMessageBar = () => {
   const navMessages: any[] = useSelector(
     (state: RootState) => state.nav.navMessages
   );
+
+  const [showMessageBar, setShowMessageBar] = useState<boolean>(false);
+  const controlNavbar = () => {
+    const hideDistance = 750; // Vertical distance down the page to hide Message bar
+
+    if (window.scrollY < hideDistance) {
+      setShowMessageBar(true);
+    } else {
+      setShowMessageBar(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener("scroll", controlNavbar);
+    return () => {
+      window.removeEventListener("scroll", controlNavbar);
+    };
+  }, []);
 
   async function getNavMessage() {
     const message = await fetch(`${API_URL}/nav-messages?populate=*`, {
@@ -38,7 +56,11 @@ const NavMessageBar = () => {
       justifyContent="center"
       background={shades.primary[500]}
       height="40px"
-      sx={{ opacity: ".95" }}
+      sx={{
+        opacity: ".95",
+        transition: ".8s",
+        marginTop: showMessageBar ? "0" : "-40px",
+      }}
     >
       <Carousel
         autoPlay
@@ -87,13 +109,14 @@ const NavMessageBar = () => {
             alignItems="center"
             justifyContent="center"
             height="40px"
-            gap="10px"
+            gap="4px"
             onClick={handleMessageClick}
             sx={{ cursor: "pointer" }}
           >
             <Typography variant="h4" color="#fff">
               {msg?.attributes?.message}
             </Typography>
+
             <Typography
               variant="h4"
               color="#fff"
