@@ -803,8 +803,7 @@ export interface ApiBannerBanner extends Schema.CollectionType {
     image: Attribute.Media;
     title: Attribute.String;
     subtitle: Attribute.String;
-    appUrl: Attribute.String;
-    externalUrl: Attribute.String;
+    linkUrl: Attribute.String;
     linkText: Attribute.String;
     slot: Attribute.Integer &
       Attribute.SetMinMax<

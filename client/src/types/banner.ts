@@ -1,7 +1,6 @@
 export interface BannerContract {
-  appUrl: string;
+  linkUrl: string;
   createdAt: string;
-  externalUrl: string;
   linkText: string;
   publishedAt: string;
   slot: number;

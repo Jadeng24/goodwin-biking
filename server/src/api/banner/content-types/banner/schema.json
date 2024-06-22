@@ -29,10 +29,7 @@
     "subtitle": {
       "type": "string"
     },
-    "appUrl": {
-      "type": "string"
-    },
-    "externalUrl": {
+    "linkUrl": {
       "type": "string"
     },
     "linkText": {

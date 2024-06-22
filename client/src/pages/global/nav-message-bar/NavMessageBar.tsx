@@ -1,23 +1,28 @@
 import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { Carousel } from "react-responsive-carousel";
+
+import { IconButton, Typography } from "@mui/material";
+import { NavigateBefore, NavigateNext } from "@mui/icons-material";
 
 import { Flex } from "../../../components";
 import { API_URL } from "../../../environment";
 import { shades } from "../../../theme";
 import { RootState, setNavMessages } from "../../../redux-store";
-import { Carousel } from "react-responsive-carousel";
-import { IconButton, Typography } from "@mui/material";
-import { NavigateBefore, NavigateNext } from "@mui/icons-material";
+import { isExternalUrl } from "../../../isExternalUrl";
+import { linkToExternal } from "../../../linkToExternal";
 
 const NavMessageBar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const navMessages: any[] = useSelector(
     (state: RootState) => state.nav.navMessages
   );
 
-  const [showMessageBar, setShowMessageBar] = useState<boolean>(false);
+  const [showMessageBar, setShowMessageBar] = useState<boolean>(true);
   const controlNavbar = () => {
-    const hideDistance = 750; // Vertical distance down the page to hide Message bar
+    const hideDistance = 400; // Vertical distance down the page to hide Message bar
 
     if (window.scrollY < hideDistance) {
       setShowMessageBar(true);
@@ -46,8 +51,12 @@ const NavMessageBar = () => {
     getNavMessage();
   }, []);
 
-  const handleMessageClick = () => {
-    // navigate to app or external (use func) with linkUrl
+  const handleMessageClick = (linkUrl: string) => {
+    if (isExternalUrl(linkUrl)) {
+      linkToExternal(linkUrl);
+    } else {
+      navigate(linkUrl);
+    }
   };
 
   return navMessages && navMessages.length > 0 ? (
@@ -58,7 +67,7 @@ const NavMessageBar = () => {
       height="40px"
       sx={{
         opacity: ".95",
-        transition: ".8s",
+        transition: ".5s",
         marginTop: showMessageBar ? "0" : "-40px",
       }}
     >
@@ -110,7 +119,7 @@ const NavMessageBar = () => {
             justifyContent="center"
             height="40px"
             gap="4px"
-            onClick={handleMessageClick}
+            onClick={() => handleMessageClick(msg.attributes.linkUrl)}
             sx={{ cursor: "pointer" }}
           >
             <Typography variant="h4" color="#fff">

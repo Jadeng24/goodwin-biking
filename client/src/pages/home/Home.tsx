@@ -75,13 +75,13 @@ const Home = () => {
       />
       <ShoppingList />
       <CategoryImages
-        actionUrl={"/bikepacking-bags"}
+        linkUrl={"/bikepacking-bags"}
         images={frameBagImages}
         fullWidth={true}
         linkText="Shop Frame Bags"
       />
       <CategoryImages
-        actionUrl={"/bikepacking-bags"}
+        linkUrl={"/bikepacking-bags"}
         images={topTubeBags}
         fullWidth={true}
         linkText="Shop Top Tube Bags"

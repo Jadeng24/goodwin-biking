@@ -1,14 +1,18 @@
 import { Typography, useMediaQuery } from "@mui/material";
-import React from "react";
+
 import { shades } from "../../theme";
+import { isExternalUrl } from "../../isExternalUrl";
+
 interface ActionButtonProps {
+  linkUrl?: string;
   linkText: string;
-  externalUrl?: string;
 }
 const ActionButton = (props: ActionButtonProps) => {
-  const { linkText, externalUrl } = props;
+  const { linkUrl, linkText } = props;
   const isGreaterThanMobile = useMediaQuery("(min-width:600px");
   const defaultLinkText = "Shop Now";
+
+  const isExternal = isExternalUrl(linkUrl || "");
 
   return (
     <Typography
@@ -23,9 +27,7 @@ const ActionButton = (props: ActionButtonProps) => {
         transition: ".3s",
         border: "solid 3px transparent",
         "&:hover": {
-          borderColor: externalUrl
-            ? shades.secondary[500]
-            : shades.primary[500],
+          borderColor: isExternal ? shades.secondary[500] : shades.primary[500],
         },
       }}
     >

@@ -11,14 +11,14 @@ import { useNavigate } from "react-router-dom";
 import ActionButton from "../action-button/ActionButton";
 
 interface CategoryImagesProps {
-  actionUrl?: string;
+  linkUrl?: string;
   fullWidth?: boolean;
   images: any[];
   linkText?: string;
 }
 
 const CategoryImages = (props: CategoryImagesProps) => {
-  const { actionUrl, fullWidth = false, images, linkText } = props;
+  const { linkUrl, fullWidth = false, images, linkText } = props;
   const navigate = useNavigate();
 
   const isLessThanDesktop = useMediaQuery("(max-width:900px");
@@ -28,8 +28,8 @@ const CategoryImages = (props: CategoryImagesProps) => {
   });
 
   const handleOnClick = () => {
-    if (actionUrl) {
-      navigate(actionUrl);
+    if (linkUrl) {
+      navigate(linkUrl);
     }
   };
 
@@ -47,7 +47,7 @@ const CategoryImages = (props: CategoryImagesProps) => {
         sx={{ width: "100%", position: "relative", marginY: "2px" }}
         rowHeight={isLessThanDesktop ? 300 : 400}
       >
-        {linkText && actionUrl && (
+        {linkText && linkUrl && (
           <Button
             sx={{
               position: "absolute",
@@ -72,7 +72,7 @@ const CategoryImages = (props: CategoryImagesProps) => {
                 alt={"goodwin biking"}
                 onClick={handleOnClick}
                 style={{
-                  cursor: actionUrl ? "pointer" : "default",
+                  cursor: linkUrl ? "pointer" : "default",
                   borderRadius: fullWidth ? 0 : "4px",
                 }}
               />

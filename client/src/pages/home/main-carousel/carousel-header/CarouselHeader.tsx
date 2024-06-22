@@ -4,8 +4,9 @@ import { Typography, useMediaQuery } from "@mui/material";
 
 import { shades } from "../../../../theme";
 import { Flex } from "../../../../components";
-import { linkToExternal } from "../../../../linkToExternal";
 import ActionButton from "../../../../components/action-button/ActionButton";
+import { isExternalUrl } from "../../../../isExternalUrl";
+import { linkToExternal } from "../../../../linkToExternal";
 
 interface CarouselHeaderProps {
   banner: any;
@@ -13,18 +14,19 @@ interface CarouselHeaderProps {
 
 export const CarouselHeader = (props: CarouselHeaderProps): JSX.Element => {
   const { banner } = props;
+
   const navigate = useNavigate();
   const isGreaterThanMobile = useMediaQuery("(min-width:600px");
   const defaultUrl = "/bikepacking-bags";
 
-  const { appUrl, externalUrl, linkText, subtitle, title } =
-    banner?.attributes || {};
+  const { linkUrl, linkText, subtitle, title } = banner?.attributes || {};
 
   const handleOnClick = () => {
-    if (externalUrl) {
-      linkToExternal(externalUrl);
+    const tempUrl = linkUrl ?? defaultUrl;
+    if (isExternalUrl(tempUrl)) {
+      linkToExternal(tempUrl);
     } else {
-      navigate(appUrl ?? defaultUrl);
+      navigate(tempUrl);
     }
   };
 
@@ -63,7 +65,7 @@ export const CarouselHeader = (props: CarouselHeaderProps): JSX.Element => {
       >
         {subtitle ?? "Lightweight and durable bikepacking bags that will last."}
       </Typography>
-      <ActionButton linkText={linkText} externalUrl={externalUrl} />
+      <ActionButton linkText={linkText} linkUrl={linkUrl} />
     </Flex>
   );
 };

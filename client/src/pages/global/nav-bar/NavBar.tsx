@@ -11,7 +11,7 @@ import NavMessageBar from "../nav-message-bar/NavMessageBar";
 import { useEffect, useState } from "react";
 
 const NavBar = () => {
-  const isGreaterThanMobile = useMediaQuery("(min-width:600px)");
+  const isMobile = useMediaQuery("(max-width:600px)");
   const navigate = useNavigate();
 
   const logoStyle = {
@@ -66,12 +66,12 @@ const NavBar = () => {
       >
         <NavMessageBar />
         <Flex
-          padding={isGreaterThanMobile ? "0 7%" : "0 3%"}
+          paddingX={isMobile ? "3%" : "7%"}
           width="100%"
           margin="auto"
           justifyContent="space-between"
           alignItems="center"
-          height="60px"
+          height={isMobile ? "50px" : "60px"}
         >
           <Box
             onClick={() => navigate("/")}
