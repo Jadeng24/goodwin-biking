@@ -4,11 +4,12 @@ import { Box, Typography, useMediaQuery } from "@mui/material";
 import { shades } from "../../theme";
 
 interface PageHeaderProps {
+  noPadding?: boolean;
   title: string;
   subtitle?: string;
 }
 const PageHeader = (props: PageHeaderProps) => {
-  const { title, subtitle } = props;
+  const { noPadding, title, subtitle } = props;
   const isDesktop = useMediaQuery("(min-width:900px");
   const isTablet = useMediaQuery("(min-width:600px");
 
@@ -18,7 +19,7 @@ const PageHeader = (props: PageHeaderProps) => {
         alignItems="center"
         justifyContent="space-between"
         marginBottom="20px"
-        marginTop="100px"
+        marginTop={noPadding ? 0 : "100px"}
         width="100%"
       >
         <Box

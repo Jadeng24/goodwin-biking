@@ -60,17 +60,17 @@ const FrequentlyAskedQuestions = () => {
     {
       question: "What payment methods do you accept?",
       answer:
-        "We accept various payment methods including major credit cards, PayPal, and other secure payment options. Check our payment information page for a full list of accepted methods.",
+        "We accept various payment methods including major credit cards, and other secure payment options. Check our payment information page for a full list of accepted methods.",
     },
     {
       question: "Do you offer discounts for bulk orders or group purchases?",
       answer:
-        "Yes, we do offer discounts for bulk orders and group purchases. Please contact our sales team for more information on pricing and availability.",
+        "Yes, we do offer discounts for bulk orders and group purchases. Please contact our team for more information on pricing and availability.",
     },
     {
       question: "How do I track my order?",
       answer:
-        "Once your order has been shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier’s website.",
+        "Once your order has been shipped, you will receive a tracking number via email. You can use this number to track your order on our website or the carrier's website.",
     },
     {
       question: "What materials are used in your bikepacking bags?",
@@ -81,26 +81,28 @@ const FrequentlyAskedQuestions = () => {
 
   return (
     <Box padding={isMobile ? "30px" : "60px"} fontSize="16px">
-      <PageHeader title="Frequently Asked Questions" />
+      <Box marginBottom="40px">
+        <PageHeader title="Frequently Asked Questions" />
 
-      <Typography variant="h3" fontSize="18px">
-        Welcome to the Goodwin Biking Frequently Asked Questions (FAQ) page!
-        Here, you'll find answers to the most common questions about our
-        bikepacking gear and bags. <br /> <br /> Whether you're a seasoned
-        bikepacker or just starting out, we've got the information you need to
-        make the most of your journey. If you don't find what you're looking
-        for, feel free to contact us directly for further assistance.
-      </Typography>
-      <Box marginY="40px">
-        <Divider />
+        <Typography variant="h3" fontSize="18px">
+          Welcome to the Goodwin Biking Frequently Asked Questions (FAQ) page!
+          Here, you'll find answers to the most common questions about our
+          bikepacking gear and bags. <br /> <br /> Whether you're a seasoned
+          bikepacker or just starting out, we've got the information you need to
+          make the most of your journey. If you don't find what you're looking
+          for, feel free to contact us directly for further assistance.
+        </Typography>
       </Box>
 
-      <Paper elevation={4} sx={{ padding: " 40px 20px" }}>
-        <Typography variant="h2">Questions</Typography>
+      <Paper elevation={4} sx={{ padding: "40px 0px" }}>
+        <Box marginLeft="22px">
+          <Typography variant="h2">Questions</Typography>
+        </Box>
+
         <Flex flexDirection="column" marginTop="20px">
           {faqs &&
             faqs.map((faq) => (
-              <Accordion>
+              <Accordion sx={{ paddingLeft: "6px" }}>
                 <AccordionSummary
                   expandIcon={<ExpandMore />}
                   aria-controls="panel1-content"
@@ -120,7 +122,7 @@ const FrequentlyAskedQuestions = () => {
                 </AccordionDetails>
               </Accordion>
             ))}
-          <Box marginTop="40px">
+          <Box marginTop="40px" paddingX="22px">
             <Typography variant="h3" color={shades.neutral[700]}>
               Not seeing what you are looking for? Feel free to contact us
               directly and we will be happy to help answer any of your

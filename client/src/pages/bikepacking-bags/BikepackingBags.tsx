@@ -4,6 +4,7 @@ import { Flex } from "../../components";
 import goodwinBiking from "../../assets/gb-grey.png";
 import PageHeader from "../../components/page-header/PageHeader";
 import BagsByCategory from "../../components/bags-by-category/BagsByCategory";
+import PageSection from "../../components/page-section/PageSection";
 
 const BikepackingBags = () => {
   const isMobile = useMediaQuery("(max-width:600px)");
@@ -49,6 +50,13 @@ const BikepackingBags = () => {
         </Flex>
       </Flex>
       <BagsByCategory />
+      <PageSection
+        title="Have Questions about our bags?"
+        subtitle="Take a look at our FAQ page to find answers to common questions about bikepacking gear. If you don't find what you're looking for, feel free to reach out to our team for assistance."
+        linkUrl="/faq"
+        linkText="Visit FAQ"
+        noPadding={true}
+      />
     </Box>
   );
 };

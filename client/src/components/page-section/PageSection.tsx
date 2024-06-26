@@ -7,12 +7,13 @@ import ActionButton from "../action-button/ActionButton";
 interface PageSectionProps {
   linkText?: string;
   linkUrl?: string;
-  title: string;
+  noPadding?: boolean;
   subtitle?: string;
+  title: string;
 }
 
 const PageSection = (props: PageSectionProps) => {
-  const { linkText, linkUrl, title, subtitle } = props;
+  const { linkText, linkUrl, noPadding, title, subtitle } = props;
 
   const navigate = useNavigate();
 
@@ -24,11 +25,11 @@ const PageSection = (props: PageSectionProps) => {
 
   return (
     <Flex
-      padding={isMobile ? "40px" : "60px"}
+      padding={noPadding ? 0 : isMobile ? "40px" : "60px"}
       flexDirection="column"
       gap="20px"
     >
-      <PageHeader title={title} subtitle={subtitle} />
+      <PageHeader title={title} subtitle={subtitle} noPadding={noPadding} />
       {linkText && (
         <Flex
           onClick={handleLinkClick}
