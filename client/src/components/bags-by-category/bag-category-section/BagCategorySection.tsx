@@ -20,7 +20,11 @@ const BagCategorySection = (props: BagCategorySectionProps) => {
         <Divider />
       </Box>
       {bags && bags.length > 0 ? (
-        <Flex gap="20px" flexWrap="wrap" justifyContent="space-around">
+        <Flex
+          gap="20px"
+          flexWrap="wrap"
+          justifyContent={bags.length === 1 ? "flex-start" : "space-around"}
+        >
           {bags &&
             bags.map((item: { name: any; id: any }) => (
               <Item item={item} key={`${item.name}-${item.id}`} />
