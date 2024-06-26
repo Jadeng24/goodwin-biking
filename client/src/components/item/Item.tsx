@@ -26,7 +26,10 @@ const Item = (props: ItemProps) => {
 
   const { category, image, name, price } = item?.attributes || {};
 
-  const url = image?.data?.attributes?.formats?.medium?.url || "";
+  const url =
+    image?.data?.attributes?.formats?.medium?.url ||
+    image?.data?.attributes?.formats?.small?.url ||
+    "";
 
   const handleAddToCart = () => {
     setShowSuccessMessage(true);

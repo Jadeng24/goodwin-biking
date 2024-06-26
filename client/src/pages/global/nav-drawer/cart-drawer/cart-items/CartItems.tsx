@@ -30,7 +30,9 @@ export const CartItems = () => {
         const { name, price, shortDescription, image, longDescription } =
           item?.attributes || {};
 
-        const url: string = image?.data?.attributes?.formats?.medium?.url || "";
+        const imageFormats = image?.data?.attributes?.formats;
+        const url: string =
+          imageFormats?.medium?.url || imageFormats?.small?.url || "";
 
         const handleCartItemClick = () => {
           navigate(`/item/${item.id}`);

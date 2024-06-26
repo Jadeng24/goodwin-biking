@@ -18,7 +18,8 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
   const [isPreviewModalOpen, setIsPreviewModalOpen] = useState<boolean>(false);
 
   const urlsForImages: string[] = images?.map((image) => {
-    return image?.attributes?.formats?.medium?.url;
+    const imageFormats = image?.attributes?.formats;
+    return imageFormats?.medium?.url || imageFormats?.small?.url;
   });
 
   useEffect(() => {
@@ -57,7 +58,7 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
     <Box sx={{ minWidth: "44%", maxWidth: "100%" }}>
       <Flex
         width="100%"
-        sx={{ aspectRatio: "1 / 1" }}
+        // sx={{ aspectRatio: "1 / 1" }}
         alignItems="center"
         onClick={() => setIsPreviewModalOpen(true)}
       >

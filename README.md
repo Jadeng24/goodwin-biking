@@ -29,6 +29,6 @@
 
 
 ## How to Run e-commerce site locally
-client root: `npm i && npm run start`
+client root: `npm i && npm run start-dev`
 
 server root: `npm i && npm run develop`

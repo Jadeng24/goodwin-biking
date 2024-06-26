@@ -82,8 +82,8 @@ const ItemDetails = () => {
   const fullDescription = longDescription?.[0].children[0].text;
   const summary = shortDescription?.[0].children[0].text;
 
-  const mainImage =
-    item?.attributes?.image?.data?.attributes?.formats?.medium?.url || "";
+  const imageFormats = item?.attributes?.image?.data?.attributes?.formats;
+  const mainImage = imageFormats?.medium?.url || imageFormats?.small?.url || "";
   const images = item?.attributes?.images?.data || [];
 
   return (
