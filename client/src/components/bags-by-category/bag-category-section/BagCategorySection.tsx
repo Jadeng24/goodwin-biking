@@ -14,7 +14,7 @@ const BagCategorySection = (props: BagCategorySectionProps) => {
   const { bags, categoryImages, title } = props;
 
   return (
-    <Box marginY="80px">
+    <Box marginY="60px">
       <Typography variant="h2">{title}</Typography>
       <Box marginTop="20px" marginBottom="40px">
         <Divider />

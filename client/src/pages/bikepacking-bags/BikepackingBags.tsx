@@ -1,5 +1,5 @@
 import { Box, Typography, useMediaQuery } from "@mui/material";
-import React from "react";
+
 import { Flex } from "../../components";
 import goodwinBiking from "../../assets/gb-grey.png";
 import PageHeader from "../../components/page-header/PageHeader";
@@ -11,8 +11,8 @@ const BikepackingBags = () => {
   const isLessThanDesktop = useMediaQuery("(max-width : 992px)");
 
   const imageStyle = {
-    maxWidth: isMobile ? "85%" : "400px",
-    borderRadius: "8px",
+    maxWidth: "250px",
+    borderRadius: "200px",
   };
 
   return (
@@ -23,7 +23,7 @@ const BikepackingBags = () => {
         flexDirection={isLessThanDesktop ? "column" : "row"}
         gap="20px"
       >
-        <Flex marginBottom="20px" flexDirection="column" gap="20px">
+        <Flex flexDirection="column" gap="20px">
           <Typography variant="h3">
             Whether riding the local trails or exploring roads found further
             away, Goodwin Bikepacking Bags are built to ride with you through
@@ -37,17 +37,20 @@ const BikepackingBags = () => {
           </Typography>
           <Box></Box>
         </Flex>
-        <Flex
-          alignItems="center"
-          flexDirection="column"
-          justifyContent={isLessThanDesktop ? "flex-start" : "flex-end"}
-          width="100%"
-        >
-          <img src={goodwinBiking} style={imageStyle} alt="goodwin biking" />
-          <Typography variant="h4" color="neutral" paddingTop="5px">
-            Goodwin Biking
-          </Typography>
-        </Flex>
+        {!isLessThanDesktop && (
+          <Flex
+            alignItems="center"
+            flexDirection="column"
+            justifyContent={isLessThanDesktop ? "flex-start" : "flex-end"}
+            marginTop="-40px"
+            width="100%"
+          >
+            <img src={goodwinBiking} style={imageStyle} alt="goodwin biking" />
+            <Typography variant="h4" color="neutral" paddingTop="5px">
+              Goodwin Biking
+            </Typography>
+          </Flex>
+        )}
       </Flex>
       <BagsByCategory />
       <PageSection
