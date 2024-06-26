@@ -16,7 +16,7 @@ const PageSection = (props: PageSectionProps) => {
 
   const navigate = useNavigate();
 
-  const isMobile = useMediaQuery("max-width: 600px");
+  const isMobile = useMediaQuery("(max-width: 600px)");
 
   const handleLinkClick = () => {
     navigate(linkUrl ?? "/");
@@ -24,9 +24,8 @@ const PageSection = (props: PageSectionProps) => {
 
   return (
     <Flex
-      padding={isMobile ? "30px" : "60px"}
+      padding={isMobile ? "40px" : "60px"}
       flexDirection="column"
-      sx={{ textAlign: isMobile ? "center" : "left" }}
       gap="20px"
     >
       <PageHeader title={title} subtitle={subtitle} />

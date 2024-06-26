@@ -87,7 +87,7 @@ const ItemDetails = () => {
   const images = item?.attributes?.images?.data || [];
 
   return (
-    <Box padding={isMobile ? "60px 30px 30px" : "60px"} fontSize="16px">
+    <Box padding={isMobile ? "90px 30px 30px" : "90px"} fontSize="16px">
       <Flex flexDirection="column" rowGap="40px" marginTop="10px">
         <ItemBreadcrumbs name={name} />
 

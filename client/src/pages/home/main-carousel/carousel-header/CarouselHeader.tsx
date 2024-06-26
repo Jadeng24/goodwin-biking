@@ -32,8 +32,8 @@ export const CarouselHeader = (props: CarouselHeaderProps): JSX.Element => {
 
   return (
     <Flex
-      onClick={handleOnClick}
       color="#fff"
+      onClick={handleOnClick}
       padding="34px 30px"
       borderRadius="6px"
       textAlign="left"

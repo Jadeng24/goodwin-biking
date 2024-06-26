@@ -36,14 +36,6 @@ const ImagePreviewModal = (props: ImagePreviewModalProps) => {
 
   const isMobile = useMediaQuery("(max-width:600px");
 
-  const handlePrevious = () => {
-    movePrevious(selectedImage);
-  };
-
-  const handleNext = () => {
-    moveNext(selectedImage);
-  };
-
   return (
     <Modal
       open={isOpen}

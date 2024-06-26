@@ -1,9 +1,6 @@
-import { Button } from "@mui/material";
-import { KeyboardArrowLeft, KeyboardArrowRight } from "@mui/icons-material";
-
-import { Flex } from "../../../../../components";
 import PreviewAction from "./preview-action/PreviewAction";
 import { ImageActionTypes } from "./types";
+import { Flex } from "../../../../../components";
 
 interface PreviewActionsProps {
   moveNext: () => void;

@@ -80,38 +80,46 @@ const NavMessageBar = () => {
         showIndicators={false}
         transitionTime={300}
         className="messageCarousel"
-        renderArrowPrev={(onClickHandler, hasPrev, label) => (
-          <IconButton
-            onClick={onClickHandler}
-            sx={{
-              position: "absolute",
-              top: "4px",
-              left: "10px",
-              color: "white",
-              padding: "6px",
-              zIndex: "10",
-              opacity: ".3",
-            }}
-          >
-            <NavigateBefore sx={{ fontSize: 20 }} />
-          </IconButton>
-        )}
-        renderArrowNext={(onClickHandler, hasNext, label) => (
-          <IconButton
-            onClick={onClickHandler}
-            sx={{
-              position: "absolute",
-              top: "4px",
-              right: "10px",
-              color: "white",
-              padding: "6px",
-              zIndex: "10",
-              opacity: ".3",
-            }}
-          >
-            <NavigateNext sx={{ fontSize: 20 }} />
-          </IconButton>
-        )}
+        renderArrowPrev={(onClickHandler, hasPrev, label) => {
+          return (
+            navMessages.length > 1 && (
+              <IconButton
+                onClick={onClickHandler}
+                sx={{
+                  position: "absolute",
+                  top: "4px",
+                  left: "10px",
+                  color: "white",
+                  padding: "6px",
+                  zIndex: "10",
+                  opacity: ".3",
+                }}
+              >
+                <NavigateBefore sx={{ fontSize: 20 }} />
+              </IconButton>
+            )
+          );
+        }}
+        renderArrowNext={(onClickHandler, hasNext, label) => {
+          return (
+            navMessages.length > 1 && (
+              <IconButton
+                onClick={onClickHandler}
+                sx={{
+                  position: "absolute",
+                  top: "4px",
+                  right: "10px",
+                  color: "white",
+                  padding: "6px",
+                  zIndex: "10",
+                  opacity: ".3",
+                }}
+              >
+                <NavigateNext sx={{ fontSize: 20 }} />
+              </IconButton>
+            )
+          );
+        }}
       >
         {navMessages?.map((msg: any) => (
           <Flex

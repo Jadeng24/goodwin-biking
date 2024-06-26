@@ -1,13 +1,7 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  Box,
-  Divider,
-  IconButton,
-  Typography,
-  useMediaQuery,
-} from "@mui/material";
-import { Add, Close, Remove } from "@mui/icons-material";
+import { Box, Divider, IconButton, Typography } from "@mui/material";
+import { Add, Remove } from "@mui/icons-material";
 
 import {
   RootState,
@@ -25,10 +19,13 @@ export const CartItems = () => {
   const navigate = useNavigate();
   const products = useSelector((state: RootState) => state.cart.cartItems);
 
-  const isGreaterThanMobile = useMediaQuery("(min-width:600px)");
-
   return products ? (
-    <>
+    <Box
+      sx={{
+        borderTop: `solid 1px ${shades.neutral[500]}`,
+        minHeight: "calc(66% - 44px)",
+      }}
+    >
       {products.map((item: any) => {
         const { name, price, shortDescription, image, longDescription } =
           item?.attributes || {};
@@ -42,49 +39,32 @@ export const CartItems = () => {
 
         return (
           <Flex key={`${name}-${item?.id}`} flexDirection="column">
-            {/* TODO: key doesn't seem to be working  */}
             <Flex
-              padding="15px 0"
+              paddingY="15px"
               width="100%"
               justifyContent="space-between"
-              marginBottom="10px"
+              marginY="10px"
               sx={{ borderBottom: `solid 1px ${shades.neutral[500]}` }}
             >
-              <Box flex="1 1 40%">
-                {/* TODO: make separate component for each item alone */}
+              {/* Left side  */}
+              <Flex gap="20px" width="70%">
                 <img
                   alt={name}
                   onClick={handleCartItemClick}
-                  width="120px"
                   src={`${url}`}
-                  style={{ cursor: "pointer" }}
+                  style={{
+                    cursor: "pointer",
+                    maxWidth: "120px",
+                    maxHeight: "150px",
+                  }}
                 />
-              </Box>
 
-              <Box flex="1 1 60%">
-                {/* TODO: make separate component for this */}
-                <Flex marginBottom="5px" justifyContent="space-between">
-                  <Typography
-                    variant={isGreaterThanMobile ? "h3" : "h4"}
-                    fontWeight="bold"
-                  >
+                <Flex flexDirection="column" gap="10px">
+                  <Typography variant="h3" fontSize="16px" fontWeight="bold">
                     {name}
+                    {/* TODO: add - size / capacity etc here */}
                   </Typography>
-                  <IconButton
-                    onClick={() => dispatch(removeFromCart({ id: item?.id }))}
-                  >
-                    <Close />
-                  </IconButton>
-                </Flex>
 
-                {/* <Typography>{shortDescription}</Typography> */}
-
-                {/* TODO: make component */}
-                <Flex
-                  alignItems="center"
-                  justifyContent="space-between"
-                  margin="15px 0"
-                >
                   <Box
                     display="flex"
                     alignItems="center"
@@ -102,16 +82,40 @@ export const CartItems = () => {
                       <Add />
                     </IconButton>
                   </Box>
-
-                  <Typography fontWeight="bold">${price}</Typography>
                 </Flex>
-              </Box>
+              </Flex>
+
+              {/* Right Side  */}
+              <Flex
+                flexDirection="column"
+                justifyContent="space-between"
+                alignItems="flex-end"
+                width="25%"
+                gap="6px"
+              >
+                <Typography variant="h3" fontSize="14px" fontWeight="bold">
+                  ${price}
+                </Typography>
+
+                <Flex
+                  paddingY="4px"
+                  onClick={() => dispatch(removeFromCart({ id: item?.id }))}
+                  sx={{ textDecoration: "underline", cursor: "pointer" }}
+                >
+                  <Typography
+                    variant="h4"
+                    fontSize="13px"
+                    fontWeight="semibold"
+                  >
+                    REMOVE
+                  </Typography>
+                </Flex>
+              </Flex>
             </Flex>
-            <Divider />
           </Flex>
         );
       })}
-    </>
+    </Box>
   ) : (
     <></>
   );

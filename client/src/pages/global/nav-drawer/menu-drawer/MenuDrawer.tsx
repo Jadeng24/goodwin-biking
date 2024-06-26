@@ -112,7 +112,7 @@ export const MenuDrawer = (props: MenuDrawerProps) => {
             {/* <Button
             color="primary"
             onClick={() => handleNavigate("/contact")}
-            style={linkStyles}
+            style={linkStyles}/>
           >
             <Typography variant="h3">Contact us</Typography>
           </Button> */}

@@ -43,7 +43,7 @@ const FooterInfo = () => {
           style={{ color: shades.primary[500], textDecoration: "none" }}
         >
           Youtube channel
-        </Link>{" "}
+        </Link>
         for in-depth bikepacking content.
       </Typography>
     </Flex>

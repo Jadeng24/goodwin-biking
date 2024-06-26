@@ -13,7 +13,12 @@ interface PreviewActionProps {
 const PreviewAction = (props: PreviewActionProps) => {
   const { actionType, moveNext, movePrevious } = props;
 
-  const iconStyles = { color: "#222", fontSize: "40px" };
+  const iconStyles = {
+    color: "#fff",
+    background: "rgba(0,0,0,0.3)",
+    borderRadius: "35px",
+    fontSize: "40px",
+  };
 
   const actionDictionary: Record<ImageActionTypes, any> = {
     [ImageActionTypes.Previous]: {
