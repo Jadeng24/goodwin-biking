@@ -25,6 +25,7 @@ export const MainCarousel = () => {
   });
 
   return banners?.length ? (
+    // TODO: Get this swipeable so mobile can refresh and swipe down while thumbs on carousel
     <Carousel
       autoFocus
       autoPlay
