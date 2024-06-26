@@ -58,6 +58,7 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
       <Flex
         width="100%"
         sx={{ aspectRatio: "1 / 1" }}
+        alignItems="center"
         onClick={() => setIsPreviewModalOpen(true)}
       >
         <img
@@ -70,6 +71,8 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
             objectFit: "contain",
             borderRadius: "4px",
             cursor: "zoom-in",
+            maxWidth: "550px",
+            maxHeight: "600px",
           }}
         />
       </Flex>
