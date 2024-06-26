@@ -88,7 +88,7 @@ const ItemDetails = () => {
 
   return (
     <Box padding={isMobile ? "90px 30px 30px" : "90px"} fontSize="16px">
-      <Flex flexDirection="column" rowGap="40px" marginTop="10px">
+      <Flex flexDirection="column" rowGap="40px" marginTop="40px">
         <ItemBreadcrumbs name={name} />
 
         <Flex
