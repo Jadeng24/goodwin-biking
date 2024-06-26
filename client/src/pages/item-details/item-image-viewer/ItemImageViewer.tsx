@@ -59,6 +59,7 @@ const ItemImageViewer = (props: ItemImageViewerProps) => {
       <Flex
         width="100%"
         sx={{ aspectRatio: "1 / 1" }}
+        justifyContent="center"
         alignItems="center"
         onClick={() => setIsPreviewModalOpen(true)}
       >
