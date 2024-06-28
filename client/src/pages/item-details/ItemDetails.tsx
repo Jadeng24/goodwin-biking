@@ -4,9 +4,6 @@ import { useParams } from "react-router-dom";
 import {
   Box,
   Divider,
-  IconButton,
-  ImageList,
-  ImageListItem,
   Rating,
   Skeleton,
   Typography,

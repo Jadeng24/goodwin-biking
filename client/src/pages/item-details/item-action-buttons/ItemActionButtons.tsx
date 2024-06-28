@@ -16,7 +16,7 @@ interface ItemActionButtonsProps {
 }
 const ItemActionButtons = (props: ItemActionButtonsProps) => {
   const { item } = props;
-
+  const { stock } = item?.attributes || {};
   const [showSuccessMessage, setShowSuccessMessage] = useState<boolean>(false);
   const dispatch = useDispatch();
   const [count, setCount] = useState(1);
@@ -26,7 +26,7 @@ const ItemActionButtons = (props: ItemActionButtonsProps) => {
     dispatch(addToCart({ item: { ...item, count } }));
   };
 
-  return (
+  return stock && stock > 0 ? (
     <Flex alignItems="center" gap="20px" marginBottom="40px">
       <Flex
         alignItems="center"
@@ -68,6 +68,37 @@ const ItemActionButtons = (props: ItemActionButtonsProps) => {
         showMessage={showSuccessMessage}
         type={MessageType.success}
       />
+    </Flex>
+  ) : (
+    <Flex alignItems="center" marginBottom="40px" gap="20px">
+      <Flex
+        alignItems="center"
+        borderRadius="4px"
+        border={`1.5px solid ${shades.neutral[300]}`}
+        padding="2px 5px"
+      >
+        <IconButton disabled={true}>
+          <Remove />
+        </IconButton>
+        <Typography sx={{ p: "0 5px", color: shades.neutral[500] }}>
+          {count}
+        </Typography>
+        <IconButton disabled={true}>
+          <Add />
+        </IconButton>
+      </Flex>
+      <Button
+        disabled={true}
+        sx={{
+          background: shades.neutral[500],
+          color: "#fff",
+          padding: "9px 14px",
+
+          "&:hover": { background: shades.neutral[300] },
+        }}
+      >
+        <Typography variant="h4">Out of stock</Typography>
+      </Button>
     </Flex>
   );
 };

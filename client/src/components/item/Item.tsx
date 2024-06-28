@@ -82,7 +82,7 @@ const Item = (props: ItemProps) => {
               </Button>
             </Flex>
           ) : (
-            <Flex justifyContent="center" alignItems="center" gap="12px">
+            <Flex justifyContent="center" alignItems="center">
               <Button
                 onClick={() => navigate(`/item/${item.id}`)}
                 sx={{
