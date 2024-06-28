@@ -15,6 +15,9 @@ export default factories.createCoreController(
             const item = await strapi
               .service("api::item.item")
               .findOne(product.id);
+            const totalPrice = item.discountPrice
+              ? Math.round(item.discountPrice * 100)
+              : Math.round(item.price * 100);
 
             return {
               price_data: {
@@ -22,7 +25,7 @@ export default factories.createCoreController(
                 product_data: {
                   name: item.name || "test",
                 },
-                unit_amount: Math.round(item.price * 100),
+                unit_amount: totalPrice,
               },
               quantity: product.count, // count must come from req.body (products)
             };

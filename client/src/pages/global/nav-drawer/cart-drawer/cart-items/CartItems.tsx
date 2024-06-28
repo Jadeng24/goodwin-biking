@@ -1,6 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 
-import { Box, Divider, IconButton, Typography } from "@mui/material";
+import { Box, IconButton, Typography } from "@mui/material";
 import { Add, Remove } from "@mui/icons-material";
 
 import {
@@ -13,6 +13,7 @@ import { shades } from "../../../../../theme";
 import { Flex } from "../../../../../components";
 import { useNavigate } from "react-router-dom";
 import { closeNavMenus } from "../../../../../redux-store/navReducer";
+import ItemPrice from "../../../../../components/item-price/ItemPrice";
 
 export const CartItems = () => {
   const dispatch = useDispatch();
@@ -27,8 +28,15 @@ export const CartItems = () => {
       }}
     >
       {products.map((item: any) => {
-        const { name, price, shortDescription, image, longDescription } =
-          item?.attributes || {};
+        const {
+          discountPercent,
+          discountPrice,
+          name,
+          price,
+          shortDescription,
+          image,
+          longDescription,
+        } = item?.attributes || {};
 
         const imageFormats = image?.data?.attributes?.formats;
         const url: string =
@@ -95,9 +103,12 @@ export const CartItems = () => {
                 width="25%"
                 gap="6px"
               >
-                <Typography variant="h3" fontSize="14px" fontWeight="bold">
-                  ${price}
-                </Typography>
+                <ItemPrice
+                  price={price}
+                  discountPercent={discountPercent}
+                  discountPrice={discountPrice}
+                  hidePercentLabel={true}
+                />
 
                 <Flex
                   paddingY="4px"

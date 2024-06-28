@@ -1,14 +1,16 @@
 import { useTheme } from "@emotion/react";
 import { Box, Typography } from "@mui/material";
 
+import ItemPrice from "../../item-price/ItemPrice";
+
 interface ItemPreviewInfoProps {
-  name: string;
-  category: string;
-  price: number;
+  item: any;
 }
 
 export const ItemPreviewInfo = (props: ItemPreviewInfoProps) => {
-  const { category, name, price } = props;
+  const { item } = props;
+  const { category, discountPercent, discountPrice, name, price } =
+    item?.attributes;
 
   const {
     palette: { info },
@@ -16,7 +18,7 @@ export const ItemPreviewInfo = (props: ItemPreviewInfoProps) => {
 
   const categoryFormatted: string = category
     .replace(/([A-Z])/g, " $1")
-    .replace(/^./, (str) => str.toUpperCase());
+    .replace(/^./, (str: string) => str.toUpperCase());
 
   return (
     <Box marginTop="3px">
@@ -24,7 +26,11 @@ export const ItemPreviewInfo = (props: ItemPreviewInfoProps) => {
         {categoryFormatted}
       </Typography>
       <Typography variant="h4">{name}</Typography>
-      <Typography fontWeight="bold">${price}</Typography>
+      <ItemPrice
+        price={price}
+        discountPercent={discountPercent}
+        discountPrice={discountPrice}
+      />
     </Box>
   );
 };

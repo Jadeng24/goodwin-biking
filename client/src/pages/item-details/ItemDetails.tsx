@@ -14,7 +14,6 @@ import {
 } from "@mui/material";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { Share } from "@mui/icons-material";
 
 import Item from "../../components/item/Item";
 import { Flex } from "../../components";
@@ -25,6 +24,7 @@ import ItemActionButtons from "./item-action-buttons/ItemActionButtons";
 import ItemShippingAndReturns from "./item-shipping-and-returns/ItemShippingAndReturns";
 import ItemBreadcrumbs from "./item-breadcrumbs/ItemBreadcrumbs";
 import ItemImageViewer from "./item-image-viewer/ItemImageViewer";
+import ItemPrice from "../../components/item-price/ItemPrice";
 
 const ItemDetails = () => {
   const { itemId } = useParams();
@@ -45,6 +45,8 @@ const ItemDetails = () => {
     color,
     bagType,
     dimensions,
+    discountPercent,
+    discountPrice,
     material,
     maxCapacity,
     volume,
@@ -112,15 +114,11 @@ const ItemDetails = () => {
               <Flex alignItems="center" justifyContent="space-between">
                 <Typography variant="h3">{name}</Typography>
               </Flex>
-              <Flex justifyContent="space-between" width="100%">
-                <Typography variant="h4" fontSize="20px">
-                  ${price}
-                </Typography>
-                {/* TODO: make this share button functional  */}
-                {/* <IconButton>
-                  <Share />
-                </IconButton> */}
-              </Flex>
+              <ItemPrice
+                price={price}
+                discountPercent={discountPercent}
+                discountPrice={discountPrice}
+              />
 
               <Box marginY="20px">
                 <Divider />

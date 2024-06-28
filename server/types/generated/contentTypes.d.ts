@@ -897,6 +897,7 @@ export interface ApiItemItem extends Schema.CollectionType {
     dimensions: Attribute.String;
     maxCapacity: Attribute.Decimal;
     images: Attribute.Media;
+    discountPrice: Attribute.Decimal;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

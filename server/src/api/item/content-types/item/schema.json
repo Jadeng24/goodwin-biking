@@ -84,12 +84,16 @@
       "type": "decimal"
     },
     "images": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
       "allowedTypes": [
         "images",
         "videos"
-      ],
-      "type": "media",
-      "multiple": true
+      ]
+    },
+    "discountPrice": {
+      "type": "decimal"
     }
   }
 }

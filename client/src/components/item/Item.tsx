@@ -24,7 +24,8 @@ const Item = (props: ItemProps) => {
   const [count, setCount] = useState(1);
   const [isHovered, setIsHovered] = useState(false);
 
-  const { category, image, name, price } = item?.attributes || {};
+  const { category, discountPercent, image, name, price, stock } =
+    item?.attributes || {};
 
   const url =
     image?.data?.attributes?.formats?.medium?.url ||
@@ -60,30 +61,46 @@ const Item = (props: ItemProps) => {
           paddingX="20px"
           sx={{ transition: ".3s" }}
         >
-          <Flex justifyContent="center" alignItems="center" gap="12px">
-            <ItemAmount
-              count={count}
-              onRemove={() => setCount(Math.max(count - 1, 1))}
-              onAdd={() => setCount(count + 1)}
-            />
+          {stock && stock > 0 ? (
+            <Flex justifyContent="center" alignItems="center" gap="12px">
+              <ItemAmount
+                count={count}
+                onRemove={() => setCount(Math.max(count - 1, 1))}
+                onAdd={() => setCount(count + 1)}
+              />
+              <Button
+                onClick={handleAddToCart}
+                sx={{
+                  background: shades.primary[500],
+                  color: "#fff",
+                  padding: "9px 14px",
 
-            <Button
-              onClick={handleAddToCart}
-              sx={{
-                background: shades.primary[500],
-                color: "#fff",
-                padding: "9px 14px",
+                  "&:hover": { background: shades.primary[300] },
+                }}
+              >
+                <Typography variant="h4">Add to Cart</Typography>
+              </Button>
+            </Flex>
+          ) : (
+            <Flex justifyContent="center" alignItems="center" gap="12px">
+              <Button
+                onClick={() => navigate(`/item/${item.id}`)}
+                sx={{
+                  background: shades.neutral[500],
+                  color: "#fff",
+                  padding: "9px 14px",
 
-                "&:hover": { background: shades.primary[300] },
-              }}
-            >
-              <Typography variant="h4">Add to Cart</Typography>
-            </Button>
-          </Flex>
+                  "&:hover": { background: shades.neutral[300] },
+                }}
+              >
+                <Typography variant="h4">Out of stock</Typography>
+              </Button>
+            </Flex>
+          )}
         </Box>
       </Box>
 
-      <ItemPreviewInfo category={category} name={name} price={price} />
+      <ItemPreviewInfo item={item} />
       <ToasterMessage
         message="Your item has been successfully added to the cart!"
         onClose={setShowSuccessMessage}
