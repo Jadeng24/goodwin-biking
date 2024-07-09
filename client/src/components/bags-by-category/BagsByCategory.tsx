@@ -15,12 +15,13 @@ const BagsByCategory = () => {
     (state: RootState) => state.products.categoryImages
   );
 
-  async function getItems() {
+  const getItems = async () => {
     const items = await fetch(`${API_URL}/items?populate=*`, { method: "GET" });
     const itemsJson = await items.json();
     dispatch(setItems(itemsJson.data));
-  }
-  async function getCategoryImages() {
+  };
+
+  const getCategoryImages = async () => {
     const categoryImages = await fetch(
       `${API_URL}/category-images?populate=*`,
       {
@@ -29,7 +30,7 @@ const BagsByCategory = () => {
     );
     const categoryImagesJson = await categoryImages.json();
     dispatch(setCategoryImages(categoryImagesJson.data));
-  }
+  };
 
   useEffect(() => {
     getItems();
